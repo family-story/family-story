@@ -1,9 +1,9 @@
 import React from 'react'
 
 
-export default function Ben () {
+export default function Ben() {
     return (
-        <div>
+         <div>
             <h1>Ben is the best</h1>
         </div>
     )
