@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
+import NavBar from '../../Components/NavBar/NavBar'
 class StoryEditor extends Component {
   
   render(){
     return(
       <div>
+        <NavBar/>
         <div>
           Story Title
           <input/>
@@ -28,6 +31,10 @@ class StoryEditor extends Component {
         <div>
           <h1> These are your tags </h1>
           <p> Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div>
+          <Link to = '/home'><button> Save </button></Link>
+          <button> Cancel </button> 
         </div>
       </div>
     )
