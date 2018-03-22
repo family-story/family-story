@@ -61,3 +61,39 @@ table {
   background-color: orange;
   padding: 10px;
   margin: 10px; }
+
+.transparent-background {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6); }
+  .transparent-background .mid-modal {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    position: absolute;
+    animation: animatetop 0.5s; }
+    .transparent-background .mid-modal .modal-style {
+      text-align: center;
+      font-size: 30px;
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888888;
+      width: 80%;
+      height: fit-content;
+      font-family: Verdana, Geneva, Tahoma, sans-serif; }
+      .transparent-background .mid-modal .modal-style .fs-tutorial {
+        height: 50%;
+        width: 50%; }
+
+@keyframes animatetop {
+  from {
+    top: -100vh; }
+  to {
+    top: 0; } }
