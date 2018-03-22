@@ -44,4 +44,20 @@ table {
   border-spacing: 0; }
 
 .navbar {
-  background-color: blue; }
+  background-color: blue;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 50px; }
+  .navbar span {
+    padding-left: 25px;
+    justify-self: center;
+    align-self: center; }
+  .navbar .logout {
+    grid-column: 3;
+    justify-self: center;
+    align-self: center; }
+
+.story {
+  background-color: orange;
+  padding: 10px;
+  margin: 10px; }
