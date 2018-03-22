@@ -6,7 +6,8 @@ CREATE TABLE users (
 
 CREATE TABLE stories (
     story_id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES users(user_id)
+    user_id INT REFERENCES users(user_id),
+    story_title VARCHAR(200)
 );
 
 CREATE TABLE tags (
@@ -32,3 +33,19 @@ CREATE TABLE media (
     media_ref TEXT,
     media_type TEXT
 );
+
+INSERT INTO users (auth0_id)
+VALUES ('google-oauth2|114780314401547437272');
+
+INSERT INTO stories (user_id, story_title)
+VALUES (1, 'My Proposal'), (1, 'Mary Cook, Handcart Pioneer');
+
+INSERT INTO tags (story_id, tag_str)
+VALUES (1, 'Stuart Harper'), 
+        (1, 'Summer Harper'),
+        (1, 'Provo, Utah'),
+        (1, 'Orem, Utah'),
+        (2, 'Mary Cook'),
+        (2, 'Convert'),
+        (2, 'Pioneer'),
+        (2, 'Scotland');

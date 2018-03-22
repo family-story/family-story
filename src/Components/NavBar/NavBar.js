@@ -3,7 +3,8 @@ import React from 'react'
 export default function NavBar(props) {
   return (
     <div className='navbar'>
-      Family Story 
+      <span> Family Story </span> 
+      {props.logout ? <a className = 'logout'> Logout </a>: null }
     </div>
   )
 }
