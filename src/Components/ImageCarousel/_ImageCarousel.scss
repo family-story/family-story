@@ -1,0 +1,13 @@
+.carousel-container {
+  border: 5px solid black; 
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: red;
+  padding: none;
+}
+
+button.slick-arrow.slick-prev::before {
+  color: red;
+}
