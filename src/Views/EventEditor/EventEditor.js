@@ -21,11 +21,11 @@ class EventEditor extends Component {
     }
 
     render() {
-
+        console.log(this.state)
         return (
-            <div className="transparent-background" style={{ background: '#ccc' }}>
+            <div className="transparent-background" style={{ display: 'absolute' }}>
                 <ClickOutHandler onClickOut={() => this.props.closeModal()}>
-                    <div className="editor-container" style={{ background: 'green', margin: '25px' }}>
+                    <div className="editor-container" style={{ background: '#ccc', margin: '25px' }}>
                         <h3>Event Title</h3>
                         <input type="text" value={this.state.event_title} onChange={e => this.handleEditor('event_title', e.target.value)} />
 

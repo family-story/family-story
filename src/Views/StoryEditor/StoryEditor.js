@@ -13,7 +13,7 @@ class StoryEditor extends Component {
       story_title: '',
       tag_str: ''
     }
-    
+
     this.closeModal = this.closeModal.bind(this)
   }
 
@@ -34,26 +34,26 @@ class StoryEditor extends Component {
           Story Title
           <input />
         </div>
-        <div>
+        {/* <div>
           <h1> Import from Family Search </h1>
           <p> Lorem ipsum dolor sit amet. </p>
-        </div>
+        </div> */}
         <div>
           Events
           <button onClick={() => this.setState({ displayModal: true })}> Add an Event </button>
         </div>
-        <div>
+        {/* <div>
           <h1> These are your events </h1>
           <p> Lorem ipsum dolor sit amet. </p>
-        </div>
+        </div> */}
         <div>
           Tags
           <input />
         </div>
-        <div>
+        {/* <div>
           <h1> These are your tags </h1>
           <p> Lorem ipsum dolor sit amet. </p>
-        </div>
+        </div> */}
         <div>
           <Link to='/home'><button> Save </button></Link>
           <button> Cancel </button>
