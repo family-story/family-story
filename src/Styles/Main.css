@@ -2,6 +2,8 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url(~slick-carousel/slick/slick.css);
+@import url(~slick-carousel/slick/slick-theme.css);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -97,3 +99,14 @@ table {
     top: -100vh; }
   to {
     top: 0; } }
+
+.carousel-container {
+  border: 5px solid black; }
+
+.slick-prev:before,
+.slick-next:before {
+  color: red;
+  padding: none; }
+
+button.slick-arrow.slick-prev::before {
+  color: red; }

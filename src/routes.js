@@ -6,7 +6,7 @@ import Home from './Views/Home/Home'
 import StoryEditor from './Views/StoryEditor/StoryEditor'
 import StoryView from './Views/StoryView/StoryView'
 
-import StoryEditorModal from './Components/StoryEditorModal/StoryEditorModal'
+import ImageCarousel from './Components/ImageCarousel/ImageCarousel'
 
 
 export default (
@@ -15,6 +15,6 @@ export default (
     <Route path = '/home' component = {Home}/>
     <Route path = '/createStory' component = {StoryEditor}/>
     <Route path = '/story/:id' component = {StoryView}/>
-    <Route path = '/modal' component = {StoryEditorModal}/>
+    <Route path = '/carousel' component = {ImageCarousel}/>
   </Switch>
 )
