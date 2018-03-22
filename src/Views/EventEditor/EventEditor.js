@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 const ClickOutHandler = require('react-onclickout')
 
 class EventEditor extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             event_title: '',
             date: '',
@@ -13,8 +13,6 @@ class EventEditor extends Component {
             media: '',
 
             location: '',
-
-            display: 'display: '
         }
     }
 
@@ -23,10 +21,11 @@ class EventEditor extends Component {
     }
 
     render() {
+
         return (
-            <div className="transparent-background" style={this.state.display}>
-                <ClickOutHandler onClickOut={() => this.setState({ display: 'none' })}>
-                    <div className="editor-container">
+            <div className="transparent-background" style={{ background: '#ccc' }}>
+                <ClickOutHandler onClickOut={() => this.props.closeModal()}>
+                    <div className="editor-container" style={{ background: 'green', margin: '25px' }}>
                         <h3>Event Title</h3>
                         <input type="text" value={this.state.event_title} onChange={e => this.handleEditor('event_title', e.target.value)} />
 
@@ -38,9 +37,11 @@ class EventEditor extends Component {
 
                         <h3>Event</h3>
                         <textarea type="text" value={this.state.event_txt} onChange={e => this.handleEditor('event_txt', e.target.value)} />
+
+                        <button onClick={() => this.setState({ display: 'none' })}>Save</button>
                     </div>
                 </ClickOutHandler>
-            </div >
+            </div>
         )
     }
 }

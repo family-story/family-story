@@ -2,12 +2,34 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import NavBar from '../../Components/NavBar/NavBar'
+import EventEditor from '../EventEditor/EventEditor'
+
 class StoryEditor extends Component {
+  constructor() {
+    super()
+    this.state = {
+      displayModal: false,
+
+      story_title: '',
+      tag_str: ''
+    }
+    
+    this.closeModal = this.closeModal.bind(this)
+  }
+
+  closeModal() {
+    this.setState({
+      displayModal: false
+    })
+  }
 
   render() {
     return (
       <div>
         <NavBar logout={true} />
+
+        {this.state.displayModal ? <EventEditor closeModal={this.closeModal} /> : null}
+
         <div>
           Story Title
           <input />
@@ -18,7 +40,7 @@ class StoryEditor extends Component {
         </div>
         <div>
           Events
-          <button> Add an Event </button>
+          <button onClick={() => this.setState({ displayModal: true })}> Add an Event </button>
         </div>
         <div>
           <h1> These are your events </h1>
