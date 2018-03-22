@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom'
 
 import NavBar from '../../Components/NavBar/NavBar'
 class StoryEditor extends Component {
-  
-  render(){
-    return(
+
+  render() {
+    return (
       <div>
-        <NavBar/>
+        <NavBar logout={true} />
         <div>
           Story Title
-          <input/>
+          <input />
         </div>
         <div>
           <h1> Import from Family Search </h1>
-          <p> Lorem ipsum dolor sit amet.</p>
+          <p> Lorem ipsum dolor sit amet. </p>
         </div>
         <div>
           Events
@@ -22,19 +22,19 @@ class StoryEditor extends Component {
         </div>
         <div>
           <h1> These are your events </h1>
-          <p> Lorem ipsum dolor sit amet.</p>
+          <p> Lorem ipsum dolor sit amet. </p>
         </div>
         <div>
           Tags
-          <input/>
+          <input />
         </div>
         <div>
           <h1> These are your tags </h1>
-          <p> Lorem ipsum dolor sit amet.</p>
+          <p> Lorem ipsum dolor sit amet. </p>
         </div>
         <div>
-          <Link to = '/home'><button> Save </button></Link>
-          <button> Cancel </button> 
+          <Link to='/home'><button> Save </button></Link>
+          <button> Cancel </button>
         </div>
       </div>
     )
