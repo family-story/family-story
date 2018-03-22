@@ -56,3 +56,8 @@ table {
     grid-column: 3;
     justify-self: center;
     align-self: center; }
+
+.story {
+  background-color: orange;
+  padding: 10px;
+  margin: 10px; }

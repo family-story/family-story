@@ -8,7 +8,8 @@ class Home extends Component {
     super(props);
   
     this.state = {
-      stories: []
+      stories: [],
+      filterString: ''
     }
   }
 
@@ -64,17 +65,38 @@ class Home extends Component {
      ]
     })
   }
+
+  handleFilterTags(val){
+    this.setState({
+      filterString: val
+    })
+  }
   
 
   render(){
-    let stories = this.state.stories.map(story=>{
+    let stories = this.state.stories.filter(story=>{
+      let pattern = new RegExp(`${this.state.filterString}`, 'i')
+      
+      if(!this.state.filterString){
+        return story
+      } else if(pattern.test(story.story_title)){
+        return story
+      }
+      // else if(
+      //   story.tags.filter(tag => {
+      //     return pattern.test(tag)
+      //   })
+      // ){
+      //   return story
+      // }
+    }).map(story=>{
         let tags = story.tags.map(tag=>{
           return (
             <p>{tag.tag_str}</p>
           )
         })
       return (
-        <div> 
+        <div className = 'story' key = {story.story_id}> 
           <h3>{story.story_title}</h3>
           {tags}
         </div>
@@ -83,10 +105,9 @@ class Home extends Component {
     return(
       <div>
         <NavBar logout = {true}/>
-        <input/>
+        <input type = 'search' onChange ={e=>this.handleFilterTags(e.target.value)}/>
         <div>
           {stories}
-          <Link to = '/story'><button> Stories Here </button></Link>
         </div> 
 
         <div>
