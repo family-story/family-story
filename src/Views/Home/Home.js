@@ -81,14 +81,13 @@ class Home extends Component {
         return story
       } else if(pattern.test(story.story_title)){
         return story
+      } else {
+        for(let i = 0; i < story.tags.length; i++){
+          if(pattern.test(story.tags[i].tag_str)){
+            return story
+          }
+        }
       }
-      // else if(
-      //   story.tags.filter(tag => {
-      //     return pattern.test(tag)
-      //   })
-      // ){
-      //   return story
-      // }
     }).map(story=>{
         let tags = story.tags.map(tag=>{
           return (
@@ -102,6 +101,7 @@ class Home extends Component {
         </div>
       )
     })
+    
     return(
       <div>
         <NavBar logout = {true}/>
