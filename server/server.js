@@ -27,7 +27,11 @@ massive(process.env.CONNECTION_STRING).then( db => {
 });
 
 //Endpoints to access our database
-app.get('/api/stories/:id', storyCtrl.getAllByUser);
+//get all stories by user id.
+app.get('/api/stories/:user_id', storyCtrl.getAllByUser);
+
+//get a story by story id
+app.get('/api/story/:story_id', storyCtrl.getStory);
 
 
 app.listen(process.env.SERVER_PORT, () => console.log(`Listening to amazing stories on port ${process.env.SERVER_PORT}...`));
