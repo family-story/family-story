@@ -283,8 +283,7 @@ class ImageCarousel extends Component {
         dots: true,
         arrows: true,
         speed: 500,
-        
-
+    
       }
 
     return(
