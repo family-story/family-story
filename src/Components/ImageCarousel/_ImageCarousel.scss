@@ -1,5 +1,7 @@
 .carousel-container {
   border: 5px solid black; 
+  display: grid; 
+  
 }
 
 .slick-prev:before,
@@ -8,6 +10,3 @@
   padding: none;
 }
 
-button.slick-arrow.slick-prev::before {
-  color: red;
-}
