@@ -27,8 +27,7 @@
                 "event_num": 0,
                 "event_title": "Mary Cook is Born",
                 "date": "25 February 1823",
-                "lat": "55.850023",
-                "long": "-4.170712",
+                "location": "Shettleston, Lanarkshire, Scotland",
                 "event_txt": "Mary cook was born in Shettleston, Lanarkshire, Scotland to Adam Cook and Elisabeth Gilmour. She was the 7th of 11 children. Her father apparently was in the military , and had received a medal for his service in the Battle of Waterloo.",
                 "media": [
                     {
@@ -58,8 +57,7 @@
                 "event_num": 1,
                 "event_title": "Mary Cook is Married to John Brown",
                 "date": "8 April 1843",
-                "lat": "55.8571",
-                "long": "-4.0704",
+                "location": "Baillieston, Old Monkland, Lanark, Scotland",
                 "event_txt": "Mary and John were married at Baillieston, Old Monkland, Lanark, Scotland. Not much is known of their relationship except they had four children.",
                 "media": []
             },
@@ -68,8 +66,7 @@
                 "event_num": 2,
                 "event_title": "Mary Cook converts to \"Mormonism\"",
                 "date": "13 November 1848",
-                "lat": "55.850023",
-                "long": "-4.170712",
+                "location": "Baillieston, Old Monkland, Lanark, Scotland",
                 "event_txt": "While in Scotland, a missionary from The Church of Jesus Christ of Latter-day Saints (aka Mormon) named Elder John Shields taught her the restored gospel. She and her children came to believe it was true. Though her husband objected, she was baptized into the church. Sometime after 1851, her husband in a rage abandoned her and her four children when she expressed her desire to go to America to be with the other Latter-day Saints.",
                 "media": [
                     {
@@ -84,8 +81,7 @@
                 "event_num": 3,
                 "event_title": "Mary Cook and her children leave Scotland ",
                 "date": "28 March 1857",
-                "lat": "53.4183",
-                "long": "-3.0039",
+                "location": "Trafalgar Dock",
                 "event_txt": "After having lost all her belongings when her husband left her it took her years for her to save up the money for passage for her and her four children (William age 13, Walter age 10, Adam age 8, and David age 5). They left liverpool on the \"George Washington\".",
                 "media": [
                     {
@@ -105,8 +101,7 @@
                 "event_num": 4,
                 "event_title": "Mary Cook arrives in America",
                 "date": "20 April 1857",
-                "lat": "42.376111",
-                "long": "-71.0525",
+                "location": "Boston Harbor Shipyard & Marina",
                 "event_txt": "After almost a month at sea on a very difficult journey, Mary and her children arrive in Boston. They immediately begin working towards heading west to be with the Saints.",
                 "media": [
                     {
@@ -121,8 +116,7 @@
                 "event_num": 5,
                 "event_title": "Mary Cook joins a handcart company",
                 "date": "1857",
-                "lat": "41.6601",
-                "long": "-91.5342",
+                "location": "Iowa City",
                 "event_txt": "She joins a handcart company in Iowa City, and begins the long trek west to Salt Lake City. \"The trip was a hard one in all respects.\" She had her four children to care for also with no husband to help. \"but hers was a spirit that was a stranger to complaint and proud indeed she was to accomplish the task.\"",
                 "media": [
                     {
@@ -142,8 +136,7 @@
                 "event_num": 6,
                 "event_title": "Mary Cook arrives in Salt Lake City",
                 "date": "before september 1857",
-                "lat": "40.75",
-                "long": "-111.883333",
+                "location": "Salt Lake City",
                 "event_txt": "After the long journey west she finally arrives in Salt Lake City with her family, grateful to be finally united with the people of her faith.",
                 "media": [
                     {
@@ -163,8 +156,7 @@
                 "event_num": 7,
                 "event_title": "Mary Cook Marries Alexander Gellespie",
                 "date": "20 September 1857",
-                "lat": "40.75",
-                "long": "-111.883333",
+                "location": "Salt Lake City",
                 "event_txt": "Mary Cook Marries Alexander Gellespie. They are married by the Prophet and president of the church Brigham Young in his office, since the temple, and its predecessor the endowment house had not yet been built. She was Alexanders third wife.",
                 "media": [
                     {
@@ -189,8 +181,7 @@
                 "event_num": 8,
                 "event_title": "Mary Cook moves to provo",
                 "date": "1858",
-                "lat": "40.244444",
-                "long": "-111.660833",
+                "location": "Provo, Utah",
                 "event_txt": "Mary cook with her family was called to help settle in the Provo settlement there she had her fifth child Mary.",
                 "media": [
                     {
@@ -205,8 +196,7 @@
                 "event_num": 9,
                 "event_title": "Mary Cook moves back to Salt Lake",
                 "date": "1860",
-                "lat": "40.75",
-                "long": "-111.883333",
+                "location": "Salt Lake City",
                 "event_txt": "After two years Mary and her family moved back to Salt Lake City. There she had her sixth child, Agnes.",
                 "media": []
             },
@@ -215,8 +205,7 @@
                 "event_num": 10,
                 "event_title": "Mary Cook moves to Saint George",
                 "date": "1862",
-                "lat": "37.095278",
-                "long": "-113.578056",
+                "location": "Saint George",
                 "event_txt": "Mary cook with her family was called to help settle in Saint George, also known as the Dixie Mission. There she had her seventh child Alexander. There she would stay for five more years.",
                 "media": [
                     {
@@ -227,34 +216,32 @@
                 ]
             },
             {
-                "event_id": 13,
-                "event_num": 12,
-                "event_title": "Mary Cook dies and is buried",
-                "date": "7 June 1903",
-                "lat": "40.77712",
-                "long": "-111.8598",
-                "event_txt": "Mary Cook dies at the age of 80. She was buried in the Salt Lake City Cemetery. She left behind an immense legacy of faith to her children and grandchildren. She was willing, time and time again to sacrifice all she had and all she knew for what she believed was true. I am honored to be her great, great, great, great, grandchild",
-                "media": [
-                    {
-                        "media_id": 19,
-                        "media_type": "pic",
-                        "media_ref": "https://www.familysearch.org/dzpatron/v1/TH-303-48239-97-22/scale?width=800&ctx=ArtCtxPublic&angle=0"
-                    }
-                ]
-            },
-            {
                 "event_id": 12,
                 "event_num": 11,
                 "event_title": "Mary Cook returns to her beloved Salt Lake City",
                 "date": "1867",
-                "lat": "40.75",
-                "long": "-111.883333",
+                "location": "Salt Lake City",
                 "event_txt": "Mary Cook and her husband had fulfilled their missions and assignments to help settle Provo and Saint George, and having been released, moved back to Salt Lake City. At this time she was 44-45, and she would remain in Salt Lake for the rest of her life. It was noted that she had many friends and performed much service in the area.",
                 "media": [
                     {
                         "media_id": 18,
                         "media_type": "pic",
                         "media_ref": "http://teachingamericanhistory.org/files/2016/09/getty.jpg"
+                    }
+                ]
+            },
+            {
+                "event_id": 13,
+                "event_num": 12,
+                "event_title": "Mary Cook dies and is buried",
+                "date": "7 June 1903",
+                "location": "Salt Lake City Cemetery",
+                "event_txt": "Mary Cook dies at the age of 80. She was buried in the Salt Lake City Cemetery. She left behind an immense legacy of faith to her children and grandchildren. She was willing, time and time again to sacrifice all she had and all she knew for what she believed was true. I am honored to be her great, great, great, great, grandchild",
+                "media": [
+                    {
+                        "media_id": 19,
+                        "media_type": "pic",
+                        "media_ref": "https://www.familysearch.org/dzpatron/v1/TH-303-48239-97-22/scale?width=800&ctx=ArtCtxPublic&angle=0"
                     }
                 ]
             }

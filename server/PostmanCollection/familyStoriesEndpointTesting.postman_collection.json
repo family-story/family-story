@@ -1,0 +1,291 @@
+{
+	"info": {
+		"name": "familyStoriesEndpointTesting",
+		"_postman_id": "1ff15625-1453-43ed-9080-2a76a7919b51",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get list of stories by user_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c964e62f-cc60-4397-b458-5663558b64b0",
+						"type": "text/javascript",
+						"exec": [
+							"const res = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an Array\", () => {",
+							"    pm.expect(Array.isArray(res)).to.eql(true);",
+							"});",
+							"",
+							"pm.test(\"Responce has a length of 2\", () => {",
+							"    pm.expect(res.length).to.eql(2);",
+							"});",
+							"",
+							"pm.test(\"Story 1 has 4 tags\", () => {",
+							"    pm.expect(res[0].tags.length).to.eql(4);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3030/api/stories/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"stories",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get story by story_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1023ec9c-f8b0-4d54-97fd-73a3aef30348",
+						"type": "text/javascript",
+						"exec": [
+							"const res = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an Array\", () => {",
+							"    pm.expect(Array.isArray(res)).to.eql(true);",
+							"});",
+							"",
+							"pm.test(\"Responce has a length of 1\", () => {",
+							"    pm.expect(res.length).to.eql(1);",
+							"});",
+							"",
+							"pm.test(\"Story has 13 events\", () => {",
+							"    pm.expect(res[0].events.length).to.eql(13);",
+							"});",
+							"",
+							"pm.test(\"Event 1 has four media items\", () => {",
+							"    pm.expect(res[0].events[0].media.length).to.eql(4);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3030/api/story/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"story",
+						"2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Post New Story",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d554807e-4b33-4c21-b2c1-f21449e22c51",
+						"type": "text/javascript",
+						"exec": [
+							"const res = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an Array\", () => {",
+							"    pm.expect(Array.isArray(res)).to.eql(true);",
+							"});",
+							"",
+							"pm.test(\"Responce has a length of 3\", () => {",
+							"    pm.expect(res.length).to.eql(3);",
+							"});",
+							"",
+							"pm.test(\"Story 3 has 3 tags\", () => {",
+							"    pm.expect(res[2].tags.length).to.eql(3);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"story_title\": \"going on a walk\",\n    \"tags\": [\"walking\", \"park\", \"bird\"],\n    \"events\": [\n        {\n        \t\"event_num\": 0,\n            \"event_title\": \"I leave my house\",\n            \"date\": \"today\",\n            \"location\": \"sparks II provo utah\",\n            \"event_txt\": \"It was a beautiful morning with birds singing, so I went for a walk to the park.\",\n            \"media\": [\n                {\n                    \"media_type\": \"pic\",\n                    \"media_ref\": \"https://www.prague-stay.com/images/full_image/1920x1200/800px-Praha,-Letn%C3%A1,-sad-resize~letna-park-prague-gardens-and-parks.jpg\"\n                },\n                {\n                    \"media_type\": \"audio\",\n                    \"media_ref\": \"http://www.orangefreesounds.com/wp-content/uploads/2015/06/Birds-singing-in-the-morning.mp3?_=1\"\n                }\n            ]\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/story",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"story"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update a story",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17bad614-d920-4c64-b397-318e1890d60b",
+						"type": "text/javascript",
+						"exec": [
+							"const res = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an Array\", () => {",
+							"    pm.expect(Array.isArray(res)).to.eql(true);",
+							"});",
+							"",
+							"pm.test(\"Responce has a length of 3\", () => {",
+							"    pm.expect(res.length).to.eql(3);",
+							"});",
+							"",
+							"pm.test(\"Story 3 has 3 tags\", () => {",
+							"    pm.expect(res[2].tags.length).to.eql(3);",
+							"});",
+							"",
+							"pm.test(\"Story 3 tag 2 is a party\", () => {",
+							"    pm.expect(res[2].tags[1].tag_str).to.eql('party');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"story_id\": 3,\n        \"user_id\": 1,\n        \"story_title\": \"going on a walk\",\n        \"tags\": [\n            {\n                \"tag_id\": 21,\n                \"tag_str\": \"walking\"\n            },\n            {\n                \"tag_id\": 22,\n                \"tag_str\": \"party\"\n            },\n            {\n                \"tag_id\": 23,\n                \"tag_str\": \"bird\"\n            }\n        ],\n        \"events\": [\n            {\n                \"event_id\": 17,\n                \"event_num\": 1,\n                \"event_title\": \"I leave my house\",\n                \"date\": \"today\",\n                \"location\": \"bicentenial park provo utah\",\n                \"event_txt\": \"It was a beautiful morning with birds singing, so I went for a walk to the park.\",\n                \"media\": [\n                    {\n                        \"media_id\": 27,\n                        \"media_type\": \"audio\",\n                        \"media_ref\": \"http://www.orangefreesounds.com/wp-content/uploads/2015/06/Birds-singing-in-the-morning.mp3?_=1\"\n                    }\n                    \n                ]\n            },\n            {\n                \"event_num\": 0,\n                \"event_title\": \"I wake up\",\n                \"date\": \"today\",\n                \"location\": \"sparks II provo utah\",\n                \"event_txt\": \"wakeing up is hard to do.\",\n                \"media\": []\n            }\n        ]\n    }\n]"
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/story",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"story"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a story",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf682694-52b3-4551-94e0-0388c08254e5",
+						"type": "text/javascript",
+						"exec": [
+							"const res = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an Array\", () => {",
+							"    pm.expect(Array.isArray(res)).to.eql(true);",
+							"});",
+							"",
+							"pm.test(\"Responce has a length of 2\", () => {",
+							"    pm.expect(res.length).to.eql(2);",
+							"});",
+							"",
+							"pm.test(\"Story 1 title to be my proposal\", () => {",
+							"    pm.expect(res[0].story_title).to.eql(\"My Proposal\");",
+							"});",
+							"",
+							"pm.test(\"Story 2 title to be Mary Cook\", () => {",
+							"    pm.expect(res[1].story_title).to.eql(\"Mary Cook, Handcart Pioneer\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3030/api/story/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"story",
+						"4"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
