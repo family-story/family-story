@@ -33,5 +33,11 @@ app.get('/api/stories/:user_id', storyCtrl.getAllByUser);
 //get a story by story id
 app.get('/api/story/:story_id', storyCtrl.getStory);
 
+//post a new story
+app.post('/api/story', storyCtrl.createStory);
+
+//Update a story
+app.put('/api/story', storyCtrl.updateStory);
+
 
 app.listen(process.env.SERVER_PORT, () => console.log(`Listening to amazing stories on port ${process.env.SERVER_PORT}...`));
