@@ -39,5 +39,8 @@ app.post('/api/story', storyCtrl.createStory);
 //Update a story
 app.put('/api/story', storyCtrl.updateStory);
 
+//Delete story
+app.delete('/api/story/:story_id', storyCtrl.deleteStory);
+
 
 app.listen(process.env.SERVER_PORT, () => console.log(`Listening to amazing stories on port ${process.env.SERVER_PORT}...`));
