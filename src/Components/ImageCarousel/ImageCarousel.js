@@ -283,18 +283,17 @@ class ImageCarousel extends Component {
         dots: true,
         arrows: true,
         speed: 500,
-        
-
+    
       }
 
     return(
       <div className = 'carousel-container'>
         <Slider {...settings}>
           <div>
-            <img src = {this.state.story[0].events[0].media[0].media_ref}/>
+            <img src = {this.state.story[0].events[0].media[0].media_ref} alt = ''/>
           </div>
           <div>
-            <img src = {this.state.story[0].events[0].media[1].media_ref}/>
+            <img src = {this.state.story[0].events[0].media[1].media_ref} alt = ''/>
           </div>
         </Slider>
       </div>

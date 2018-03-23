@@ -100,13 +100,18 @@ table {
   to {
     top: 0; } }
 
-.carousel-container {
-  border: 5px solid black; }
-
 .slick-prev:before,
 .slick-next:before {
-  color: red;
+  color: gray;
   padding: none; }
 
-button.slick-arrow.slick-prev::before {
-  color: red; }
+.slick-slider {
+  width: 400px;
+  margin: 30px auto 50px; }
+
+.slick-dots {
+  margin-left: 0; }
+
+.slick-slide .image {
+  padding: 10px;
+  justify-content: center; }
