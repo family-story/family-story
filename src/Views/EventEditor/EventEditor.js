@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+
 const ClickOutHandler = require('react-onclickout')
 
 class EventEditor extends Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
         this.state = {
             event_title: '',
             date: '',
@@ -11,8 +12,16 @@ class EventEditor extends Component {
             long: '',
             event_txt: '',
             media: '',
+            location: ''
+        }
+    }
 
-            location: '',
+    componentDidMount() {
+        if (this.props.selectedEvent) {
+            this.setState({
+                test: 'So far so good.',
+                event_title: this.props.selectedEventInfo.event_title
+            })
         }
     }
 
@@ -21,10 +30,11 @@ class EventEditor extends Component {
     }
 
     render() {
-        console.log(this.state)
+        console.log(this.props.selectedEventInfo)
+        console.log(this.state.event_title)
         return (
-            <div className="transparent-background" style={{ display: 'absolute' }}>
-                <ClickOutHandler onClickOut={() => this.props.closeModal()}>
+            <div className="transparent-background">
+                <ClickOutHandler onClickOut={() => this.props.closeEventEditorModal()}>
                     <div className="editor-container" style={{ background: '#ccc', margin: '25px' }}>
                         <h3>Event Title</h3>
                         <input type="text" value={this.state.event_title} onChange={e => this.handleEditor('event_title', e.target.value)} />

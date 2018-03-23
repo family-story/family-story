@@ -14,7 +14,7 @@
     display: grid;
     justify-items: center;
     position: absolute;
-    animation: animatetop 0.5s; 
+    // animation: animatetop 0.5s; 
 
     .modal-style {
       text-align: center;
@@ -34,7 +34,7 @@
     }
   }
 }
-@keyframes animatetop {
-  from {top: -100vh}
-  to {top: 0}
-}
+// @keyframes animatetop {
+//   from {top: -100vh}
+//   to {top: 0}
+// }
