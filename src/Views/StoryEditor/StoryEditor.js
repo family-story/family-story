@@ -15,16 +15,44 @@ class StoryEditor extends Component {
       eventEditorModal: false,
       storyEditorModal: false,
 
-      story_title: '',
-      tag_str: '',
+      story: {
+        story_title: '',
+        tags: [],
+        events: [
+          {
+            event_num: 0,
+            event_title: '',
+            date: '',
+            location: '',
+            event_txt: '',
+            media: [
+              {
+                media_type: '',
+                media_ref: ''
+              }
+            ]
+          }
+        ]
+      }
 
-      events: [{ event_title: 'first event', event_id: 1 }, { event_title: 'second event', event_id: 2 }, { event_title: 'third event', event_id: 3 }]
+
     }
 
     this.closeEventEditorModal = this.closeEventEditorModal.bind(this)
     this.closeStoryEditorModal = this.closeStoryEditorModal.bind(this)
   }
 
+  componentDidMount(){
+    this.setState({
+      story: {
+        events: [
+          { event_title: 'first event', event_id: 1 },
+          { event_title: 'second event', event_id: 2 },
+          { event_title: 'third event', event_id: 3 }
+        ]
+      }
+    })
+  }
   handleEditing(key, value) {
     this.setState({ [key]: value })
   }
@@ -43,10 +71,14 @@ class StoryEditor extends Component {
 
   handleEventEditSelection(eventId) {
     let selected = this.state.events.filter(event => event.event_id === eventId)
+    if (selected[0] === 'undefined') {
+
+    }
+
     this.setState({
       selectedEvent: eventId,
-      eventEditorModal: true,
-      selectedEventInfo: selected[0]
+      selectedEventInfo: selected[0],
+      eventEditorModal: true
     })
   }
 
@@ -93,7 +125,7 @@ class StoryEditor extends Component {
         <div>
           <h3>Events</h3>
           {eventsList}
-          <button onClick={() => this.setState({ eventEditorModal: true })}> Add an Event </button>
+          <button onClick={this.handleEventEditSelection}> Add an Event </button>
         </div>
 
         {/* <div>
