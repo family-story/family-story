@@ -93,13 +93,29 @@ table {
         height: 50%;
         width: 50%; }
 
+<<<<<<< HEAD
 .carousel-container {
   border: 5px solid black; }
+=======
+@keyframes animatetop {
+  from {
+    top: -100vh; }
+  to {
+    top: 0; } }
+>>>>>>> master
 
 .slick-prev:before,
 .slick-next:before {
-  color: red;
+  color: gray;
   padding: none; }
 
-button.slick-arrow.slick-prev::before {
-  color: red; }
+.slick-slider {
+  width: 400px;
+  margin: 30px auto 50px; }
+
+.slick-dots {
+  margin-left: 0; }
+
+.slick-slide .image {
+  padding: 10px;
+  justify-content: center; }

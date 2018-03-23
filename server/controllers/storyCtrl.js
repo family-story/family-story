@@ -45,9 +45,9 @@ module.exports = {
     }
 
     for(let i = 0; i < story.events.length; i++) {
-      let {event_num, event_title, date, lat, long, event_txt} = story.events[i]
+      let {event_num, event_title, date, location, event_txt} = story.events[i]
 
-      event_res = await db.create_event([story_id, event_num, event_title, date, lat, long, event_txt]);
+      event_res = await db.create_event([story_id, event_num, event_title, date, location, event_txt]);
       event_id = event_res[0].event_id * 1;
 
       for(let j = 0; j < story.events[i].media.length; j++){
@@ -96,9 +96,9 @@ module.exports = {
     let event_id = 0;
 
     for(let i = 0; i < newEvents.length; i++){
-      let {event_num, event_title, date, lat, long, event_txt} = newEvents[i]
+      let {event_num, event_title, date, location, event_txt} = newEvents[i]
 
-      event_res = await db.create_event([story_id, event_num, event_title, date, lat, long, event_txt]);
+      event_res = await db.create_event([story_id, event_num, event_title, date, location, event_txt]);
       event_id = event_res[0].event_id * 1;
 
       //adding media
@@ -109,6 +109,39 @@ module.exports = {
 
     //get data to return
     let stories = await db.get_all_stories_by_id([story.user_id]);
+
+    for (let i = 0; i < stories.length; i++) {
+      let tags = await db.get_tags_by_story_id([stories[i].story_id]);
+      stories[i].tags = tags;
+    }
+
+    res.status(200).send(stories);
+  },
+
+  deleteStory: async (req, res, next) => {
+    const db = req.app.get('db');
+    const story_id = req.params.story_id;
+
+    //get old tags and delete them
+    await db.delete_tag([story_id]);
+
+    //get the old events.
+    const oldEvents = await db.get_events_by_story_id([story_id]);
+    let oldIds = [];
+    oldEvents.map(e => oldIds.push(e.event_id));
+    
+    //deleting events & media
+    for(let i = 0; i < oldIds.length; i++){
+      await db.delete_event([story_id, oldIds[i]]);
+    }
+
+    //delete story
+    let story = await db.get_story_by_story_id(story_id);
+    let user_id = story[0].user_id;
+    await db.delete_story(story_id);
+
+    //get data to return
+    let stories = await db.get_all_stories_by_id([user_id]);
 
     for (let i = 0; i < stories.length; i++) {
       let tags = await db.get_tags_by_story_id([stories[i].story_id]);
