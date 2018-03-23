@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-class StoryView extends Component {
+class StoryViewModal extends Component {
   
   render(){
     return(
@@ -14,4 +14,4 @@ class StoryView extends Component {
   }
 }
 
-export default StoryView
+export default StoryViewModal
