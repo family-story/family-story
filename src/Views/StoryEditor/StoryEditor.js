@@ -46,11 +46,12 @@ class StoryEditor extends Component {
     this.setState({
       selectedEvent: eventId,
       eventEditorModal: true,
-      selectedEventInfo: selected
+      selectedEventInfo: selected[0]
     })
   }
 
   render() {
+
     let eventsList
     if (typeof this.state.events[0] !== 'undefined') {
       eventsList = this.state.events.map((event, index) => {

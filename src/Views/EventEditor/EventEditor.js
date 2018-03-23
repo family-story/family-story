@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 const ClickOutHandler = require('react-onclickout')
 
 class EventEditor extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             event_title: '',
             date: '',
@@ -19,7 +19,6 @@ class EventEditor extends Component {
     componentDidMount() {
         if (this.props.selectedEvent) {
             this.setState({
-                test: 'So far so good.',
                 event_title: this.props.selectedEventInfo.event_title
             })
         }
@@ -29,9 +28,19 @@ class EventEditor extends Component {
         this.setState({ [key]: value })
     }
 
+    handleCancel() {
+
+    }
+
+    handleSave() {
+        alert('saved!')
+    }
+
+    handleDelete() {
+
+    }
+
     render() {
-        console.log(this.props.selectedEventInfo)
-        console.log(this.state.event_title)
         return (
             <div className="transparent-background">
                 <ClickOutHandler onClickOut={() => this.props.closeEventEditorModal()}>
@@ -48,7 +57,9 @@ class EventEditor extends Component {
                         <h3>Event</h3>
                         <textarea type="text" value={this.state.event_txt} onChange={e => this.handleEditor('event_txt', e.target.value)} />
 
-                        <button onClick={() => this.setState({ display: 'none' })}>Save</button>
+                        <button onClick={this.handleCancel}>Cancel</button>
+                        <button onClick={this.handleSave}>Save</button>
+                        <button onClick={this.handleDelete}>Delete</button>
                     </div>
                 </ClickOutHandler>
             </div>
