@@ -12,7 +12,7 @@ export default function Landing(props){
         Dolore commodi delectus explicabo consequuntur corrupti dignissimos distinctio ipsam magnam possimus. Cupiditate, nesciunt aut earum commodi eius ipsa, repudiandae velit ad magnam molestiae dolores consectetur sapiente, vel nam voluptas eos!
         Harum asperiores animi dicta? Porro laborum quibusdam placeat libero. Quam quo, a cum amet doloremque quae nesciunt labore maiores neque sed possimus et assumenda! Sit delectus ratione qui a fugit?
       </div> 
-      <Link to = '/home'><button>LOGIN</button></Link>
+      <a href={process.env.REACT_APP_LOGIN} ><button>LOGIN</button></a>
     </div>
   )
 }
