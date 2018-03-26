@@ -20,18 +20,21 @@ class StoryEditor extends Component {
         tags: [],
         events: [
           {
-            event_num: 0,
-            event_title: '',
-            date: '',
-            location: '',
-            event_txt: '',
-            media: [
-              {
-                media_type: '',
-                media_ref: ''
-              }
-            ]
+            event_title: 'THe fish'
           }
+          // {
+          //   event_num: 0,
+          //   event_title: '',
+          //   date: '',
+          //   location: '',
+          //   event_txt: '',
+          //   media: [
+          //     {
+          //       media_type: '',
+          //       media_ref: ''
+          //     }
+          //   ]
+          // }
         ]
       }
 
@@ -42,17 +45,6 @@ class StoryEditor extends Component {
     this.closeStoryEditorModal = this.closeStoryEditorModal.bind(this)
   }
 
-  componentDidMount(){
-    this.setState({
-      story: {
-        events: [
-          { event_title: 'first event', event_id: 1 },
-          { event_title: 'second event', event_id: 2 },
-          { event_title: 'third event', event_id: 3 }
-        ]
-      }
-    })
-  }
   handleEditing(key, value) {
     this.setState({ [key]: value })
   }
@@ -83,9 +75,9 @@ class StoryEditor extends Component {
   }
 
   render() {
-
+    console.log(this.state.events)
     let eventsList
-    if (typeof this.state.events[0] !== 'undefined') {
+    if (typeof this.state.events !== 'undefined') {
       eventsList = this.state.events.map((event, index) => {
         return (
           <div onClick={() => this.handleEventEditSelection(event.event_id)} key={index}>
@@ -94,7 +86,7 @@ class StoryEditor extends Component {
         )
       })
     }
-
+    console.log(eventsList)
     return (
       <div>
         <NavBar logout={true} />
