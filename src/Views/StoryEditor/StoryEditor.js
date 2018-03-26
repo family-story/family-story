@@ -18,24 +18,7 @@ class StoryEditor extends Component {
       story: {
         story_title: '',
         tags: [],
-        events: [
-          {
-            event_title: 'THe fish'
-          }
-          // {
-          //   event_num: 0,
-          //   event_title: '',
-          //   date: '',
-          //   location: '',
-          //   event_txt: '',
-          //   media: [
-          //     {
-          //       media_type: '',
-          //       media_ref: ''
-          //     }
-          //   ]
-          // }
-        ]
+        events: []
       }
 
 
