@@ -4,6 +4,7 @@
   "private": true,
   "main": "./server/server.js",
   "dependencies": {
+    "ajv": "^6.4.0",
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "cypress": "^2.1.0",
@@ -18,6 +19,7 @@
     "passport-auth0": "^0.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "react-slick": "^0.21.0",
@@ -25,7 +27,9 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-persist": "^5.9.1",
     "redux-promise-middleware": "^5.0.0",
-    "slick-carousel": "^1.8.1"
+    "sha1": "^1.1.1",
+    "slick-carousel": "^1.8.1",
+    "superagent": "^3.8.2"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
