@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
+import { getStoriesArray } from '../../ducks/reducer'
 import NavBar from '../../Components/NavBar/NavBar'
 
 class Home extends Component {
@@ -14,56 +16,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      stories: [
-        {
-          "story_id": 1,
-          "user_id": 1,
-          "story_title": "My Proposal",
-          "tags": [
-            {
-              "tag_id": 1,
-              "tag_str": "Stuart Harper"
-            },
-            {
-              "tag_id": 2,
-              "tag_str": "Summer Harper"
-            },
-            {
-              "tag_id": 3,
-              "tag_str": "Provo, Utah"
-            },
-            {
-              "tag_id": 4,
-              "tag_str": "Orem, Utah"
-            }
-          ]
-        },
-        {
-          "story_id": 2,
-          "user_id": 1,
-          "story_title": "Mary Cook, Handcart Pioneer",
-          "tags": [
-            {
-              "tag_id": 5,
-              "tag_str": "Mary Cook"
-            },
-            {
-              "tag_id": 6,
-              "tag_str": "Convert"
-            },
-            {
-              "tag_id": 7,
-              "tag_str": "Pioneer"
-            },
-            {
-              "tag_id": 8,
-              "tag_str": "Scotland"
-            }
-          ]
-        }
-      ]
-    })
+    this.props.getStoriesArray()
   }
 
   handleFilterTags(val) {
@@ -126,4 +79,10 @@ class Home extends Component {
   }
 }
 
-export default Home
+function mapStateToProps(state){
+  return {
+    stories: state.storiesArray
+  }
+}
+
+export default connect(mapStateToProps, {getStoriesArray})(Home)
