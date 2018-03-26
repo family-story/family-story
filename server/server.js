@@ -8,9 +8,9 @@ const express = require('express')
     , Auth0Strategy = require('passport-auth0')
     , axios = require('axios')
     , storyCtrl = require('./controllers/storyCtrl.js')
-    , googleCtrl = require('./controllers/googleCtrl.js')
     , userCtrl = require('./controllers/userCtrl.js')
     , { SERVER_PORT ,SESSION_SECRET, CONNECTION_STRING, DOMAIN, CLIENT_ID, CLIENT_SECRET, CALLBACK_URL, LOGIN, LOGOUT } = process.env
+
 
 const app = express();
 
