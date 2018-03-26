@@ -78,8 +78,7 @@ table {
     width: 100%;
     display: grid;
     justify-items: center;
-    position: absolute;
-    animation: animatetop 0.5s; }
+    position: absolute; }
     .transparent-background .mid-modal .modal-style {
       text-align: center;
       font-size: 30px;
@@ -94,11 +93,16 @@ table {
         height: 50%;
         width: 50%; }
 
+<<<<<<< HEAD
+.carousel-container {
+  border: 5px solid black; }
+=======
 @keyframes animatetop {
   from {
     top: -100vh; }
   to {
     top: 0; } }
+>>>>>>> master
 
 .slick-prev:before,
 .slick-next:before {
