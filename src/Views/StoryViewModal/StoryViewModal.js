@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import ImageCarousel from '../../Components/ImageCarousel/ImageCarousel'
 
@@ -10,7 +11,6 @@ class StoryViewModal extends Component {
   
     this.state = {
         event: 0,
-        story: []
     }
   }
 
@@ -58,4 +58,10 @@ handlePreviousButton(){
   }
 }
 
-export default StoryViewModal
+function mapStateToProps(state){
+  return {
+    story: state.currentStory 
+  }
+}
+
+export default connect(mapStateToProps) (StoryViewModal)
