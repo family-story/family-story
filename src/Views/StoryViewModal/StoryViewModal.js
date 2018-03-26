@@ -5,13 +5,14 @@ class StoryViewModal extends Component {
   
   render(){
     return(
-      <div>
-        <div>
+      <div className = 'transparent-background'>
+        <div className = 'mid-modal'>
+        <div className = 'story-view-modal'>
           X 
           Map Component
           Carousel Component
-          audio Component
-          
+          Audio
+        </div>
         </div>
       </div>
     )
