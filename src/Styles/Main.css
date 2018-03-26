@@ -89,8 +89,7 @@ table {
     width: 100%;
     display: grid;
     justify-items: center;
-    position: absolute;
-    animation: animatetop 0.5s; }
+    position: absolute; }
     .transparent-background .mid-modal .modal-style {
       text-align: center;
       font-size: 30px;
@@ -104,12 +103,6 @@ table {
       .transparent-background .mid-modal .modal-style .fs-tutorial {
         height: 50%;
         width: 50%; }
-
-@keyframes animatetop {
-  from {
-    top: -100vh; }
-  to {
-    top: 0; } }
 
 .slick-prev:before,
 .slick-next:before {
