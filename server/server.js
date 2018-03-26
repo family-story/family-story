@@ -7,8 +7,7 @@ const express = require('express')
     , passport = require('passport')
     , Auth0Strategy = require('passport-auth0')
     , axios = require('axios')
-    , storyCtrl = require('./controllers/storyCtrl.js')
-    , googleCtrl = require('./controllers/googleCtrl.js');
+    , storyCtrl = require('./controllers/storyCtrl.js');
 
 const app = express();
 
