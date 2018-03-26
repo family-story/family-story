@@ -7,7 +7,11 @@ class StoryViewModal extends Component {
     return(
       <div>
         <div>
-          <Link to = '/home'><button>Home</button></Link>
+          X 
+          Map Component
+          Carousel Component
+          audio Component
+          
         </div>
       </div>
     )
