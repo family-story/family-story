@@ -123,15 +123,6 @@ table {
 .slick-dots {
   margin-left: 0; }
 
-.slick-slide .image {
-  padding: 10px;
-  justify-self: center;
-  justify-content: center;
-  justify-items: center;
-  align-content: center;
-  align-items: center;
-  background-color: blue; }
-
 .slick-slide img {
   border: 5px solid red;
   display: block;
