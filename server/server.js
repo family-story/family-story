@@ -54,12 +54,12 @@ passport.use(new Auth0Strategy({
 passport.serializeUser((id, done) => done(null, id))
 passport.deserializeUser((id, done) => {
   const db = app.get('db')
-  db.find_logged_in_user([id]).then(resp => done(null, resp[0]))
+  db.find_logged_in_user([id]).then(resp =>{
+    done(null, resp[0])})
 })
 
 app.get('/auth', passport.authenticate('auth0'))
 app.get('/auth/callback', (req, res, next) => {
-
     const authCB = passport.authenticate('auth0', {
         successRedirect: LOGIN
     })
@@ -69,6 +69,7 @@ app.get('/auth/me', (req, res) => {
     if (!req.user) {
         res.status(404).send('User no longer Logged in')
     } else {
+        
         res.status(200).send(req.user)
     }
 })
@@ -78,14 +79,11 @@ app.get('/logout', (req, res) => {
     res.redirect(LOGOUT)
 }
 )
-
 app.use(bodyParser.json());
-
-app.get('/auth/active_user', userCtrl.authenticated )
 
 //Endpoints to access our database
 //get all stories by user id.
-app.get('/api/stories/:user_id', storyCtrl.getAllByUser);
+app.get('/api/stories', storyCtrl.getAllByUser);
 
 //get a story by story id
 app.get('/api/story/:story_id', storyCtrl.getStory);

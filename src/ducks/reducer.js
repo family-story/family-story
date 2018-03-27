@@ -204,7 +204,7 @@ module.exports = {
   //     media_type: 'audio'/ 'pic',
   //     media_ref: cloudinary_url
   // }
-  addingUploadedMedia: function (media) {
+  addUploadedMedia: function (media) {
     return {
       type: ADD_IMPORTED_MEDIA,
       payload: media
