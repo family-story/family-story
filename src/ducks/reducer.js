@@ -75,7 +75,7 @@ CLEAR_STATE: Hit upon logout to clear the state.
 module.exports = {
   //Action Creators
   getStoriesArray: function (user_id) {
-    const returnedStoriesArray = axios.get(`/api/stories/`).then(res => res.data);
+    const returnedStoriesArray = axios.get(`/api/stories`).then(res => res.data);
 
     return {
       type: GET_STORIES_ARRAY,
