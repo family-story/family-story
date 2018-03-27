@@ -12,24 +12,25 @@ const initialState = {
 }
 
 //Action Names
-const GET_STORIES_ARRAY = 'GET_STORIES_ARRAY';
+const GET_STORIES_ARRAY = 'GET_STORIES_ARRAY'; 
 const GET_STORY = 'GET_STORY';
-const CREATE_NEW_STORY = 'CREATE_NEW_STORY';
+const CREATE_NEW_STORY = 'CREATE_NEW_STORY'; //test done
 const SAVE_NEW_STORY = 'SAVE_NEW_STORY';
 const UPDATE_STORY = 'UPDATE_STORY';
 const UPDATE_STORY_DB = 'UPDATE_STORY_DB';
 const DELETE_STORY = 'DELETE_STORY';
 const CANCEL_CHANGES_STORY = 'CANCEL_CHANGES_STORY';
 const GET_EVENT = 'GET_EVENT';
-const CREATE_NEW_EVENT = 'CREATE_NEW_EVENT';
-const UPDATE_EVENT = 'UPDATE_EVENT';
+const CREATE_NEW_EVENT = 'CREATE_NEW_EVENT'; //test done
+const UPDATE_EVENT = 'UPDATE_EVENT'; //test done
 const SAVE_UPDATED_EVENT = 'SAVE_UPDATED_EVENT';
-const UPDATE_EVENT_ORDER = 'UPDATE_EVENT_ORDER';
-const DELETE_EVENT = 'DELETE_EVENT';
+const UPDATE_EVENT_ORDER = 'UPDATE_EVENT_ORDER'; //test done
+const DELETE_EVENT = 'DELETE_EVENT'; //test done
 const CANCEL_CHANGES_EVENT = 'CANCEL_CHANGES_EVENT';
-const ADD_IMPORTED_MEDIA = 'ADD_IMPORTED_MEDIA';
-const CLEAR_IMPORTED_MEDIA = 'CLEAR_IMPORTED_MEDIA';
-const CLEAR_STATE = 'CLEAR_STATE';
+const ADD_IMPORTED_MEDIA = 'ADD_IMPORTED_MEDIA'; // no longer mvp
+const ADD_UPLOADED_MEDIA = 'ADD_UPLOADED_MEDIA'; //test done
+const CLEAR_IMPORTED_MEDIA = 'CLEAR_IMPORTED_MEDIA'; //test done
+const CLEAR_STATE = 'CLEAR_STATE'; //test done
 
 /*Here is a definitive guide on what each of these actions are and what they are meant for:
 
@@ -74,7 +75,7 @@ CLEAR_STATE: Hit upon logout to clear the state.
 module.exports = {
   //Action Creators
   getStoriesArray: function (user_id) {
-    const returnedStoriesArray = axios.get(`/api/stories/${user_id}`).then(res => res.data);
+    const returnedStoriesArray = axios.get(`/api/stories/`).then(res => res.data);
 
     return {
       type: GET_STORIES_ARRAY,
@@ -83,8 +84,7 @@ module.exports = {
   },
 
   getStory: function (story_id) {
-    const returnedStory = axios.get(`/api/story/${story_id}`).then(res => res.data);
-
+    const returnedStory = axios.get(`/api/story/`).then(res => res.data);
     return {
       type: GET_STORY,
       payload: returnedStory
@@ -144,7 +144,7 @@ module.exports = {
 
   getEvent: function (eventIndex) {
     return {
-      type: GET_EVENT,
+      type: GET_EVENT, 
       payload: eventIndex
     };
   },
@@ -206,7 +206,7 @@ module.exports = {
   // }
   addUploadedMedia: function (media) {
     return {
-      type: ADD_IMPORTED_MEDIA,
+      type: ADD_UPLOADED_MEDIA,
       payload: media
     }
   },
@@ -230,6 +230,7 @@ module.exports = {
         return Object.assign({}, state, { storiesArray: action.payload });
 
       case GET_STORY + "_FULFILLED":
+        console.log(action.payload)
         return Object.assign({}, state, {
           currentStoryOrig: action.payload,
           currentStory: action.payload
@@ -299,7 +300,7 @@ module.exports = {
       case DELETE_EVENT:
         let changedStoryDE = state.currentStory.slice();
         changedStoryDE[0].events.splice(action.payload, 1);
-        console.log(changedStoryDE[0].events)
+        // console.log(changedStoryDE[0].events)
         return Object.assign({}, state, {
           currentStory: changedStoryDE,
           currentEventOrig: {},
@@ -310,7 +311,14 @@ module.exports = {
       case ADD_IMPORTED_MEDIA + "_FULFILLED":
         let arr = state.importedMedia.slice();
         arr.push(action.payload);
+        console.log(action.payload)
         return Object.assign({}, state, { importedMedia: arr });
+
+      case ADD_UPLOADED_MEDIA:
+        let arr2 = state.importedMedia.slice();
+        arr2.push(action.payload);
+        console.log(action.payload)
+        return Object.assign({}, state, { importedMedia: arr2 });
 
       case CLEAR_IMPORTED_MEDIA:
         return Object.assign({}, state, { importedMedia: [] });

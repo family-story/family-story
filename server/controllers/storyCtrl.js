@@ -2,14 +2,14 @@ module.exports = {
   getAllByUser: async function (req, res, next) {
     const db = req.app.get('db');
     const { user_id } = req.user
-
+    console.log(user_id)
     let stories = await db.get_all_stories_by_id([user_id]);
 
     for (let i = 0; i < stories.length; i++) {
       let tags = await db.get_tags_by_story_id([stories[i].story_id]);
       stories[i].tags = tags;
     }
-
+    console.log(stories)
     res.status(200).send(stories);
   },
 
@@ -32,7 +32,7 @@ module.exports = {
     res.status(200).send(story);
   },
 
-  createStory: async (req, res, next) => {
+  createStory: async function (req, res, next) {
     const db = req.app.get('db');
     const story = req.body;
     let event_res = [];
@@ -65,7 +65,7 @@ module.exports = {
     res.status(200).send(stories);
   },
 
-  updateStory: async (req, res, next) => {
+  updateStory: async function (req, res, next) {
     const db = req.app.get('db');
     const story_id = req.body[0].story_id;
     const story = req.body[0];
@@ -119,7 +119,7 @@ module.exports = {
     res.status(200).send(stories);
   },
 
-  deleteStory: async (req, res, next) => {
+  deleteStory: async function (req, res, next) {
     const db = req.app.get('db');
     const story_id = req.params.story_id;
     const { user_id } = req.user
