@@ -71,7 +71,7 @@ class Home extends Component {
         <NavBar logout={true} />
         <input type='search' onChange={e => this.handleFilterTags(e.target.value)} />
         <div>
-          {stories}
+          {this.state.stories[0]? stories: null}
         </div>
 
         <div>
