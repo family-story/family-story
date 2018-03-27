@@ -16,7 +16,6 @@ class StoryEditorModal extends Component {
   }
 
   render() {
-    console.log(this.state.fsPin)
     return (
       <div className='transparent-background'>
         <ClickOutHandler onClickOut={() => this.props.closeStoryEditorModal()}>
