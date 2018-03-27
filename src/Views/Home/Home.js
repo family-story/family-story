@@ -82,6 +82,7 @@ class Home extends Component {
     )
   }
 }
+
 function mapStateToProps(state) {
   return {
     storiesArray: state.storiesArray,
