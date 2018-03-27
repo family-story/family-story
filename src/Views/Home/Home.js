@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import {getStoriesArray} from '../../ducks/reducer'
-
 import { getStoriesArray } from '../../ducks/reducer'
 import NavBar from '../../Components/NavBar/NavBar'
 
@@ -58,9 +56,10 @@ class Home extends Component {
           </div>
         )
       })
-
-    if (typeof stories[0] === 'undefined' || stories[0] == null) {
-      stories = <p>Sorry, your search did not find any results.</p>
+    if (this.state.filterString) {
+      if (typeof stories[0] === 'undefined' || stories[0] == null) {
+        stories = <p>Sorry, your search did not find any results.</p>
+      }
     }
 
     return (
@@ -85,14 +84,10 @@ function mapStateToProps(state) {
   }
 }
 
-<<<<<<< HEAD
-export default connect(mapStateToProps, { getStoriesArray })(Home)
-=======
-function mapStateToProps(state){
+function mapStateToProps(state) {
   return {
     stories: state.storiesArray
   }
 }
 
-export default connect(mapStateToProps, {getStoriesArray})(Home)
->>>>>>> master
+export default connect(mapStateToProps, { getStoriesArray })(Home)
