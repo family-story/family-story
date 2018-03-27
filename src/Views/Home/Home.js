@@ -17,6 +17,10 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.getStoriesArray()
+      .then(resp => {
+        let stories = resp.value
+        this.setState({ stories: stories })
+      })
   }
 
   handleFilterTags(val) {
