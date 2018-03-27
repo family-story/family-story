@@ -1,6 +1,6 @@
 {
   "name": "family-story",
-  "version": "0.1.0",  
+  "version": "0.1.0",
   "proxy": "http://localhost:3030",
   "private": true,
   "main": "./server/server.js",
