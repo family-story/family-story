@@ -64,6 +64,17 @@ table {
   padding: 10px;
   margin: 10px; }
 
+.story-view-modal {
+  text-align: center;
+  font-size: 30px;
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888888;
+  width: 90%;
+  height: fit-content;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+
 .transparent-background {
   position: fixed;
   z-index: 1;
@@ -93,17 +104,6 @@ table {
         height: 50%;
         width: 50%; }
 
-<<<<<<< HEAD
-.carousel-container {
-  border: 5px solid black; }
-=======
-@keyframes animatetop {
-  from {
-    top: -100vh; }
-  to {
-    top: 0; } }
->>>>>>> master
-
 .slick-prev:before,
 .slick-next:before {
   color: gray;
@@ -116,6 +116,13 @@ table {
 .slick-dots {
   margin-left: 0; }
 
-.slick-slide .image {
-  padding: 10px;
-  justify-content: center; }
+.slick-slide img {
+  border: 5px solid red;
+  display: block;
+  height: 250px; }
+
+.carousel-container {
+  padding: 20px;
+  margin: auto;
+  width: 50%;
+  border: 3px solid orange; }

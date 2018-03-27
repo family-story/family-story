@@ -84,7 +84,7 @@ module.exports = {
 
   getStory: function (story_id) {
     const returnedStory = axios.get(`/api/story/${story_id}`).then(res => res.data);
-    
+
     return {
       type: GET_STORY,
       payload: returnedStory
@@ -105,7 +105,7 @@ module.exports = {
   saveNewStory: function (body) {
     //The parameter 'body' will be the value of currentStory on the store, but it must be passed in by the component calling the action.
     const returnedStoriesArray = axios.post('/api/story', body).then(res => res.data);
-    
+
     return {
       type: SAVE_NEW_STORY,
       payload: returnedStoriesArray
@@ -139,7 +139,7 @@ module.exports = {
   },
 
   cancelStoryChanges: function () {
-    return {type: CANCEL_CHANGES_STORY};
+    return { type: CANCEL_CHANGES_STORY };
   },
 
   getEvent: function (eventIndex) {
@@ -171,7 +171,7 @@ module.exports = {
   },
 
   saveUpdatedEvent: function () {
-    return {type: SAVE_UPDATED_EVENT}
+    return { type: SAVE_UPDATED_EVENT }
   },
 
   updateEventOrder: function (index1, index2) {
@@ -189,7 +189,7 @@ module.exports = {
   },
 
   cancelEventChanges: function () {
-    return {type: CANCEL_CHANGES_EVENT};
+    return { type: CANCEL_CHANGES_EVENT };
   },
 
   addImportedMedia: function () {
@@ -200,24 +200,34 @@ module.exports = {
       payload: media
     }
   },
+  // example of media passed = {
+  //     media_type: 'audio'/ 'pic',
+  //     media_ref: cloudinary_url
+  // }
+  addUploadedMedia: function (media) {
+    return {
+      type: ADD_IMPORTED_MEDIA,
+      payload: media
+    }
+  },
 
   clearImportedMedia: function () {
-    return {type: CLEAR_IMPORTED_MEDIA};
+    return { type: CLEAR_IMPORTED_MEDIA };
   },
 
   clearState: function () {
-    return {type: CLEAR_STATE};
+    return { type: CLEAR_STATE };
   },
 
   //Reducer
   reducer: function (state = initialState, action) {
-    switch(action.type) {
+    switch (action.type) {
 
       case GET_STORIES_ARRAY + "_FULFILLED":
       case SAVE_NEW_STORY + "_FULFILLED":
       case UPDATE_STORY_DB + "_FULFILLED":
       case DELETE_STORY + "_FULFILLED":
-        return Object.assign({}, state, {storiesArray: action.payload});
+        return Object.assign({}, state, { storiesArray: action.payload });
 
       case GET_STORY + "_FULFILLED":
         return Object.assign({}, state, {
@@ -232,11 +242,11 @@ module.exports = {
         });
 
       case UPDATE_STORY:
-        return Object.assign({}, state, {currentStory: action.payload});
+        return Object.assign({}, state, { currentStory: action.payload });
 
       case CANCEL_CHANGES_STORY:
         let reset = state.currentStoryOrig.slice();
-        return Object.assign({}, state, {currentStory: reset});
+        return Object.assign({}, state, { currentStory: reset });
 
       case CREATE_NEW_EVENT:
         let changedStoryNE = state.currentStory.slice();
@@ -249,7 +259,7 @@ module.exports = {
         });
 
       case UPDATE_EVENT:
-        return Object.assign({}, state, {currentEvent: action.payload});
+        return Object.assign({}, state, { currentEvent: action.payload });
 
       case GET_EVENT:
         let eventHolderGE = Object.assign({}, state.currentStory[0].events[action.payload]);
@@ -284,7 +294,7 @@ module.exports = {
         item2.event_num = action.payload[0];
         changedStoryUEO[0].events[action.payload[0]] = item2;
         changedStoryUEO[0].events[action.payload[1]] = item1;
-        return Object.assign({}, state, {currentStory: changedStoryUEO});
+        return Object.assign({}, state, { currentStory: changedStoryUEO });
 
       case DELETE_EVENT:
         let changedStoryDE = state.currentStory.slice();
@@ -298,10 +308,12 @@ module.exports = {
         });
 
       case ADD_IMPORTED_MEDIA + "_FULFILLED":
-        return Object.assign({}, state, {importedMedia: action.payload});
+        let arr = state.importedMedia.slice();
+        arr.push(action.payload);
+        return Object.assign({}, state, { importedMedia: arr });
 
       case CLEAR_IMPORTED_MEDIA:
-        return Object.assign({}, state, {importedMedia: []});
+        return Object.assign({}, state, { importedMedia: [] });
 
       case CLEAR_STATE:
         return Object.assign({}, initialState);

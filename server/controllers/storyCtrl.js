@@ -1,7 +1,7 @@
 module.exports = {
   getAllByUser: async function (req, res, next) {
     const db = req.app.get('db');
-    const user_id = req.params.user_id;
+    const { user_id } = req.user
 
     let stories = await db.get_all_stories_by_id([user_id]);
 
@@ -37,7 +37,7 @@ module.exports = {
     const story = req.body;
     let event_res = [];
     
-    let story_res = await db.create_story([story.user_id, story.story_title]);
+    let story_res = await db.create_story([req.user.user_id, story.story_title]);
     story_id = story_res[0].story_id * 1;
     
     for(let i = 0; i < story.tags.length; i++){
@@ -55,7 +55,7 @@ module.exports = {
       }
     }
 
-    let stories = await db.get_all_stories_by_id([story.user_id]);
+    let stories = await db.get_all_stories_by_id([req.user.user_id]);
 
     for (let i = 0; i < stories.length; i++) {
       let tags = await db.get_tags_by_story_id([stories[i].story_id]);
@@ -69,9 +69,10 @@ module.exports = {
     const db = req.app.get('db');
     const story_id = req.body[0].story_id;
     const story = req.body[0];
+    const { user_id } = req.user
 
     //update story
-    await db.update_story([story.user_id, story_id, story.story_title]);
+    await db.update_story([user_id, story_id, story.story_title]);
 
     //get old tags and delete them
     await db.delete_tag([story_id]);
@@ -107,8 +108,8 @@ module.exports = {
       }
     }
 
-    //get data to return
-    let stories = await db.get_all_stories_by_id([story.user_id]);
+    //get data to return 
+    let stories = await db.get_all_stories_by_id([user_id]);
 
     for (let i = 0; i < stories.length; i++) {
       let tags = await db.get_tags_by_story_id([stories[i].story_id]);
@@ -121,6 +122,8 @@ module.exports = {
   deleteStory: async (req, res, next) => {
     const db = req.app.get('db');
     const story_id = req.params.story_id;
+    const { user_id } = req.user
+    
 
     //get old tags and delete them
     await db.delete_tag([story_id]);
@@ -137,7 +140,6 @@ module.exports = {
 
     //delete story
     let story = await db.get_story_by_story_id(story_id);
-    let user_id = story[0].user_id;
     await db.delete_story(story_id);
 
     //get data to return
