@@ -57,7 +57,6 @@ class StoryEditor extends Component {
   render() {
 
     // Maps over events belonging to story, if any.
-    console.log(this.props.currentStory)
     let eventsList
     if (typeof this.state.events !== 'undefined') {
       eventsList = this.state.events.map((event, index) => {
@@ -68,8 +67,6 @@ class StoryEditor extends Component {
         )
       })
     }
-    console.log(eventsList)
-    console.log(this.state.events)
 
     return (
       <div>

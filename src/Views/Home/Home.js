@@ -17,6 +17,10 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.getStoriesArray()
+      .then(resp => {
+        let stories = resp.value
+        this.setState({ stories: stories })
+      })
   }
 
   handleFilterTags(val) {
@@ -67,7 +71,7 @@ class Home extends Component {
         <NavBar logout={true} />
         <input type='search' onChange={e => this.handleFilterTags(e.target.value)} />
         <div>
-          {stories}
+          {this.state.stories[0]? stories: null}
         </div>
 
         <div>
@@ -78,6 +82,7 @@ class Home extends Component {
     )
   }
 }
+
 function mapStateToProps(state) {
   return {
     storiesArray: state.storiesArray,
