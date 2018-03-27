@@ -7,6 +7,14 @@ export default function Landing(props){
     <div>
       <NavBar/>
       <div className = 'landing-picture'>
+        <div className = 'landing-mid'>
+          <span className = 'landing-welcome-1'>
+            Welcome to Family Story
+            <div className = 'landing-welcome-2'>
+              where your stories come to life...
+            </div>
+          </span>
+        </div> 
       </div> 
       <a href={process.env.REACT_APP_LOGIN} ><button>LOGIN</button></a>
     </div>
