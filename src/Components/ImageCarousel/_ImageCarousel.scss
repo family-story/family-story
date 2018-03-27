@@ -15,7 +15,6 @@
 }
 
 .slick-slide img {
-  border: 5px solid red;
   display: block;
   height: 250px;
 }
@@ -24,10 +23,9 @@
   padding: 20px;
   margin: auto; 
   width: 50%;
-  border: 3px solid orange;
 }
 
-// .carousel-image-container {
-//   border: 1px solid blue;
-//   height: 127px;
-// }
+div.slick-slide.slick-active.slick-current.carousel-image-container {
+  display: flex;
+  justify-content: center;
+}
