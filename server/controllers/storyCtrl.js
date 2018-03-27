@@ -32,7 +32,7 @@ module.exports = {
     res.status(200).send(story);
   },
 
-  createStory: async (req, res, next) => {
+  createStory: async function (req, res, next) {
     const db = req.app.get('db');
     const story = req.body;
     let event_res = [];
@@ -65,7 +65,7 @@ module.exports = {
     res.status(200).send(stories);
   },
 
-  updateStory: async (req, res, next) => {
+  updateStory: async function (req, res, next) {
     const db = req.app.get('db');
     const story_id = req.body[0].story_id;
     const story = req.body[0];
@@ -119,7 +119,7 @@ module.exports = {
     res.status(200).send(stories);
   },
 
-  deleteStory: async (req, res, next) => {
+  deleteStory: async function (req, res, next) {
     const db = req.app.get('db');
     const story_id = req.params.story_id;
     const { user_id } = req.user
