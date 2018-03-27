@@ -117,12 +117,14 @@ table {
   margin-left: 0; }
 
 .slick-slide img {
-  border: 5px solid red;
   display: block;
   height: 250px; }
 
 .carousel-container {
   padding: 20px;
   margin: auto;
-  width: 50%;
-  border: 3px solid orange; }
+  width: 50%; }
+
+div.slick-slide.slick-active.slick-current.carousel-image-container {
+  display: flex;
+  justify-content: center; }
