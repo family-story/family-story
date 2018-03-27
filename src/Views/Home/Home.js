@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+
 import { getStoriesArray } from '../../ducks/reducer'
 import NavBar from '../../Components/NavBar/NavBar'
 
@@ -90,4 +91,5 @@ function mapStateToProps(state) {
   }
 }
 
+export default connect(mapStateToProps, { getStoriesArray })(Home)
 export default connect(mapStateToProps, { getStoriesArray })(Home)
