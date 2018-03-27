@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import NavBar from '../../Components/NavBar/NavBar'
 import EventEditor from '../EventEditor/EventEditor'
@@ -15,29 +16,8 @@ class StoryEditor extends Component {
       eventEditorModal: false,
       storyEditorModal: false,
 
-      story: {
-        story_title: '',
-        tags: [],
-        events: [
-          {
-            event_title: 'THe fish'
-          }
-          // {
-          //   event_num: 0,
-          //   event_title: '',
-          //   date: '',
-          //   location: '',
-          //   event_txt: '',
-          //   media: [
-          //     {
-          //       media_type: '',
-          //       media_ref: ''
-          //     }
-          //   ]
-          // }
-        ]
-      }
-
+      story_title: '',
+      tags: []
 
     }
 
@@ -75,7 +55,9 @@ class StoryEditor extends Component {
   }
 
   render() {
-    console.log(this.state.events)
+
+    // Maps over events belonging to story, if any.
+    console.log(this.props.currentStory)
     let eventsList
     if (typeof this.state.events !== 'undefined') {
       eventsList = this.state.events.map((event, index) => {
@@ -87,6 +69,8 @@ class StoryEditor extends Component {
       })
     }
     console.log(eventsList)
+    console.log(this.state.events)
+
     return (
       <div>
         <NavBar logout={true} />
@@ -105,7 +89,7 @@ class StoryEditor extends Component {
 
         <div>
           <h3>Story Title</h3>
-          <input onChange={e => this.handleEditing('story_title', e.target.value)} />
+          <input value={this.state.story_title} onChange={e => this.handleEditing('story_title', e.target.value)} />
         </div>
 
         {/* <div>
@@ -144,4 +128,11 @@ class StoryEditor extends Component {
   }
 }
 
-export default StoryEditor
+function mapStateToProps(state) {
+  return {
+    currentStory: state.currentStory,
+    currentStoryOrig: state.currentStoryOrig
+  }
+}
+
+export default connect(mapStateToProps)(StoryEditor)

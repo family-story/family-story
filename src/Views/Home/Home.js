@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import {getStoriesArray} from '../../ducks/reducer'
 
 import { getStoriesArray } from '../../ducks/reducer'
 import NavBar from '../../Components/NavBar/NavBar'
@@ -78,7 +79,15 @@ class Home extends Component {
     )
   }
 }
+function mapStateToProps(state) {
+  return {
+    storiesArray: state.storiesArray,
+  }
+}
 
+<<<<<<< HEAD
+export default connect(mapStateToProps, { getStoriesArray })(Home)
+=======
 function mapStateToProps(state){
   return {
     stories: state.storiesArray
@@ -86,3 +95,4 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps, {getStoriesArray})(Home)
+>>>>>>> master
