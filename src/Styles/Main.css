@@ -59,6 +59,15 @@ table {
     justify-self: center;
     align-self: center; }
 
+.landing-picture {
+  background-image: url("../Assets/landing.jpg");
+  background-position: center;
+  width: 929px;
+  height: 578px;
+  margin-top: 110px;
+  margin-left: auto;
+  margin-right: auto; }
+
 .story {
   background-color: orange;
   padding: 10px;
