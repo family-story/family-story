@@ -61,10 +61,9 @@ class Home extends Component {
           </div>
         )
       })
-    if (this.state.filterString) {
-      if (typeof stories[0] === 'undefined' || stories[0] == null) {
-        stories = <p>Sorry, your search did not find any results.</p>
-      }
+
+    if (typeof stories[0] === 'undefined' || stories[0] == null) {
+      stories = <p>Sorry, your search did not find any results.</p>
     }
 
     return (
@@ -72,7 +71,7 @@ class Home extends Component {
         <NavBar logout={true} />
         <input type='search' onChange={e => this.handleFilterTags(e.target.value)} />
         <div>
-          {stories}
+          {this.state.stories[0]? stories: null}
         </div>
 
         <div>
@@ -83,17 +82,11 @@ class Home extends Component {
     )
   }
 }
+
 function mapStateToProps(state) {
   return {
     storiesArray: state.storiesArray,
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    stories: state.storiesArray
-  }
-}
-
-export default connect(mapStateToProps, { getStoriesArray })(Home)
 export default connect(mapStateToProps, { getStoriesArray })(Home)
