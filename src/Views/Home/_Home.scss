@@ -19,6 +19,8 @@
   .search-input {
     width: 150px;
     margin: 13px;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
   }
 }
 
@@ -29,9 +31,58 @@
   margin: 0px auto;
 }
 
+.home-tags {
+  color: black;
+  padding-left: 20px;
+}
+
+.home-edit {
+  font-family: $font-family1;
+  height: 39px;
+  width: 123px;
+  background-color: #85B807;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  line-height: 25px;
+  cursor: pointer;
+}
+
+.home-delete {
+  font-family: $font-family1;
+  height: 39px;
+  width: 123px;
+  background-color: #BDBDBD;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  line-height: 25px;
+  cursor: pointer;
+}
+
+.search-sorry {
+  font-family: $font-family1;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-left: 35%;
+
+}
 
 .story {
-  background-color: blue;
-  padding: 10px;
-  margin: 10px;
+  background-color: #DEDEDE;
+  text-decoration: none;
+  width: 50%;
+  margin-top: 20px;
+  margin-left: 26%;
+  border-radius: 10px;
+
+  .story-title {
+    font-family: $font-family1;
+    padding-top: 10px;
+    padding-left: 20px;
+    font-weight: bold;
+    font-size: 28px;
+    color: black;
+  }
+
 }

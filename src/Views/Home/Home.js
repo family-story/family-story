@@ -62,23 +62,23 @@ class Home extends Component {
       .map(story => {
         let tags = story.tags.map(tag => {
           return (
-            <p key={tag.tag_id}>{tag.tag_str}</p>
+            <span className = 'home-tags' key={tag.tag_id}>{tag.tag_str}</span>
           )
         })
         return (
           <Link key={story.story_id} to={`/story/${story.story_id}`}>
             <div onClick={() => this.handleSelectedStory(story.story_id)} className='story' key={story.story_id}>
 
-              <h3>{story.story_title}</h3>
+              <h3 className = 'story-title'>{story.story_title}</h3>
 
               {tags}
 
               <Link to='/createStory'>
-                <button onClick={() => this.handleSelectedStory(story.story_id)}>Edit</button>
+                <button className = 'home-edit' onClick={() => this.handleSelectedStory(story.story_id)}>Edit</button>
               </Link>
 
               <Link to='/home'>
-                <button /*onClick={() => this.handleDeleteButton(story.story_id)}*/>Delete</button>
+                <button className = 'home-delete' /*onClick={() => this.handleDeleteButton(story.story_id)}*/>Delete</button>
               </Link>
 
             </div>
@@ -87,7 +87,7 @@ class Home extends Component {
       })
 
     if (typeof stories[0] === 'undefined' || stories[0] == null) {
-      stories = <p>Sorry, your search did not find any results.</p>
+      stories = <p className = 'search-sorry'>Sorry, your search did not find any results.</p>
     }
 
     return (
