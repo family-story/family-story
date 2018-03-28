@@ -62,54 +62,77 @@ table {
     width: 437px;
     padding-top: 20px;
     font-family: "Pacifico"; }
-  .navbar .logout-nav {
+  .navbar .login-nav {
     grid-column: 3;
     font-family: "Open Sans";
     font-size: 36px;
     font-weight: lighter;
-    padding-top: 35px;
-    padding-right: 20px; }
+    margin-top: 35px;
+    padding-left: 20px;
+    text-decoration: none;
+    color: black; }
 
 .landing-picture {
   background-image: url("../Assets/landing.jpg");
   width: 929px;
   height: 578px;
-  margin-top: 110px;
+  margin-top: 45px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 45px;
   display: flex;
   flex-direction: column;
   justify-content: center; }
+  .landing-picture .landing-mid {
+    background-color: rgba(0, 0, 0, 0.25);
+    height: 225px;
+    width: 765px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .landing-picture .landing-mid .landing-welcome-1 {
+      font-family: "Open Sans";
+      font-style: bold;
+      font-weight: bold;
+      line-height: 49px;
+      font-size: 36px;
+      color: #EEEEEE;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      padding-left: 110px; }
+    .landing-picture .landing-mid .landing-welcome-2 {
+      font-family: "Open Sans";
+      font-style: bold;
+      font-weight: bold;
+      line-height: 45px;
+      font-size: 36px;
+      color: #EEEEEE;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      padding-left: 185px; }
 
-.landing-mid {
-  background-color: rgba(0, 0, 0, 0.25);
-  height: 225px;
-  width: 765px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; }
+.divider-1 {
+  height: 2px;
+  width: 60%;
+  background-color: rgba(0, 0, 0, 0.13);
+  border-radius: 5px;
+  margin: auto; }
 
-.landing-welcome-1 {
-  font-family: "Open Sans";
-  font-style: bold;
-  font-weight: bold;
-  line-height: 49px;
+.divider-2 {
+  height: 2px;
+  width: 60%;
+  background-color: rgba(0, 0, 0, 0.13);
+  border-radius: 5px; }
+
+.login-button {
+  height: 90px;
+  width: 20%;
+  margin-top: 50px;
+  margin-left: 775px;
+  border: none;
+  border-radius: 5px;
+  background: #85B807;
   font-size: 36px;
-  color: #EEEEEE;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding-left: 110px; }
-
-.landing-welcome-2 {
-  font-family: "Open Sans";
-  font-style: bold;
-  font-weight: bold;
-  line-height: 45px;
-  font-size: 36px;
-  color: #EEEEEE;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding-left: 185px; }
+  font-weight: 200; }
 
 .story {
   background-color: orange;
