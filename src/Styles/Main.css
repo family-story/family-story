@@ -61,7 +61,6 @@ table {
 
 .landing-picture {
   background-image: url("../Assets/landing.jpg");
-  background-position: center;
   width: 929px;
   height: 578px;
   margin-top: 110px;
@@ -81,7 +80,7 @@ table {
   flex-direction: column;
   justify-content: center; }
 
-.landing-welcome-1 {
+.landing-welcome-1, .landing-welcome-2 {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: bold;
