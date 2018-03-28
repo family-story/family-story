@@ -136,12 +136,13 @@ table {
   height: 90px;
   width: 20%;
   margin-top: 50px;
-  margin-left: 775px;
+  margin-left: 40%;
   border: none;
   border-radius: 5px;
   background: #85B807;
   font-size: 36px;
-  font-weight: 200; }
+  font-weight: 200;
+  cursor: pointer; }
 
 .story {
   background-color: orange;
@@ -158,35 +159,6 @@ table {
   width: 90%;
   height: fit-content;
   font-family: Verdana, Geneva, Tahoma, sans-serif; }
-
-.transparent-background {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.6); }
-  .transparent-background .mid-modal {
-    height: 100%;
-    width: 100%;
-    display: grid;
-    justify-items: center;
-    position: absolute; }
-    .transparent-background .mid-modal .modal-style {
-      text-align: center;
-      font-size: 30px;
-      background-color: white;
-      margin: 10% auto;
-      padding: 20px;
-      border: 1px solid #888888;
-      width: 80%;
-      height: fit-content;
-      font-family: Verdana, Geneva, Tahoma, sans-serif; }
-      .transparent-background .mid-modal .modal-style .fs-tutorial {
-        height: 50%;
-        width: 50%; }
 
 .slick-prev:before,
 .slick-next:before {
