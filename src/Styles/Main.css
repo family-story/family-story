@@ -160,6 +160,11 @@ table {
   height: fit-content;
   font-family: Verdana, Geneva, Tahoma, sans-serif; }
 
+.MapBody {
+  width: 40vw;
+  height: 40vh;
+  position: relative; }
+
 .slick-prev:before,
 .slick-next:before {
   color: gray;
