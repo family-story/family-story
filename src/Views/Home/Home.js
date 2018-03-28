@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { getStoriesArray } from '../../ducks/reducer'
+import { getStoriesArray, getStory, deleteStory, createNewStory } from '../../ducks/reducer'
 import NavBar from '../../Components/NavBar/NavBar'
 
 class Home extends Component {
@@ -29,6 +29,17 @@ class Home extends Component {
     })
   }
 
+  handleSelectedStory(story_id) {
+    this.props.getStory(story_id)
+  }
+
+  handleDeleteButton(story_id) {
+    this.props.deleteStory(story_id)
+  }
+
+  handleCreateNewStory() {
+    this.props.createNewStory()
+  }
 
   render() {
     let stories = this.state.stories
@@ -55,10 +66,23 @@ class Home extends Component {
           )
         })
         return (
-          <div className='story' key={story.story_id}>
-            <h3>{story.story_title}</h3>
-            {tags}
-          </div>
+          <Link key={story.story_id} to={`/story/${story.story_id}`}>
+            <div onClick={() => this.handleSelectedStory(story.story_id)} className='story' key={story.story_id}>
+
+              <h3>{story.story_title}</h3>
+
+              {tags}
+
+              <Link to='/createStory'>
+                <button onClick={() => this.handleSelectedStory(story.story_id)}>Edit</button>
+              </Link>
+
+              <Link to='/home'>
+                <button /*onClick={() => this.handleDeleteButton(story.story_id)}*/>Delete</button>
+              </Link>
+
+            </div>
+          </Link>
         )
       })
 
@@ -71,12 +95,14 @@ class Home extends Component {
         <NavBar logout={true} />
         <input type='search' onChange={e => this.handleFilterTags(e.target.value)} />
         <div>
-          {this.state.stories[0]? stories: null}
+          {this.state.stories[0] ? stories : null}
         </div>
 
         <div>
           Create Your Story
-          <Link to='/createStory'><button> start </button></Link>
+          <Link to='/createStory'>
+            <button onClick={() => this.handleCreateNewStory()}> start </button>
+          </Link>
         </div>
       </div>
     )
@@ -89,4 +115,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { getStoriesArray })(Home)
+export default connect(mapStateToProps, { getStoriesArray, getStory, deleteStory, createNewStory })(Home)

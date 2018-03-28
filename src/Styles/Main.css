@@ -158,6 +158,7 @@ table {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4); }
+  
   .transparent-background .story-view-modal {
     text-align: center;
     font-size: 30px;
