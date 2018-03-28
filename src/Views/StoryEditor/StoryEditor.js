@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 
 import NavBar from '../../Components/NavBar/NavBar'
 import EventEditor from '../EventEditor/EventEditor'
-import StoryEditorModal from '../../Components/StoryEditorModal/StoryEditorModal'
 
 class StoryEditor extends Component {
   constructor() {
@@ -14,7 +13,6 @@ class StoryEditor extends Component {
       selectedEventInfo: '',
 
       eventEditorModal: false,
-      storyEditorModal: false,
 
       story_title: '',
       tags: []
@@ -22,7 +20,6 @@ class StoryEditor extends Component {
     }
 
     this.closeEventEditorModal = this.closeEventEditorModal.bind(this)
-    this.closeStoryEditorModal = this.closeStoryEditorModal.bind(this)
   }
 
   handleEditing(key, value) {
@@ -35,11 +32,6 @@ class StoryEditor extends Component {
     })
   }
 
-  closeStoryEditorModal() {
-    this.setState({
-      storyEditorModal: false
-    })
-  }
 
   handleEventEditSelection(eventId) {
     let selected = this.state.events.filter(event => event.event_id === eventId)
@@ -79,21 +71,12 @@ class StoryEditor extends Component {
             selectedEventInfo={this.state.selectedEventInfo} /> :
           null}
 
-        {this.state.storyEditorModal ?
-          <StoryEditorModal
-            closeStoryEditorModal={this.closeStoryEditorModal} /> :
-          null}
 
         <div>
           <h3>Story Title</h3>
           <input value={this.state.story_title} onChange={e => this.handleEditing('story_title', e.target.value)} />
         </div>
 
-        {/* <div>
-          <h1> Import from Family Search </h1>
-          <p> Lorem ipsum dolor sit amet. </p>
-          <button onClick={() => this.setState({ storyEditorModal: true })}>Import from Family Search</button>
-        </div> */}
 
         <div>
           <h3>Events</h3>

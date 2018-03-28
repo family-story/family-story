@@ -34,5 +34,16 @@ $divider-background-color: rgba(0,0,0,0.13);
       text-decoration: none;
       color: black;
     }
+
+    .logout-nav {
+      grid-column: 3;
+      font-family: $font-family1;
+      font-size: 36px;
+      font-weight: lighter;
+      margin-top: 35px;
+      padding-left: 20px;
+      text-decoration: none;
+      color: black;
+    }
 }
 
