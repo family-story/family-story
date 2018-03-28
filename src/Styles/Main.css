@@ -160,9 +160,9 @@ table {
   height: fit-content;
   font-family: Verdana, Geneva, Tahoma, sans-serif; }
 
-.slick-prev:before,
-.slick-next:before {
-  color: gray;
+button.slick-arrow.slick-prev:before,
+button.slick-arrow.slick-next:before {
+  color: grey;
   padding: none; }
 
 .slick-slider {
