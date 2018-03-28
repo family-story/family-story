@@ -43,7 +43,7 @@ handlePreviousButton(){
       <div className = 'transparent-background'>
         <div className = 'mid-modal'>
         <div className = 'story-view-modal'>
-          X 
+          <span className = 'x'>X </span>
           Map Component
           <ImageCarousel event = {this.state.event}/>
           Audio
