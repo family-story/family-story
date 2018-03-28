@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { getStoriesArray, getStory, deleteStory } from '../../ducks/reducer'
+import { getStoriesArray, getStory, deleteStory, createNewStory } from '../../ducks/reducer'
 import NavBar from '../../Components/NavBar/NavBar'
 
 class Home extends Component {
@@ -35,6 +35,10 @@ class Home extends Component {
 
   handleDeleteButton(story_id) {
     this.props.deleteStory(story_id)
+  }
+
+  handleCreateNewStory() {
+    this.props.createNewStory()
   }
 
   render() {
@@ -96,7 +100,9 @@ class Home extends Component {
 
         <div>
           Create Your Story
-          <Link to='/createStory'><button> start </button></Link>
+          <Link to='/createStory'>
+            <button onClick={() => this.handleCreateNewStory()}> start </button>
+          </Link>
         </div>
       </div>
     )
@@ -109,4 +115,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { getStoriesArray, getStory, deleteStory })(Home)
+export default connect(mapStateToProps, { getStoriesArray, getStory, deleteStory, createNewStory })(Home)
