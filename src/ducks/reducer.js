@@ -84,7 +84,7 @@ module.exports = {
   },
 
   getStory: function (story_id) {
-    const returnedStory = axios.get(`/api/story/`).then(res => res.data);
+    const returnedStory = axios.get(`/api/story/${story_id}`).then(res => res.data);
     return {
       type: GET_STORY,
       payload: returnedStory
