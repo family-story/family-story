@@ -12,7 +12,7 @@ export default function Landing(props){
             Welcome to Family Story
           </span>
             <div className = 'landing-welcome-2'>
-              where your stories come to life...
+              Where your stories come to life...
             </div>
         </div> 
       </div> 
