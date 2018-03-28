@@ -93,7 +93,15 @@ class Home extends Component {
     return (
       <div>
         <NavBar logout={true} />
-        <input type='search' onChange={e => this.handleFilterTags(e.target.value)} />
+        <div className = 'divider-1'></div>
+        <div className = 'your-stories-search'>
+          <span className = 'your-stories'> Your Stories: </span>
+          <div className = 'search-stories-input'>
+            <span className = 'search-stories'>Search stories by title or tag:</span>
+            <input type='search' onChange={e => this.handleFilterTags(e.target.value)} className = 'search-input'/>
+          </div>
+        </div>
+        <div className = 'divider-3'></div>
         <div>
           {this.state.stories[0] ? stories : null}
         </div>

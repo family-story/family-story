@@ -121,14 +121,14 @@ table {
 
 .divider-1 {
   height: 2px;
-  width: 60%;
+  width: 88%;
   background-color: rgba(0, 0, 0, 0.13);
   border-radius: 5px;
   margin: auto; }
 
 .divider-2 {
   height: 2px;
-  width: 60%;
+  width: 88%;
   background-color: rgba(0, 0, 0, 0.13);
   border-radius: 5px; }
 
@@ -144,8 +144,31 @@ table {
   font-weight: 200;
   cursor: pointer; }
 
+.your-stories-search {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 50px;
+  margin-top: 50px; }
+  .your-stories-search .your-stories {
+    font-size: 36px;
+    font-family: "Open Sans";
+    padding-left: 52%; }
+  .your-stories-search .search-stories {
+    font-size: 18px;
+    font-family: "Open Sans";
+    padding-left: 13%; }
+  .your-stories-search .search-input {
+    width: 150px;
+    margin: 13px; }
+
+.divider-3 {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 1px;
+  width: 60%;
+  margin: 0px auto; }
+
 .story {
-  background-color: orange;
+  background-color: blue;
   padding: 10px;
   margin: 10px; }
 
@@ -158,7 +181,6 @@ table {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4); }
-  
   .transparent-background .story-view-modal {
     text-align: center;
     font-size: 30px;

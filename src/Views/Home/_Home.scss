@@ -1,5 +1,37 @@
+.your-stories-search {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 50px;
+  margin-top: 50px;
+
+  .your-stories {
+    font-size: 36px;
+    font-family: $font-family1;
+    padding-left: 52%;
+  }
+
+  .search-stories {
+    font-size: 18px;
+    font-family: $font-family1;
+    padding-left: 13%;
+  }
+
+  .search-input {
+    width: 150px;
+    margin: 13px;
+  }
+}
+
+.divider-3 {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 1px;
+  width: 60%;
+  margin: 0px auto;
+}
+
+
 .story {
-  background-color: orange;
+  background-color: blue;
   padding: 10px;
   margin: 10px;
 }
