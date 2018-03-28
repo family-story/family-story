@@ -14,16 +14,40 @@ class StoryEditor extends Component {
 
       eventEditorModal: false,
 
-      story_title: '',
-      tags: []
+      tag: '',
+
+      story: [{
+        story_title: '',
+        tags: [],
+        events: []
+      }]
 
     }
 
     this.closeEventEditorModal = this.closeEventEditorModal.bind(this)
   }
 
-  handleEditing(key, value) {
-    this.setState({ [key]: value })
+  handleTitle(value) {
+    this.setState({ story: [{ story_title: value }] })
+  }
+
+  handleTag() {
+    let tagsArray = this.state.story[0].tags.slice()
+    tagsArray.push({ tag_str: this.state.tag })
+    this.setState({
+      story: [{
+        tags: tagsArray
+      }]
+    })
+    this.setState({
+      tag: ''
+    })
+  }
+
+  handleTagStr(value) {
+    this.setState({
+      tag: value
+    })
   }
 
   closeEventEditorModal() {
@@ -31,7 +55,6 @@ class StoryEditor extends Component {
       eventEditorModal: false
     })
   }
-
 
   handleEventEditSelection(eventId) {
     let selected = this.state.events.filter(event => event.event_id === eventId)
@@ -46,7 +69,12 @@ class StoryEditor extends Component {
     })
   }
 
+  handleRemoveTag() {
+
+  }
+
   render() {
+    console.log(this.state.story[0].tags)
 
     // Maps over events belonging to story, if any.
     let eventsList
@@ -56,6 +84,15 @@ class StoryEditor extends Component {
           <div onClick={() => this.handleEventEditSelection(event.event_id)} key={index}>
             <h3>{event.event_title}</h3>
           </div>
+        )
+      })
+    }
+
+    let currentTags = null
+    if (this.props.currentStory.tags !== 'undefined') {
+      currentTags = this.props.currentStory[0].tags.map(tag => {
+        return (
+          <p key={tag.tag_id} onClick={() => this.handleRemoveTag(tag.tag_id)}>{tag.tag_str}</p>
         )
       })
     }
@@ -71,12 +108,10 @@ class StoryEditor extends Component {
             selectedEventInfo={this.state.selectedEventInfo} /> :
           null}
 
-
         <div>
           <h3>Story Title</h3>
-          <input value={this.state.story_title} onChange={e => this.handleEditing('story_title', e.target.value)} />
+          <input type="text" onChange={e => this.handleTitle(e.target.value)} />
         </div>
-
 
         <div>
           <h3>Events</h3>
@@ -91,7 +126,15 @@ class StoryEditor extends Component {
 
         <div>
           <h3>Tags</h3>
-          <input />
+          <input type="text" value={this.state.tag} onChange={e => this.handleTagStr(e.target.value)} />
+          <button onClick={() => this.handleTag()}>Add</button>
+        </div>
+
+        <div>
+          <h3>Current tags, click to remove:</h3>
+          <div>
+            {currentTags}
+          </div>
         </div>
 
         {/* <div>
@@ -101,7 +144,7 @@ class StoryEditor extends Component {
 
         <div>
           <Link to='/home'><button> Save </button></Link>
-          <button> Cancel </button>
+          <Link to='/home'><button> Cancel </button></Link>
         </div>
       </div>
     )
