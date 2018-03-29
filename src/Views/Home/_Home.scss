@@ -1,26 +1,34 @@
 .your-stories-search {
-  display: grid;
-  grid-template-columns: 2fr 2fr;
-  grid-template-rows: 50px;
+  display: flex;
+  margin: auto;
   margin-top: 25px;
-  position: static;
+  width: 50%;
+  justify-content: space-between;
+
 
   .your-stories {
     font-size: 36px;
     font-family: $font-family1;
-    padding-left: 52%;
-    position: static;
+    width: 60%;
   }
 
   .search-stories {
     font-size: 18px;
     font-family: $font-family1;
-    padding-left: 13%;
+    margin: 13px 0;
+    padding-bottom: 2px;
+  }
+
+  .search-stories-input {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
 
   .search-input {
     width: 150px;
-    margin: 13px;
+    margin: 13px 0 13px 13px;
     border-radius: 10px;
     border: 1px solid lightgrey;
   }
@@ -32,6 +40,12 @@
   width: 60%;
   margin: 0px auto;
 }
+
+.story-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
 
 .your-tags {
   padding-left: 20px;
@@ -71,7 +85,6 @@
   font-size: 30px;
   margin-top: 20px;
   margin-left: 35%;
-
 }
 
 .story {
@@ -79,9 +92,22 @@
   text-decoration: none;
   width: 50%;
   margin-top: 20px;
-  margin-left: 26%;
   border-radius: 10px;
+  display: flex;
+  height: 100px;
 
+  .home-title-tags-container {
+    width: 80%;
+  }
+
+  .home-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 20%;
+    margin: 15px 20px;
+  }
   .story-title {
     font-family: $font-family1;
     padding-top: 10px;
@@ -92,9 +118,29 @@
   }
 }
 
+.home-tags-container {
+  margin: 10px 0;
+}
+
+.handle-link {
+  width:  50%;
+  // margin: auto;
+}
+
+.add-story-link{
+  background-color: #DEDEDE;
+  text-decoration: none;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+  display: flex;
+  height: 100px;
+}
 .add-story-container {
-  display: grid;
-  grid-template-columns: 1.5fr 2fr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .circle-add {
@@ -102,16 +148,14 @@
   width: 50px;
   background-color: #85B807;
   border-radius: 50%;
-  justify-self: end;
-  margin-top: 10px;
-  align-content: center;
-  display: grid;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 
   .home-plus {
     font-size: 64px;
-    margin: 0px 5px;
-    padding-left: 5px;
-    padding-bottom: 6px;
+    margin: 0 5px;
+    margin-bottom: 11px;
     color: white;
     font-weight: lighter;
   }

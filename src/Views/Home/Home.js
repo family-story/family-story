@@ -66,13 +66,18 @@ class Home extends Component {
           )
         })
         return (
-          <Link key={story.story_id} to={`/story/${story.story_id}`}>
+          // <Link key={story.story_id} to={`/story/${story.story_id}`}>
             <div onClick={() => this.handleSelectedStory(story.story_id)} className='story' key={story.story_id}>
-
+              <div className = 'home-title-tags-container'> 
               <h3 className = 'story-title'>{story.story_title}</h3>
+              
+              <div className = 'home-tags-container'>
+                <span className = 'your-tags'>Your Tags:</span> 
+                {tags}
+              </div>
+              </div>
 
-              <span className = 'your-tags'>Your Tags:</span> {tags}
-
+              <div className = 'home-button-container'>
               <Link to='/createStory'>
                 <button className = 'home-edit' onClick={() => this.handleSelectedStory(story.story_id)}>Edit</button>
               </Link>
@@ -80,9 +85,10 @@ class Home extends Component {
               <Link to='/home'>
                 <button className = 'home-delete' /*onClick={() => this.handleDeleteButton(story.story_id)}*/>Delete</button>
               </Link>
+              </div>
 
             </div>
-          </Link>
+          // </Link>
         )
       })
 
@@ -102,18 +108,20 @@ class Home extends Component {
           </div>
         </div>
         <div className = 'divider-3'></div>
-        <div>
+        <div className = 'story-container'>
           {this.state.stories[0] ? stories : null}
-        </div>
-
-         <Link to='/createStory'><div className = 'story' onClick={() => this.handleCreateNewStory()}>
+        <div className = 'handle-link'>
+         <Link to='/createStory'><div className = 'add-story-link' onClick={() => this.handleCreateNewStory()}>
           <div className = 'add-story-container'>
             <div className = 'circle-add'>
               <span className = 'home-plus'> + </span>
             </div>
             <h3 className = 'add-story'> Add Story </h3>
           </div>
-        </div> </Link>
+        </div>
+        </Link>
+        </div>
+        </div>
       </div>
     )
   }
