@@ -1,7 +1,7 @@
 
 .landing-picture {
   background-image: url('../Assets/landing.jpg');
-  width: 929px;
+  width: 50% ;
   height: 578px;
   margin-top: 45px;
   margin-left: auto;
@@ -46,7 +46,7 @@
 
 .divider-1 {
   height: 2px;
-  width: 60%;
+  width: $divider-width;
   background-color: $divider-background-color;
   border-radius: 5px;
   margin: auto;
@@ -54,7 +54,7 @@
 
 .divider-2{
   height: 2px;
-  width: 60%;
+  width: $divider-width;
   background-color: $divider-background-color;
   border-radius: 5px;
 }
