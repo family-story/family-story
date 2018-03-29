@@ -273,9 +273,14 @@ a {
     height: 90vh;
     font-family: Verdana, Geneva, Tahoma, sans-serif; }
 
-button.slick-arrow.slick-prev:before,
-button.slick-arrow.slick-next:before {
-  color: grey;
+.MapBody {
+  width: 40vw;
+  height: 40vh;
+  position: relative; }
+
+.slick-prev:before,
+.slick-next:before {
+  color: gray;
   padding: none; }
 
 .slick-slider {

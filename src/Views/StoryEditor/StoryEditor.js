@@ -32,7 +32,6 @@ class StoryEditor extends Component {
     })
   }
 
-
   handleEventEditSelection(eventId) {
     let selected = this.state.events.filter(event => event.event_id === eventId)
     if (selected[0] === 'undefined') {
@@ -71,12 +70,10 @@ class StoryEditor extends Component {
             selectedEventInfo={this.state.selectedEventInfo} /> :
           null}
 
-
         <div>
           <h3>Story Title</h3>
           <input value={this.state.story_title} onChange={e => this.handleEditing('story_title', e.target.value)} />
         </div>
-
 
         <div>
           <h3>Events</h3>
