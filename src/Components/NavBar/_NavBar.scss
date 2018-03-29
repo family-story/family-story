@@ -1,47 +1,41 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 
-$font-family2: 'Pacifico';
 $font-family1: 'Open Sans';
+$font-family2: 'Pacifico';
 $divider-background-color: rgba(0,0,0,0.13);
+$divider-width: 88%;
 
 .navbar {
   background-color: transparent;
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: 50px;
-  width: 984px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
   height: 100px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 
     .family-story {
-      padding-left: 25px;
       font-size: 48px;
       height: 66px;
       width: 437px;
-      padding-top: 20px;
       font-family: $font-family2;
 
     }
 
     .login-nav {
-      grid-column: 3;
       font-family: $font-family1;
       font-size: 36px;
       font-weight: lighter;
-      margin-top: 35px;
-      padding-left: 20px;
+      // margin-top: 35px;
       text-decoration: none;
       color: black;
     }
 
     .logout-nav {
-      grid-column: 3;
       font-family: $font-family1;
       font-size: 36px;
       font-weight: lighter;
-      margin-top: 35px;
-      padding-left: 20px;
+      // margin-top: 35px;
       text-decoration: none;
       color: black;
     }
