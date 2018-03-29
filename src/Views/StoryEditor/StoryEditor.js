@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { cancelStoryChanges, updateStory, updateStoryDB, saveNewStory } from '../../ducks/reducer'
 
 import NavBar from '../../Components/NavBar/NavBar'
 import EventEditor from '../EventEditor/EventEditor'
@@ -27,21 +28,25 @@ class StoryEditor extends Component {
     this.closeEventEditorModal = this.closeEventEditorModal.bind(this)
   }
 
-  handleTitle(value) {
-    this.setState({ story: [{ story_title: value }] })
+  async handleTitle(value) {
+    let storyCopy = this.state.story.slice()
+    storyCopy[0].story_title = value
+    await this.setState({ story: storyCopy })
+
+    this.props.updateStory(this.state.story)
   }
 
-  handleTag() {
+  async handleTag() {
     let tagsArray = this.state.story[0].tags.slice()
+    let storyCopy = this.state.story.slice()
     tagsArray.push({ tag_str: this.state.tag })
-    this.setState({
-      story: [{
-        tags: tagsArray
-      }]
-    })
-    this.setState({
+    storyCopy[0].tags = tagsArray
+    await this.setState({
+      story: storyCopy,
       tag: ''
     })
+
+    this.props.updateStory(this.state.story)
   }
 
   handleTagStr(value) {
@@ -69,8 +74,18 @@ class StoryEditor extends Component {
     })
   }
 
-  handleRemoveTag() {
+  async handleRemoveTag(index) {
+    let tagsArray = this.state.story[0].tags.slice()
+    tagsArray.splice(index, 1)
 
+    let storyCopy = this.state.story.slice()
+    storyCopy[0].tags = tagsArray
+    await this.setState({
+      story: storyCopy,
+      tag: ''
+    })
+
+    this.props.updateStory(this.state.story)
   }
 
   render() {
@@ -90,9 +105,9 @@ class StoryEditor extends Component {
 
     let currentTags = null
     if (this.props.currentStory.tags !== 'undefined') {
-      currentTags = this.props.currentStory[0].tags.map(tag => {
+      currentTags = this.props.currentStory[0].tags.map((tag, index) => {
         return (
-          <p key={tag.tag_id} onClick={() => this.handleRemoveTag(tag.tag_id)}>{tag.tag_str}</p>
+          <p key={index} onClick={() => this.handleRemoveTag(index)}>{tag.tag_str}</p>
         )
       })
     }
@@ -110,7 +125,7 @@ class StoryEditor extends Component {
 
         <div>
           <h3>Story Title</h3>
-          <input type="text" onChange={e => this.handleTitle(e.target.value)} />
+          <input type="text" value={this.props.currentStory[0].story_title} onChange={e => this.handleTitle(e.target.value)} />
         </div>
 
         <div>
@@ -143,8 +158,13 @@ class StoryEditor extends Component {
         </div> */}
 
         <div>
-          <Link to='/home'><button> Save </button></Link>
-          <Link to='/home'><button> Cancel </button></Link>
+          <Link to='/home'>
+            <button onClick={
+              this.props.currentStory[0].story_id ?
+                () => this.props.updateStoryDB(this.state.story) :
+                () => this.props.saveNewStory(this.state.story)}> Save </button>
+          </Link>
+          <Link to='/home'><button onClick={() => this.props.cancelStoryChanges()}> Cancel </button></Link>
         </div>
       </div>
     )
@@ -158,4 +178,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(StoryEditor)
+export default connect(mapStateToProps, { cancelStoryChanges, updateStory, updateStoryDB, saveNewStory })(StoryEditor)
