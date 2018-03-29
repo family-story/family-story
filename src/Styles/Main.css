@@ -148,11 +148,13 @@ table {
   display: grid;
   grid-template-columns: 2fr 2fr;
   grid-template-rows: 50px;
-  margin-top: 50px; }
+  margin-top: 25px;
+  position: static; }
   .your-stories-search .your-stories {
     font-size: 36px;
     font-family: "Open Sans";
-    padding-left: 52%; }
+    padding-left: 52%;
+    position: static; }
   .your-stories-search .search-stories {
     font-size: 18px;
     font-family: "Open Sans";
@@ -169,14 +171,18 @@ table {
   width: 60%;
   margin: 0px auto; }
 
+.your-tags {
+  padding-left: 20px;
+  color: black; }
+
 .home-tags {
   color: black;
-  padding-left: 20px; }
+  padding-left: 8px; }
 
 .home-edit {
   font-family: "Open Sans";
-  height: 39px;
-  width: 123px;
+  height: 30px;
+  width: 100px;
   background-color: #85B807;
   border: none;
   border-radius: 10px;
@@ -186,8 +192,8 @@ table {
 
 .home-delete {
   font-family: "Open Sans";
-  height: 39px;
-  width: 123px;
+  height: 30px;
+  width: 100px;
   background-color: #BDBDBD;
   border: none;
   border-radius: 10px;
@@ -215,6 +221,38 @@ table {
     font-weight: bold;
     font-size: 28px;
     color: black; }
+
+.add-story-container {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr; }
+
+.circle-add {
+  height: 50px;
+  width: 50px;
+  background-color: #85B807;
+  border-radius: 50%;
+  justify-self: end;
+  margin-top: 10px;
+  align-content: center;
+  display: grid; }
+  .circle-add .home-plus {
+    font-size: 64px;
+    margin: 0px 5px;
+    padding-left: 5px;
+    padding-bottom: 6px;
+    color: white;
+    font-weight: lighter; }
+
+.add-story {
+  font-family: "Open Sans";
+  font-size: 36px;
+  line-height: 49px;
+  padding: 10px;
+  color: black;
+  grid-column: 2; }
+
+a {
+  text-decoration: none; }
 
 .transparent-background {
   position: fixed;

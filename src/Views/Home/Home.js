@@ -71,7 +71,7 @@ class Home extends Component {
 
               <h3 className = 'story-title'>{story.story_title}</h3>
 
-              {tags}
+              <span className = 'your-tags'>Your Tags:</span> {tags}
 
               <Link to='/createStory'>
                 <button className = 'home-edit' onClick={() => this.handleSelectedStory(story.story_id)}>Edit</button>
@@ -106,12 +106,14 @@ class Home extends Component {
           {this.state.stories[0] ? stories : null}
         </div>
 
-        <div>
-          Create Your Story
-          <Link to='/createStory'>
-            <button onClick={() => this.handleCreateNewStory()}> start </button>
-          </Link>
-        </div>
+         <Link to='/createStory'><div className = 'story' onClick={() => this.handleCreateNewStory()}>
+          <div className = 'add-story-container'>
+            <div className = 'circle-add'>
+              <span className = 'home-plus'> + </span>
+            </div>
+            <h3 className = 'add-story'> Add Story </h3>
+          </div>
+        </div> </Link>
       </div>
     )
   }
