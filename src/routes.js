@@ -14,7 +14,5 @@ export default (
     <Route path = '/home' component = {Home}/>
     <Route path = '/createStory' component = {StoryEditor}/>
     <Route path = '/story/:id' component = {StoryView}/>
-    <Route path = '/carousel' component = {ImageCarousel}/>
-    <Route path = '/storyModal' component = {StoryView}/>
   </Switch>
 )
