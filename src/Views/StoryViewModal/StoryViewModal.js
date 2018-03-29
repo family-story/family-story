@@ -295,11 +295,7 @@ handlePreviousButton(){
       <div className = 'transparent-background'>
         <div className = 'mid-modal'>
         <div className = 'story-view-modal'>
-<<<<<<< HEAD
-          <span className = 'x'>X </span>
-=======
           <MapDisplay location={this.state.story[0].events[this.state.eventIndex].location}/>
->>>>>>> master
           Map Component
           <ImageCarousel event = {this.state.event}/>
           Audio
