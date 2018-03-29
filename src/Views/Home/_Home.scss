@@ -1,5 +1,130 @@
+.your-stories-search {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 50px;
+  margin-top: 25px;
+  position: static;
+
+  .your-stories {
+    font-size: 36px;
+    font-family: $font-family1;
+    padding-left: 52%;
+    position: static;
+  }
+
+  .search-stories {
+    font-size: 18px;
+    font-family: $font-family1;
+    padding-left: 13%;
+  }
+
+  .search-input {
+    width: 150px;
+    margin: 13px;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+  }
+}
+
+.divider-3 {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 1px;
+  width: 60%;
+  margin: 0px auto;
+}
+
+.your-tags {
+  padding-left: 20px;
+  color: black;
+}
+.home-tags {
+  color: black;
+  padding-left: 8px;
+}
+
+.home-edit {
+  font-family: $font-family1;
+  height: 30px;
+  width: 100px;
+  background-color: #85B807;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  line-height: 25px;
+  cursor: pointer;
+}
+
+.home-delete {
+  font-family: $font-family1;
+  height: 30px;
+  width: 100px;
+  background-color: #BDBDBD;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  line-height: 25px;
+  cursor: pointer;
+}
+
+.search-sorry {
+  font-family: $font-family1;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-left: 35%;
+
+}
+
 .story {
-  background-color: orange;
+  background-color: #DEDEDE;
+  text-decoration: none;
+  width: 50%;
+  margin-top: 20px;
+  margin-left: 26%;
+  border-radius: 10px;
+
+  .story-title {
+    font-family: $font-family1;
+    padding-top: 10px;
+    padding-left: 20px;
+    font-weight: bold;
+    font-size: 28px;
+    color: black;
+  }
+}
+
+.add-story-container {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+}
+
+.circle-add {
+  height: 50px;
+  width: 50px;
+  background-color: #85B807;
+  border-radius: 50%;
+  justify-self: end;
+  margin-top: 10px;
+  align-content: center;
+  display: grid;
+
+  .home-plus {
+    font-size: 64px;
+    margin: 0px 5px;
+    padding-left: 5px;
+    padding-bottom: 6px;
+    color: white;
+    font-weight: lighter;
+  }
+}
+.add-story {
+  font-family: $font-family1;
+  font-size: 36px;
+  line-height: 49px;
   padding: 10px;
-  margin: 10px;
+  color: black;
+  grid-column: 2;
+}
+
+a {
+  text-decoration: none;
 }

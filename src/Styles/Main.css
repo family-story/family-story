@@ -121,14 +121,14 @@ table {
 
 .divider-1 {
   height: 2px;
-  width: 60%;
+  width: 88%;
   background-color: rgba(0, 0, 0, 0.13);
   border-radius: 5px;
   margin: auto; }
 
 .divider-2 {
   height: 2px;
-  width: 60%;
+  width: 88%;
   background-color: rgba(0, 0, 0, 0.13);
   border-radius: 5px; }
 
@@ -144,21 +144,134 @@ table {
   font-weight: 200;
   cursor: pointer; }
 
-.story {
-  background-color: orange;
-  padding: 10px;
-  margin: 10px; }
+.your-stories-search {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 50px;
+  margin-top: 25px;
+  position: static; }
+  .your-stories-search .your-stories {
+    font-size: 36px;
+    font-family: "Open Sans";
+    padding-left: 52%;
+    position: static; }
+  .your-stories-search .search-stories {
+    font-size: 18px;
+    font-family: "Open Sans";
+    padding-left: 13%; }
+  .your-stories-search .search-input {
+    width: 150px;
+    margin: 13px;
+    border-radius: 10px;
+    border: 1px solid lightgrey; }
 
-.story-view-modal {
-  text-align: center;
+.divider-3 {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 1px;
+  width: 60%;
+  margin: 0px auto; }
+
+.your-tags {
+  padding-left: 20px;
+  color: black; }
+
+.home-tags {
+  color: black;
+  padding-left: 8px; }
+
+.home-edit {
+  font-family: "Open Sans";
+  height: 30px;
+  width: 100px;
+  background-color: #85B807;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  line-height: 25px;
+  cursor: pointer; }
+
+.home-delete {
+  font-family: "Open Sans";
+  height: 30px;
+  width: 100px;
+  background-color: #BDBDBD;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  line-height: 25px;
+  cursor: pointer; }
+
+.search-sorry {
+  font-family: "Open Sans";
   font-size: 30px;
-  background-color: white;
-  margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #888888;
-  width: 90%;
-  height: fit-content;
-  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+  margin-top: 20px;
+  margin-left: 35%; }
+
+.story {
+  background-color: #DEDEDE;
+  text-decoration: none;
+  width: 50%;
+  margin-top: 20px;
+  margin-left: 26%;
+  border-radius: 10px; }
+  .story .story-title {
+    font-family: "Open Sans";
+    padding-top: 10px;
+    padding-left: 20px;
+    font-weight: bold;
+    font-size: 28px;
+    color: black; }
+
+.add-story-container {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr; }
+
+.circle-add {
+  height: 50px;
+  width: 50px;
+  background-color: #85B807;
+  border-radius: 50%;
+  justify-self: end;
+  margin-top: 10px;
+  align-content: center;
+  display: grid; }
+  .circle-add .home-plus {
+    font-size: 64px;
+    margin: 0px 5px;
+    padding-left: 5px;
+    padding-bottom: 6px;
+    color: white;
+    font-weight: lighter; }
+
+.add-story {
+  font-family: "Open Sans";
+  font-size: 36px;
+  line-height: 49px;
+  padding: 10px;
+  color: black;
+  grid-column: 2; }
+
+a {
+  text-decoration: none; }
+
+.transparent-background {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); }
+  .transparent-background .story-view-modal {
+    text-align: center;
+    font-size: 30px;
+    background-color: white;
+    margin: 25px auto;
+    padding: 20px;
+    width: 90%;
+    height: 90vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; }
 
 .MapBody {
   width: 40vw;
