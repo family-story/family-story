@@ -163,7 +163,8 @@ table {
 .MapBody {
   width: 40vw;
   height: 40vh;
-  position: relative; }
+  position: relative;
+  margin-bottom: 80px; }
 
 .slick-prev:before,
 .slick-next:before {
