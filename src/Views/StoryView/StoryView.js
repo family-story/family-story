@@ -6,7 +6,7 @@ import ImageCarousel from '../../Components/ImageCarousel/ImageCarousel';
 import AudioPlayer from './AudioPlayer';
 
 
-class StoryViewModal extends Component {
+class StoryView extends Component {
   constructor(props){
     super(props);
   
@@ -80,4 +80,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps) (StoryViewModal)
+export default connect(mapStateToProps) (StoryView)
