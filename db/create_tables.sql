@@ -85,3 +85,21 @@ VALUES (1, 'pic', 'https://www.familysearch.org/dzpatron/v1/TH-301-41540-135-27/
         (11, 'pic', 'https://history.lds.org/bc/content/images/library/exhibits/st-george-tabernacle/st-george-1890-uhs.jpg'),
         (12, 'pic', 'http://teachingamericanhistory.org/files/2016/09/getty.jpg'),
         (13, 'pic', 'https://www.familysearch.org/dzpatron/v1/TH-303-48239-97-22/scale?width=800&ctx=ArtCtxPublic&angle=0');
+
+insert into media (event_id, media_ref, media_type)
+values (4, 'http://www.freesfx.co.uk/rx2/mp3s/4/16311_1460573367.mp3', 'audio'),
+(21, 'http://www.freesfx.co.uk/rx2/mp3s/4/16311_1460573367.mp3', 'audio'),
+(34, 'http://www.freesfx.co.uk/rx2/mp3s/4/16311_1460573367.mp3', 'audio'),
+(47, 'http://www.freesfx.co.uk/rx2/mp3s/4/16311_1460573367.mp3', 'audio'),
+(5, 'http://www.freesfx.co.uk/rx2/mp3s/4/16565_1460657593.mp3', 'audio'),
+(22, 'http://www.freesfx.co.uk/rx2/mp3s/4/16565_1460657593.mp3', 'audio'),
+(35, 'http://www.freesfx.co.uk/rx2/mp3s/4/16565_1460657593.mp3', 'audio'),
+(48, 'http://www.freesfx.co.uk/rx2/mp3s/4/16565_1460657593.mp3', 'audio'),
+(6, 'http://static1.grsites.com/archive/sounds/misc/misc066.mp3', 'audio'),
+(23, 'http://static1.grsites.com/archive/sounds/misc/misc066.mp3', 'audio'),
+(36, 'http://static1.grsites.com/archive/sounds/misc/misc066.mp3', 'audio'),
+(49, 'http://static1.grsites.com/archive/sounds/misc/misc066.mp3', 'audio'),
+(6, 'http://soundbible.com/grab.php?id=1543&type=mp3', 'audio'),
+(23, 'http://soundbible.com/grab.php?id=1543&type=mp3', 'audio'),
+(36, 'http://soundbible.com/grab.php?id=1543&type=mp3', 'audio'),
+(49, 'http://soundbible.com/grab.php?id=1543&type=mp3', 'audio');

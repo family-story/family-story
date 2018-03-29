@@ -304,7 +304,8 @@ a {
 .MapBody {
   width: 40vw;
   height: 40vh;
-  position: relative; }
+  position: relative;
+  margin-bottom: 80px; }
 
 button.slick-arrow.slick-prev:before,
 button.slick-arrow.slick-next:before {
