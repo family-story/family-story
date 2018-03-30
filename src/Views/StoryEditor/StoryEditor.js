@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { cancelStoryChanges, updateStory, updateStoryDB, saveNewStory } from '../../ducks/reducer'
+import { cancelStoryChanges, updateStory, clearState, saveNewStory, getStory } from '../../ducks/reducer'
 
 import NavBar from '../../Components/NavBar/NavBar'
 import EventEditor from '../EventEditor/EventEditor'
@@ -11,7 +12,7 @@ class StoryEditor extends Component {
     super()
     this.state = {
       selectedEvent: null,
-      newEvent: false,
+      newEventBool: false,
       eventEditor: false,
       story_id: null,
       story_title: '',
@@ -23,25 +24,30 @@ class StoryEditor extends Component {
     this.closeEditor = this.closeEditor.bind(this)
     this.updateEvent = this.updateEvent.bind(this)
     this.addNewEvent = this.addNewEvent.bind(this)
+    this.deleteEvent = this.deleteEvent.bind(this)
   }
 
   componentDidMount() {
-    let { tags, events, story_title, story_id } = this.props.currentStory[0]
-    events.sort((a, b) => a.event_num - b.event_num)
+    if (this.props.currentStory[0]) {
+      let { tags, events, story_title, story_id } = this.props.currentStory[0]
+      events.sort((a, b) => a.event_num - b.event_num)
 
-    this.setState({
-      story_title: story_title,
-      story_id: story_id,
-      tags: tags,
-      events: events
-    })
+      this.setState({
+        story_title: story_title,
+        story_id: story_id,
+        tags: tags,
+        events: events
+      })
+    }
   }
 
   componentWillReceiveProps(newProps) {
     if (newProps.currentStory[0]) {
-      let { tags, events, story_title } = this.props.currentStory[0]
+      console.log('will recive props hit')
+      let { tags, events, story_title, story_id } = newProps.currentStory[0]
       this.setState({
         story_title: story_title,
+        story_id: story_id,
         tags: tags,
         events: events
       })
@@ -60,16 +66,17 @@ class StoryEditor extends Component {
     }
   }
 
-  updateEvent(index) {
+  editEvent(index) {
     this.setState({
       selectedEvent: index,
+      newEventBool: false,
       eventEditor: true
     })
   }
 
   newEvent() {
     this.setState({
-      newEvent: true,
+      newEventBool: true,
       eventEditor: true
     })
   }
@@ -101,14 +108,13 @@ class StoryEditor extends Component {
     this.setState({ eventEditor: false })
   }
 
-  updateEvent(event, index) {
+  updateEvent(event) {
     let events = this.state.events
-    events.splice(index, 1, event)
+    events.splice(this.state.selectedEvent, 1, event)
   }
 
   addNewEvent(event) {
     let events = this.state.events
-    event.event_num = events[events.length - 1].event_num + 1
     events.push(event)
     this.setState({ events: events })
   }
@@ -132,6 +138,7 @@ class StoryEditor extends Component {
 
     let story = []
     if (this.props.currentStory[0].story_id) {
+      console.log('update story db hit')
       story = [{
         user_id: this.props.user.user_id,
         story_id: story_id,
@@ -139,28 +146,43 @@ class StoryEditor extends Component {
         tags: tags,
         events: events
       }];
-      await this.props.updateStoryDB(story)
+      // await this.props.updateStoryDB(story)
+      await axios.put('/api/story', story)
+      await this.props.getStory(this.state.story_id)
     } else {
+      console.log('new story hit')
       story = [{
         user_id: this.props.user.user_id,
         story_title: story_title,
         tags: tags,
         events: events
       }];
-      await this.props.saveNewStory(story)
+      await axios.post('/api/story', story)      
+      // await this.props.saveNewStory(story)
     }
     window.location.assign('http://localhost:3000/home')
+  }
+
+  deleteEvent(){
+    let eventsArr = this.state.events.slice();
+    eventsArr.splice(this.state.selectedEvent, 1)
+    this.setState({
+      selectedEvent: null,
+      events: eventsArr
+    })
   }
 
   render() {
     let eventsList = this.state.events.map((event, index) => {
       return (
-        <div onClick={() => this.updateEvent(index)} key={index}>
+        <div key={index}>
+          <div onClick={() => this.editEvent(index)}>
+            <h3>{event.event_title}</h3>
+          </div>
           {index === 0 ? null :
             <button onClick={() => this.moveEvents('up', index)}>up</button>}
           {index === this.state.events.length - 1 ? null :
             <button onClick={() => this.moveEvents('down', index)}>down</button>}
-          <h3>{event.event_title}</h3>
         </div>
       )
     })
@@ -174,17 +196,22 @@ class StoryEditor extends Component {
       })
     }
 
+    let disableSave = this.state.events.length === 0
+    let disableSaveMsg = disableSave ? <div>Please save at least one event before saving a story.</div> : null;
+
     return (
       <div>
         <NavBar logout={true} />
 
         {this.state.eventEditor ?
           <EventEditor
-            newEvent={this.state.newEvent}
+            newEventBool={this.state.newEventBool}
+            newEvent={this.newEvent}
             closeEditor={this.closeEditor}
             event={this.state.events[this.state.selectedEvent]}
-            updateEvent={this.state.updateEvent}
-            addNewEvent={this.state.addNewEvent} /> :
+            updateEvent={this.updateEvent}
+            addNewEvent={this.addNewEvent} 
+            deleteEvent={this.deleteEvent}/> :
           null}
 
         <div>
@@ -222,7 +249,8 @@ class StoryEditor extends Component {
         </div> */}
 
         <div>
-          <button onClick={() => this.handleSave()}> Save </button>
+          <button disabled={disableSave} onClick={() => this.handleSave()}> Save </button>
+          {disableSaveMsg}
           <Link to='/home'><button onClick={() => this.props.cancelStoryChanges()}> Cancel </button></Link>
         </div>
       </div>
@@ -238,4 +266,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { cancelStoryChanges, updateStory, updateStoryDB, saveNewStory })(StoryEditor)
+export default connect(mapStateToProps, { cancelStoryChanges, updateStory, clearState, saveNewStory, getStory })(StoryEditor)

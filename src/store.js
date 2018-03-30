@@ -18,6 +18,7 @@ store.subscribe(() => {
     currentStory: store.getState().currentStory,
     currentEvent: store.getState().currentEvent,
     currentEventIndex: store.getState().currentEventIndex,
-    importedMedia: store.getState().importedMedia
+    importedMedia: store.getState().importedMedia,
+    user: store.getState().user
   });
 });

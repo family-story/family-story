@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import sha1 from 'sha1'
 import superagent from 'superagent'
-import { connect } from 'react-redux'
-import { addUploadedMedia } from '../../ducks/reducer'
 
 class MediaUploader extends Component {
     constructor(props) {
@@ -16,11 +13,6 @@ class MediaUploader extends Component {
         }
     }
 
-    componentDidMount(){
-        axios.get('/api/user')
-            .then(resp => this.setState({ user: resp }))
-    }
-
     handleChange(input, prop) {
         this.setState({
             [prop]: input
@@ -28,47 +20,45 @@ class MediaUploader extends Component {
     }
 
     uploadFile(files) {
-        files.forEach(media => {
-            const cloudName = 'dgoygxc2r'
-            if (this.props.mediaType === 'audio') {
-                var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`
-            } else if (this.props.mediaType === 'image') {
-                var url = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`
+        let media = files[0]
+        const cloudName = 'dgoygxc2r'
+        if (this.props.mediaType === 'audio') {
+            var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`
+        } else if (this.props.mediaType === 'pic') {
+            var url = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`
+        }
+
+        const timeStamp = Date.now() / 1000
+        const uploadPreset = 'yhsufroq'
+
+        const paramsStr = `timestamp=${timeStamp}&upload_preset=${uploadPreset}l7oomwFmuE9JiD_DjWbEEkYMJOA`
+        const signature = sha1(paramsStr)
+
+        const params = {
+            'api_key': process.env.REACT_APP_CLOUDNARY_KEY,
+            'timestamp': timeStamp,
+            'upload_preset': uploadPreset,
+            'signature': signature
+        }
+
+        let uploadRequest = superagent.post(url)
+        uploadRequest.attach('file', media);
+
+        Object.keys(params).forEach((key) => {
+            uploadRequest.field(key, params[key]);
+        });
+
+        uploadRequest.end((err, res) => {
+            if (err) {
+                alert(err);
+                return
             }
-            
-            const timeStamp = Date.now() / 1000
-            const uploadPreset = 'yhsufroq'
+                let media_type = this.props.mediaType
+                let media_ref = res.body.secure_url
+             console.log(media_type, media_ref)
+            this.props.addUploadedMedia(media_type, media_ref)
 
-            const paramsStr = `timestamp=${timeStamp}&upload_preset=${uploadPreset}l7oomwFmuE9JiD_DjWbEEkYMJOA`
-            const signature = sha1(paramsStr)
-
-            const params = {
-                'api_key': process.env.REACT_APP_CLOUDNARY_KEY,
-                'timestamp': timeStamp,
-                'upload_preset': uploadPreset,
-                'signature': signature
-            }
-
-            let uploadRequest = superagent.post(url)
-            uploadRequest.attach('file', media);
-
-            Object.keys(params).forEach((key) => {
-                uploadRequest.field(key, params[key]);
-            });
-
-            uploadRequest.end((err, res) => {
-                if (err) {
-                    alert(err);
-                    return
-                }
-
-                this.props.addUploadedMedia({
-                    media_type: this.props.mediaType,
-                    media_ref: res.body.secure_url
-                })
-
-            });
-        })
+        });
 
 
     }
@@ -76,10 +66,10 @@ class MediaUploader extends Component {
     render() {
         return (
             <div>
-                
+
                 <label className={this.props.mediaType} >
-                    <input onChange={e => this.uploadFile(e.target.files)} type="file" />
                     <div>Choose {this.props.mediaType} File</div>
+                    <input onChange={e => this.uploadFile(e.target.files)} type="file" />
                 </label>
             </div>
 
@@ -87,4 +77,4 @@ class MediaUploader extends Component {
     }
 }
 
-export default connect(null, { addUploadedMedia })(MediaUploader)
+export default MediaUploader
