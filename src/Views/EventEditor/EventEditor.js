@@ -128,7 +128,7 @@ class EventEditor extends Component {
 
                         <button onClick={() => this.handleCancel()}>Cancel</button>
                         <button onClick={() => this.handleSave()}>Save</button>
-                        <button onClick={() => this.handleDelete()}>Delete</button>
+                        <button disabled={this.props.newEventBool} onClick={() => this.handleDelete()}>Delete</button>
                     </div>
                 </ClickOutHandler>
             </div>

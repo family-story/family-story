@@ -24,6 +24,7 @@ class StoryEditor extends Component {
     this.closeEditor = this.closeEditor.bind(this)
     this.updateEvent = this.updateEvent.bind(this)
     this.addNewEvent = this.addNewEvent.bind(this)
+    this.deleteEvent = this.deleteEvent.bind(this)
   }
 
   componentDidMount() {
@@ -162,6 +163,15 @@ class StoryEditor extends Component {
     window.location.assign('http://localhost:3000/home')
   }
 
+  deleteEvent(){
+    let eventsArr = this.state.events.slice();
+    eventsArr.splice(this.state.selectedEvent, 1)
+    this.setState({
+      selectedEvent: null,
+      events: eventsArr
+    })
+  }
+
   render() {
     let eventsList = this.state.events.map((event, index) => {
       return (
@@ -186,6 +196,9 @@ class StoryEditor extends Component {
       })
     }
 
+    let disableSave = this.state.events.length === 0
+    let disableSaveMsg = disableSave ? <div>Please save at least one event before saving a story.</div> : null;
+
     return (
       <div>
         <NavBar logout={true} />
@@ -197,7 +210,8 @@ class StoryEditor extends Component {
             closeEditor={this.closeEditor}
             event={this.state.events[this.state.selectedEvent]}
             updateEvent={this.updateEvent}
-            addNewEvent={this.addNewEvent} /> :
+            addNewEvent={this.addNewEvent} 
+            deleteEvent={this.deleteEvent}/> :
           null}
 
         <div>
@@ -235,7 +249,8 @@ class StoryEditor extends Component {
         </div> */}
 
         <div>
-          <button onClick={() => this.handleSave()}> Save </button>
+          <button disabled={disableSave} onClick={() => this.handleSave()}> Save </button>
+          {disableSaveMsg}
           <Link to='/home'><button onClick={() => this.props.cancelStoryChanges()}> Cancel </button></Link>
         </div>
       </div>
