@@ -30,10 +30,12 @@ class Home extends Component {
     })
   }
 
-  async handleSelectedStory(story_id) {
+  async handleSelectedStory(story_id, view) {
     await this.props.getStory(story_id)
 
-    window.location.assign(`http://localhost:3000/story/${story_id}`)
+    if (view) {
+      window.location.assign(`http://localhost:3000/story/${story_id}`)
+    }
   }
 
   async handleDeleteButton(story_id) {
@@ -77,7 +79,7 @@ class Home extends Component {
         return (
           <div className='story' key={story.story_id}>
             <div className='home-title-tags-container'>
-              <h3 onClick={() => this.handleSelectedStory(story.story_id)} className='story-title'>{story.story_title}</h3>
+              <h3 onClick={() => this.handleSelectedStory(story.story_id, true)} className='story-title'>{story.story_title}</h3>
 
               <div className='home-tags-container'>
                 <span className='your-tags'>Your Tags:</span>
@@ -87,7 +89,7 @@ class Home extends Component {
 
             <div className='home-button-container'>
               <Link to='/createStory'>
-                <button className='home-edit' onClick={() => this.handleSelectedStory(story.story_id)}>Edit</button>
+                <button className='home-edit' onClick={() => this.handleSelectedStory(story.story_id, false)}>Edit</button>
               </Link>
 
               <button className='home-delete' onClick={() => this.handleDeleteButton(story.story_id)}>Delete</button>
