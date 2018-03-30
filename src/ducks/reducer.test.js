@@ -351,7 +351,8 @@ let initialState = {
   currentEventOrig: {},
   currentEvent: {},
   currentEventIndex: 0,
-  importedMedia: []
+  importedMedia: [],
+  user: {}
 };
 
 let initialState1 = {
@@ -361,7 +362,8 @@ let initialState1 = {
   currentEventOrig: {},
   currentEvent: {},
   currentEventIndex: 0,
-  importedMedia: []
+  importedMedia: [],
+  user: {}
 };
 let initialState2 = {
   storiesArray: testStoryList.slice(),
@@ -370,7 +372,8 @@ let initialState2 = {
   currentEventOrig: {},
   currentEvent: {},
   currentEventIndex: 0,
-  importedMedia: []
+  importedMedia: [],
+  user: {}
 };
 let initialState3 = {
   storiesArray: testStoryList.slice(),
@@ -379,7 +382,8 @@ let initialState3 = {
   currentEventOrig: {},
   currentEvent: {},
   currentEventIndex: 0,
-  importedMedia: []
+  importedMedia: [],
+  user: {}
 };
 
 describe("default", () => {
