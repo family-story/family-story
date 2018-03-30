@@ -2,6 +2,7 @@ module.exports = {
   getAllByUser: async function (req, res, next) {
     const db = req.app.get('db');
     let { user_id } = req.params
+    console.log(user_id)
     let stories = await db.get_all_stories_by_id([parseInt(user_id, 10)]);
     for (let i = 0; i < stories.length; i++) {
       let tags = await db.get_tags_by_story_id([stories[i].story_id]);
