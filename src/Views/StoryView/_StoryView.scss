@@ -1,0 +1,94 @@
+.audio {
+  
+}
+.story-view-title {
+  font-family: $font-family2;
+  font-size: 1.5em; 
+  padding: 1.5% 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.eventViewer {
+  display: flex;
+
+  .story-left {
+    display: flex;
+    width: 45%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2%;
+    padding-left: 5%;
+
+    .location {
+      margin: -5%;
+    }
+
+    .carousel {
+      margin-top: 5%;
+      margin-left: -27%;
+    }
+  }
+
+  .story-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    margin: 2% 10%;
+    width: 30%;
+
+    .event-title {
+      font-family: $font-family1;
+      margin-bottom: 2%;
+      font-size: 1.3em;
+      text-align: center;
+    }
+
+    .event-date {
+      font-family: $font-family1;
+      margin-bottom: 2%;
+      text-align: center;
+    }
+    
+    .event-desc {
+      font-family: $font-family1;
+      text-align: center;
+      word-spacing: 5px;
+    }
+  }
+}
+
+.story-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 2%;
+
+    .story-button {
+      background-color: #85B807;
+      color: white;
+      font-family: $font-family1;
+      border-radius: 5px;
+      border: none;
+      font-size: 24px;
+      width: 70px;
+      cursor: pointer;
+    }
+
+    .story-button-back {
+      background-color: #85B807;
+      color: white;
+      font-family: $font-family1;
+      border-radius: 5px;
+      border: none;
+      font-size: 24px;
+      width: 200px;
+      cursor: pointer;
+    }
+    
+}
+
