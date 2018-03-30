@@ -83,7 +83,7 @@ app.use(bodyParser.json());
 
 //Endpoints to access our database
 //get all stories by user id.
-app.get('/api/stories', storyCtrl.getAllByUser);
+app.get('/api/stories/:user_id', storyCtrl.getAllByUser);
 
 //get a story by story id
 app.get('/api/story/:story_id', storyCtrl.getStory);
