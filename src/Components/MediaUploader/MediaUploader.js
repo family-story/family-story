@@ -32,7 +32,7 @@ class MediaUploader extends Component {
             const cloudName = 'dgoygxc2r'
             if (this.props.mediaType === 'audio') {
                 var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`
-            } else if (this.props.mediaType === 'image') {
+            } else if (this.props.mediaType === 'pic') {
                 var url = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`
             }
             

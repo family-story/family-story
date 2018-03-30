@@ -56,6 +56,7 @@ export class MapSelector extends Component {
              <Marker name={'Current location'} position={this.state.center}/> 
           </Map>
         </div>
+        <button onClick={()=>this.props.handleLocation(this.state.location)} >Save Location</button>
       </div>
     )
   }
