@@ -27,51 +27,51 @@ massive(CONNECTION_STRING).then( db => {
   app.set('db', db);
 });
 
-passport.use(new Auth0Strategy({
-  domain: DOMAIN,
-  clientID: CLIENT_ID,
-  clientSecret: CLIENT_SECRET,
-  callbackURL: CALLBACK_URL,
-  scope: 'openid profile'
-}, function (accessToken, refreshToken, extreParams, profile, done) {
-  const db = app.get('db')
-  const { sub, name, picture } = profile._json
+// passport.use(new Auth0Strategy({
+//   domain: DOMAIN,
+//   clientID: CLIENT_ID,
+//   clientSecret: CLIENT_SECRET,
+//   callbackURL: CALLBACK_URL,
+//   scope: 'openid profile'
+// }, function (accessToken, refreshToken, extreParams, profile, done) {
+//   const db = app.get('db')
+//   const { sub, name, picture } = profile._json
 
-  db.find_user([sub])
-      .then(resp => {
-          if (resp[0]) {
-              done(null, resp[0].user_id)
-          } else {
-              db.create_user([name, picture, sub])
-                  .then(resp => {
-                      done(null, resp[0].user_id)
-                  })
-          }
-      })
+//   db.find_user([sub])
+//       .then(resp => {
+//           if (resp[0]) {
+//               done(null, resp[0].user_id)
+//           } else {
+//               db.create_user([name, picture, sub])
+//                   .then(resp => {
+//                       done(null, resp[0].user_id)
+//                   })
+//           }
+//       })
 
-}))
+// }))
 
-passport.serializeUser((id, done) => done(null, id))
-passport.deserializeUser((id, done) => {
-  const db = app.get('db')
-  db.find_logged_in_user([id]).then(resp =>{
-    done(null, resp[0])})
-})
+// passport.serializeUser((id, done) => done(null, id))
+// passport.deserializeUser((id, done) => {
+//   const db = app.get('db')
+//   db.find_logged_in_user([id]).then(resp =>{
+//     done(null, resp[0])})
+// })
 
-app.get('/auth', passport.authenticate('auth0'))
-app.get('/auth/callback', (req, res, next) => {
-    const authCB = passport.authenticate('auth0', {
-        successRedirect: LOGIN
-    })
-    authCB(req, res, next)
-})
-app.get('/auth/me', (req, res) => {
-    if (!req.user) {
-        res.status(404).send('User no longer Logged in')
-    } else {
-        
-        res.status(200).send(req.user)
-    }
+// app.get('/auth', passport.authenticate('auth0'))
+// app.get('/auth/callback', (req, res, next) => {
+//     const authCB = passport.authenticate('auth0', {
+//         successRedirect: LOGIN
+//     })
+//     authCB(req, res, next)
+// })
+
+app.get('/auth/me', async (req, res) => {
+    const db = req.app.get('db');
+    let user = await db.find_logged_in_user([7])
+    user = user[0]
+    console.log(user)
+    res.status(200).send(user)
 })
 
 app.get('/logout', (req, res) => {

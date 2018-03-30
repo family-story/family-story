@@ -8,11 +8,12 @@ const initialState = {
   currentEventOrig: {},
   currentEvent: {},
   currentEventIndex: 0,
-  importedMedia: []
+  importedMedia: [],
+  user: {}
 }
 
 //Action Names
-const GET_STORIES_ARRAY = 'GET_STORIES_ARRAY'; 
+const GET_STORIES_ARRAY = 'GET_STORIES_ARRAY';
 const GET_STORY = 'GET_STORY';
 const CREATE_NEW_STORY = 'CREATE_NEW_STORY'; //test done
 const SAVE_NEW_STORY = 'SAVE_NEW_STORY';
@@ -31,6 +32,7 @@ const ADD_IMPORTED_MEDIA = 'ADD_IMPORTED_MEDIA'; // no longer mvp
 const ADD_UPLOADED_MEDIA = 'ADD_UPLOADED_MEDIA'; //test done
 const CLEAR_IMPORTED_MEDIA = 'CLEAR_IMPORTED_MEDIA'; //test done
 const CLEAR_STATE = 'CLEAR_STATE'; //test done
+const GET_USER_INFO = 'GET_USER_INFO';
 
 /*Here is a definitive guide on what each of these actions are and what they are meant for:
 
@@ -75,7 +77,7 @@ CLEAR_STATE: Hit upon logout to clear the state.
 module.exports = {
   //Action Creators
   getStoriesArray: function (user_id) {
-    const returnedStoriesArray = axios.get(`/api/stories`).then(res => res.data);
+    const returnedStoriesArray = axios.get(`/api/stories/${user_id}`).then(res => res.data);
 
     return {
       type: GET_STORIES_ARRAY,
@@ -144,7 +146,7 @@ module.exports = {
 
   getEvent: function (eventIndex) {
     return {
-      type: GET_EVENT, 
+      type: GET_EVENT,
       payload: eventIndex
     };
   },
@@ -219,10 +221,16 @@ module.exports = {
     return { type: CLEAR_STATE };
   },
 
+  getUserInfo: function () {
+    const userInfo = axios.get('/auth/me').then(res => res.data)
+    return { type: GET_USER_INFO, payload: userInfo }
+  },
+
   //Reducer
   reducer: function (state = initialState, action) {
     switch (action.type) {
-
+      case GET_USER_INFO + "_FULFILLED":
+        return Object.assign({}, state, { user: action.payload });
       case GET_STORIES_ARRAY + "_FULFILLED":
       case SAVE_NEW_STORY + "_FULFILLED":
       case UPDATE_STORY_DB + "_FULFILLED":
@@ -230,7 +238,6 @@ module.exports = {
         return Object.assign({}, state, { storiesArray: action.payload });
 
       case GET_STORY + "_FULFILLED":
-        console.log(action.payload)
         return Object.assign({}, state, {
           currentStoryOrig: action.payload,
           currentStory: action.payload
