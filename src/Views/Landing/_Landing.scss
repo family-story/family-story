@@ -1,8 +1,11 @@
+.landing-container {
+  height: 100%;
+}
 
 .landing-picture {
   background-image: url('../Assets/landing.jpg');
   width: 50% ;
-  height: 578px;
+  height: 60vh;
   margin-top: 45px;
   margin-left: auto;
   margin-right: auto;
@@ -13,8 +16,8 @@
 
   .landing-mid {
     background-color: rgba(0,0,0,0.25);
-    height: 225px;
-    width: 765px;
+    height: 20vh;
+    width: 35vw;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -24,22 +27,20 @@
       font-family: $font-family1;
       font-style: bold;
       font-weight: bold;
-      line-height: 49px;
-      font-size: 36px;
+      font-size: 2em;
       color: #EEEEEE;
       text-shadow: 0px 4px 4px rgba(0,0,0,0.25);
-      padding-left: 110px;
+      margin-left: 10%;
     }
 
     .landing-welcome-2 {
       font-family: $font-family1;
       font-style: bold;
       font-weight: bold;
-      line-height: 45px;
-      font-size: 36px;
+      font-size: 2em;
       color: #EEEEEE;
       text-shadow: 0px 4px 4px rgba(0,0,0,0.25);
-      padding-left: 185px;
+      margin-left: 5vw;
     }
   }
 }
@@ -62,7 +63,8 @@
 .login-button {
   height: 90px;
   width: 20%;
-  margin-top: 50px;
+  margin-top: 2%;
+  margin-bottom: 2%;
   margin-left: 40%;
   border: none;
   border-radius: 5px;

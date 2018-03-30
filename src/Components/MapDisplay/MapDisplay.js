@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import axios from 'axios';
+import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 const style ={
   width: '100%',
   height:'100%'
@@ -38,7 +37,6 @@ export class MapDisplay extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    console.log(nextProps)
     if(this.props.location !== nextProps.location) {
       this.geoCodeAddress(this.geocoder, nextProps.location)
     }
@@ -51,7 +49,6 @@ export class MapDisplay extends Component {
 
     return (
       <div className = "MapBody">
-        <h3>{this.props.location}</h3>
         <div className = "MapContainer">
           <Map id='map' google={this.props.google} center={this.state.center} zoom={this.state.zoom} style ={style} onReady={this.onMapReady}>
              <Marker name={'Current location'} position={this.state.center}/> 

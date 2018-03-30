@@ -69,7 +69,6 @@ class Home extends Component {
           )
         })
         return (
-          // <Link key={story.story_id} to={`/story/${story.story_id}`}>
           <div className='story' key={story.story_id}>
             <div className='home-title-tags-container'>
               <h3 onClick={() => this.handleSelectedStory(story.story_id)} className='story-title'>{story.story_title}</h3>
@@ -87,52 +86,49 @@ class Home extends Component {
 
               <button className='home-delete' onClick={() => this.props.deleteStory(story.story_id)}>Delete</button>
             </div>
-
-          </div>
-          // </Link>
-        )
-      })
-
+            )
+          })
+    
     if (typeof stories[0] === 'undefined' || stories[0] == null) {
-      stories = <p className='search-sorry'>Sorry, your search did not find any results.</p>
-    }
+              stories = <p className='search-sorry'>Sorry, your search did not find any results.</p>
+            }
 
-    return (
+            return (
       <div>
-        <NavBar logout={true} />
-        <div className='divider-1'></div>
-        <div className='your-stories-search'>
-          <span className='your-stories'> Your Stories: </span>
-          <div className='search-stories-input'>
-            <span className='search-stories'>Search stories by title or tag:</span>
-            <input type='search' onChange={e => this.handleFilterTags(e.target.value)} className='search-input' />
-          </div>
-        </div>
-        <div className='divider-3'></div>
-        <div className='story-container'>
-          {this.state.stories[0] ? stories : null}
-          <div className='handle-link'>
-            <Link to='/createStory'><div className='add-story-link' onClick={() => this.handleCreateNewStory()}>
-              <div className='add-story-container'>
-                <div className='circle-add'>
-                  <span className='home-plus'> + </span>
+              <NavBar logout={true} />
+              <div className='divider-1'></div>
+              <div className='your-stories-search'>
+                <span className='your-stories'> Your Stories: </span>
+                <div className='search-stories-input'>
+                  <span className='search-stories'>Search stories by title or tag:</span>
+                  <input type='search' onChange={e => this.handleFilterTags(e.target.value)} className='search-input' />
                 </div>
-                <h3 className='add-story'> Add Story </h3>
+              </div>
+              <div className='divider-3'></div>
+              <div className='story-container'>
+                {this.state.stories[0] ? stories : null}
+                <div className='handle-link'>
+                  <Link to='/createStory'><div className='add-story-link' onClick={() => this.handleCreateNewStory()}>
+                    <div className='add-story-container'>
+                      <div className='circle-add'>
+                        <span className='home-plus'> + </span>
+                      </div>
+                      <h3 className='add-story'> Add Story </h3>
+                    </div>
+                  </div>
+                  </Link>
+                </div>
               </div>
             </div>
-            </Link>
-          </div>
-        </div>
-      </div>
-    )
-  }
-}
-
+            )
+          }
+        }
+        
 function mapStateToProps(state) {
   return {
-    storiesArray: state.storiesArray,
-    user: state.user
-  }
-}
-
-export default connect(mapStateToProps, { getUserInfo, getStoriesArray, getStory, deleteStory, createNewStory })(Home)
+              storiesArray: state.storiesArray,
+            user: state.user
+          }
+        }
+        
+export default connect(mapStateToProps, {getUserInfo, getStoriesArray, getStory, deleteStory, createNewStory })(Home)
