@@ -66,10 +66,9 @@ class Home extends Component {
           )
         })
         return (
-          // <Link key={story.story_id} to={`/story/${story.story_id}`}>
             <div onClick={() => this.handleSelectedStory(story.story_id)} className='story' key={story.story_id}>
               <div className = 'home-title-tags-container'> 
-              <h3 className = 'story-title'>{story.story_title}</h3>
+              <Link key={story.story_id} to={`/story/${story.story_id}`}><h3 className = 'story-title'>{story.story_title}</h3></Link>
               
               <div className = 'home-tags-container'>
                 <span className = 'your-tags'>Your Tags:</span> 
@@ -88,7 +87,6 @@ class Home extends Component {
               </div>
 
             </div>
-          // </Link>
         )
       })
 

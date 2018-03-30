@@ -72,10 +72,13 @@ table {
     text-decoration: none;
     color: black; }
 
+.landing-container {
+  height: 100%; }
+
 .landing-picture {
   background-image: url("../Assets/landing.jpg");
   width: 50%;
-  height: 578px;
+  height: 60vh;
   margin-top: 45px;
   margin-left: auto;
   margin-right: auto;
@@ -85,8 +88,8 @@ table {
   justify-content: center; }
   .landing-picture .landing-mid {
     background-color: rgba(0, 0, 0, 0.25);
-    height: 225px;
-    width: 765px;
+    height: 20vh;
+    width: 35vw;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -95,20 +98,18 @@ table {
       font-family: "Open Sans";
       font-style: bold;
       font-weight: bold;
-      line-height: 49px;
-      font-size: 36px;
+      font-size: 2em;
       color: #EEEEEE;
       text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      padding-left: 110px; }
+      margin-left: 10%; }
     .landing-picture .landing-mid .landing-welcome-2 {
       font-family: "Open Sans";
       font-style: bold;
       font-weight: bold;
-      line-height: 45px;
-      font-size: 36px;
+      font-size: 2em;
       color: #EEEEEE;
       text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      padding-left: 185px; }
+      margin-left: 5vw; }
 
 .divider-1 {
   height: 2px;
@@ -126,7 +127,8 @@ table {
 .login-button {
   height: 90px;
   width: 20%;
-  margin-top: 50px;
+  margin-top: 2%;
+  margin-bottom: 2%;
   margin-left: 40%;
   border: none;
   border-radius: 5px;
@@ -237,7 +239,8 @@ table {
   margin: 10px 0; }
 
 .handle-link {
-  width: 50%; }
+  width: 50%;
+  margin-bottom: 2%; }
 
 .add-story-link {
   background-color: #DEDEDE;
@@ -280,24 +283,74 @@ table {
 a {
   text-decoration: none; }
 
-.transparent-background {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
+.story-view-title {
+  font-family: "Pacifico";
+  font-size: 1.5em;
+  padding: 1.5% 0;
   width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4); }
-  .transparent-background .story-view-modal {
-    text-align: center;
-    font-size: 30px;
-    background-color: white;
-    margin: 25px auto;
-    padding: 20px;
-    width: 90%;
-    height: 90vh;
-    font-family: Verdana, Geneva, Tahoma, sans-serif; }
+  display: flex;
+  justify-content: center; }
+
+.eventViewer {
+  display: flex; }
+  .eventViewer .story-left {
+    display: flex;
+    width: 45%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2%;
+    padding-left: 5%; }
+    .eventViewer .story-left .location {
+      margin: -5%; }
+    .eventViewer .story-left .carousel {
+      margin-top: 5%;
+      margin-left: -27%; }
+  .eventViewer .story-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    margin: 2% 10%;
+    width: 30%; }
+    .eventViewer .story-right .event-title {
+      font-family: "Open Sans";
+      margin-bottom: 2%;
+      font-size: 1.3em;
+      text-align: center; }
+    .eventViewer .story-right .event-date {
+      font-family: "Open Sans";
+      margin-bottom: 2%;
+      text-align: center; }
+    .eventViewer .story-right .event-desc {
+      font-family: "Open Sans";
+      text-align: center;
+      word-spacing: 5px; }
+
+.story-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 2%; }
+  .story-buttons .story-button {
+    background-color: #85B807;
+    color: white;
+    font-family: "Open Sans";
+    border-radius: 5px;
+    border: none;
+    font-size: 24px;
+    width: 70px;
+    cursor: pointer; }
+  .story-buttons .story-button-back {
+    background-color: #85B807;
+    color: white;
+    font-family: "Open Sans";
+    border-radius: 5px;
+    border: none;
+    font-size: 24px;
+    width: 200px;
+    cursor: pointer; }
 
 .MapBody {
   width: 40vw;

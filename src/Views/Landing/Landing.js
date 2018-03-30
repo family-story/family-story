@@ -4,7 +4,7 @@ import NavBar from '../../Components/NavBar/NavBar'
 
 export default function Landing(props){
    return (
-    <div>
+    <div className = 'landing-container'>
       <NavBar/>
       <div className = 'divider-1'></div>
       <div className = 'landing-picture'>
