@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import MediaUploader from '../../Components/MediaUploader/MediaUploader'
-import AudioPlayer from '../StoryViewModal/AudioPlayer'
+import AudioPlayer from '../StoryView/AudioPlayer'
 import MapSelector from '../../Components/MapSelector/MapSelector'
 
 const ClickOutHandler = require('react-onclickout')
@@ -16,22 +16,24 @@ class EventEditor extends Component {
             media: [],
             location: ''
         }
+        this.addUploadedMedia = this.addUploadedMedia.bind(this)
+        this.handleLocation = this.handleLocation.bind(this)
     }
 
     componentDidMount() {
-        if (!this.props.newEvent) {
+        if (!this.props.newEventBool) {
             this.setState({
                 event_title: this.props.event.event_title,
                 date: this.props.event.date,
                 location: this.props.event.location,
                 media: this.props.event.media,
-                event_text: this.props.event.event_text
+                event_txt: this.props.event.event_txt
             })
         }
     }
 
-    handleLocation(location) {
-        this.setState({ location: location })
+    handleLocation(newLocation) {
+        this.setState({ location: newLocation })
     }
 
     clearModel() {
@@ -48,15 +50,20 @@ class EventEditor extends Component {
         this.setState({ [key]: value })
     }
 
-    addUploadedMedia(media) {
-        let newMedia = this.state.media
+    addUploadedMedia(media_type, media_ref) {    
+        let media = {
+            media_type,
+            media_ref
+        }
+        let newMedia = this.state.media.slice()
         newMedia.push(media)
+
         this.setState({ media: newMedia })
     }
 
     handleCancel() {
         this.clearModel()
-        this.props.closeEventEditorModal()
+        this.props.closeEditor()
     }
 
     handleSave() {
@@ -67,37 +74,39 @@ class EventEditor extends Component {
             media: this.state.media,
             location: this.state.location
         }
-        if (this.props.newEvent) {
+        console.log(event)
+        if (this.props.newEventBool) {
             this.props.addNewEvent(event)
         } else {
             this.props.updateEvent(event)
         }
         this.clearModel()
-        this.props.closeEventEditorModal()
+        this.props.closeEditor()
     }
 
     handleDelete() {
         this.props.deleteEvent()
         this.clearModel()
-        this.props.closeEventEditorModal()
+        this.props.closeEditor()
     }
 
     render() {
-        let photos = this.state.media.filter(media => media.media_type === 'pic').map(image => {
-            return (<img src={image.media_ref} alt="" />)
+        
+        let photos = this.state.media.filter(media => media.media_type === 'pic').map((image, i) => {
+            return (<img src={image.media_ref} alt="" key={i} />)
         })
 
-        let audio = this.state.media.filter(media => media.media_type === 'audio').map(audio => {
+        let audio = this.state.media.filter(media => media.media_type === 'audio').map((audio, i) => {
             return (<AudioPlayer audio={audio} key={i} />)
         })
         return (
             <div className="transparent-background">
-                <ClickOutHandler onClickOut={() => this.props.closeEventEditorModal()}>
+                <ClickOutHandler onClickOut={() => this.props.closeEditor()}>
                     <div className="editor-container" style={{ background: '#ccc', margin: '25px' }}>
                         <h3>Event Title</h3>
                         <input type="text" value={this.state.event_title} onChange={e => this.handleEditor('event_title', e.target.value)} />
 
-                        <MapSelector />
+                        <MapSelector handleLocation={this.handleLocation} location={this.state.location} />
 
                         <h3>Event Date</h3>
                         <input type="text" value={this.state.date} onChange={e => this.handleEditor('date', e.target.value)} />
@@ -106,20 +115,20 @@ class EventEditor extends Component {
                         <div>
                             {photos}
                         </div>
-                        <MediaUploader mediaType='pic' />
+                        <MediaUploader addUploadedMedia={this.addUploadedMedia} mediaType='pic' />
 
                         <h3>Audio</h3>
                         <div>
                             {audio}
                         </div>
-                        <MediaUploader mediaType='audio' />
+                        <MediaUploader addUploadedMedia={this.addUploadedMedia} mediaType='audio' />
 
                         <h3>Event</h3>
                         <textarea type="text" value={this.state.event_txt} onChange={e => this.handleEditor('event_txt', e.target.value)} />
 
-                        <button onClick={this.handleCancel}>Cancel</button>
-                        <button onClick={this.handleSave}>Save</button>
-                        <button onClick={this.handleDelete}>Delete</button>
+                        <button onClick={() => this.handleCancel()}>Cancel</button>
+                        <button onClick={() => this.handleSave()}>Save</button>
+                        <button onClick={() => this.handleDelete()}>Delete</button>
                     </div>
                 </ClickOutHandler>
             </div>

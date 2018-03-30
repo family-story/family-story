@@ -8,7 +8,7 @@ export class MapSelector extends Component {
     constructor(props){
         super(props)
     this.state = {
-      location: '',
+      newLocation: '',
       center: {lat: 39.5, lng: -98.35},
       zoom: 3
     }
@@ -18,9 +18,17 @@ export class MapSelector extends Component {
     this.google = this.props.google
   }
 
+  componentWillReceiveProps(newProps){
+    if(newProps.location !== this.state.newLocation){
+      this.setState({
+        newLocation: this.props.location
+      })
+    }
+  }
+
   handleChange(value) {
     this.setState({
-      location: value
+      newLocation: value
     })
   }
 
@@ -30,7 +38,7 @@ export class MapSelector extends Component {
   }
 
   geoCodeAddress(geocoder) {
-    this.geocoder.geocode({'address': this.state.location}, (results, status) => {
+    this.geocoder.geocode({'address': this.state.newLocation}, (results, status) => {
       if (status === 'OK') {
         this.setState({
           center: results[0].geometry.location,
@@ -49,14 +57,14 @@ export class MapSelector extends Component {
 
     return (
       <div className = "MapBody">
-        <input type="text" value={this.state.location} onChange={event => this.handleChange(event.target.value)}/>
+        <input type="text" value={this.state.newLocation} onChange={event => this.handleChange(event.target.value)}/>
         <button onClick={() => this.geoCodeAddress(this.geocoder)}>Search</button>
+        <button onClick={()=>this.props.handleLocation(this.state.newLocation)} >Save Location</button>
         <div className = "MapContainer">
           <Map id='map' google={this.props.google} initialCenter={{lat: 39.5, lng: -98.35}} center={this.state.center} zoom={this.state.zoom} style ={style} onReady={this.onMapReady}>
              <Marker name={'Current location'} position={this.state.center}/> 
           </Map>
         </div>
-        <button onClick={()=>this.props.handleLocation(this.state.location)} >Save Location</button>
       </div>
     )
   }

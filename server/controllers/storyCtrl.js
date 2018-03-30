@@ -36,7 +36,7 @@ module.exports = {
     let story_res = await db.create_story([story.user_id, story.story_title]);
     story_id = story_res[0].story_id * 1;
     for (let i = 0; i < story.tags.length; i++) {
-      await db.create_tag([story_id, story.tags[i]]);
+      await db.create_tag([story_id, story.tags[i].tag_str]);
     }
 
     for (let i = 0; i < story.events.length; i++) {
