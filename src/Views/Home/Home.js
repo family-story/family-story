@@ -36,8 +36,14 @@ class Home extends Component {
     window.location.assign(`http://localhost:3000/story/${story_id}`)
   }
 
-  handleDeleteButton(story_id) {
-    this.props.deleteStory(story_id)
+  async handleDeleteButton(story_id) {
+    await this.props.deleteStory(story_id)
+    this.props.getStoriesArray(this.props.user.user_id)
+      .then(resp => {
+        let stories = resp.value
+        this.setState({ stories: stories })
+      })
+
   }
 
   handleCreateNewStory() {
@@ -84,7 +90,7 @@ class Home extends Component {
                 <button className='home-edit' onClick={() => this.handleSelectedStory(story.story_id)}>Edit</button>
               </Link>
 
-              <button className='home-delete' onClick={() => this.props.deleteStory(story.story_id)}>Delete</button>
+              <button className='home-delete' onClick={() => this.handleDeleteButton(story.story_id)}>Delete</button>
             </div>
           </div>
         )
