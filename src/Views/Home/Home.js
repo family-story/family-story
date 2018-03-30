@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { getStoriesArray, getStory, deleteStory, createNewStory } from '../../ducks/reducer'
+import { getStoriesArray, getStory, deleteStory, createNewStory, getUserInfo } from '../../ducks/reducer'
 import NavBar from '../../Components/NavBar/NavBar'
 
 class Home extends Component {
@@ -15,8 +15,9 @@ class Home extends Component {
     }
   }
 
-  componentDidMount() {
-    this.props.getStoriesArray()
+  async componentDidMount() {
+    await this.props.getUserInfo()
+    this.props.getStoriesArray(this.props.user.user_id)
       .then(resp => {
         let stories = resp.value
         this.setState({ stories: stories })
@@ -29,12 +30,20 @@ class Home extends Component {
     })
   }
 
-  handleSelectedStory(story_id) {
-    this.props.getStory(story_id)
+  async handleSelectedStory(story_id) {
+    await this.props.getStory(story_id)
+
+    window.location.assign(`http://localhost:3000/story/${story_id}`)
   }
 
-  handleDeleteButton(story_id) {
-    this.props.deleteStory(story_id)
+  async handleDeleteButton(story_id) {
+    await this.props.deleteStory(story_id)
+    this.props.getStoriesArray(this.props.user.user_id)
+      .then(resp => {
+        let stories = resp.value
+        this.setState({ stories: stories })
+      })
+
   }
 
   handleCreateNewStory() {
@@ -62,65 +71,61 @@ class Home extends Component {
       .map(story => {
         let tags = story.tags.map(tag => {
           return (
-            <span className = 'home-tags' key={tag.tag_id}>{tag.tag_str}</span>
+            <span className='home-tags' key={tag.tag_id}>{tag.tag_str}</span>
           )
         })
         return (
-          // <Link key={story.story_id} to={`/story/${story.story_id}`}>
-            <div onClick={() => this.handleSelectedStory(story.story_id)} className='story' key={story.story_id}>
-              <div className = 'home-title-tags-container'> 
-              <h3 className = 'story-title'>{story.story_title}</h3>
-              
-              <div className = 'home-tags-container'>
-                <span className = 'your-tags'>Your Tags:</span> 
+          <div className='story' key={story.story_id}>
+            <div className='home-title-tags-container'>
+              <h3 onClick={() => this.handleSelectedStory(story.story_id)} className='story-title'>{story.story_title}</h3>
+
+              <div className='home-tags-container'>
+                <span className='your-tags'>Your Tags:</span>
                 {tags}
               </div>
-              </div>
-
-              <div className = 'home-button-container'>
-              <Link to='/createStory'>
-                <button className = 'home-edit' onClick={() => this.handleSelectedStory(story.story_id)}>Edit</button>
-              </Link>
-
-              <Link to='/home'>
-                <button className = 'home-delete' /*onClick={() => this.handleDeleteButton(story.story_id)}*/>Delete</button>
-              </Link>
-              </div>
-
             </div>
-          // </Link>
+
+            <div className='home-button-container'>
+              <Link to='/createStory'>
+                <button className='home-edit' onClick={() => this.handleSelectedStory(story.story_id)}>Edit</button>
+              </Link>
+
+              <button className='home-delete' onClick={() => this.handleDeleteButton(story.story_id)}>Delete</button>
+            </div>
+          </div>
         )
       })
 
+
     if (typeof stories[0] === 'undefined' || stories[0] == null) {
-      stories = <p className = 'search-sorry'>Sorry, your search did not find any results.</p>
+      stories = <p className='search-sorry'>Sorry, your search did not find any results.</p>
     }
 
     return (
       <div>
         <NavBar logout={true} />
-        <div className = 'divider-1'></div>
-        <div className = 'your-stories-search'>
-          <span className = 'your-stories'> Your Stories: </span>
-          <div className = 'search-stories-input'>
-            <span className = 'search-stories'>Search stories by title or tag:</span>
-            <input type='search' onChange={e => this.handleFilterTags(e.target.value)} className = 'search-input'/>
+        <div className='divider-1'></div>
+        <div className='your-stories-search'>
+          <span className='your-stories'> Your Stories: </span>
+          <div className='search-stories-input'>
+            <span className='search-stories'>Search stories by title or tag:</span>
+            <input type='search' onChange={e => this.handleFilterTags(e.target.value)} className='search-input' />
           </div>
         </div>
-        <div className = 'divider-3'></div>
-        <div className = 'story-container'>
+        <div className='divider-3'></div>
+        <div className='story-container'>
           {this.state.stories[0] ? stories : null}
-        <div className = 'handle-link'>
-         <Link to='/createStory'><div className = 'add-story-link' onClick={() => this.handleCreateNewStory()}>
-          <div className = 'add-story-container'>
-            <div className = 'circle-add'>
-              <span className = 'home-plus'> + </span>
+          <div className='handle-link'>
+            <Link to='/createStory'><div className='add-story-link' onClick={() => this.handleCreateNewStory()}>
+              <div className='add-story-container'>
+                <div className='circle-add'>
+                  <span className='home-plus'> + </span>
+                </div>
+                <h3 className='add-story'> Add Story </h3>
+              </div>
             </div>
-            <h3 className = 'add-story'> Add Story </h3>
+            </Link>
           </div>
-        </div>
-        </Link>
-        </div>
         </div>
       </div>
     )
@@ -130,7 +135,8 @@ class Home extends Component {
 function mapStateToProps(state) {
   return {
     storiesArray: state.storiesArray,
+    user: state.user
   }
 }
 
-export default connect(mapStateToProps, { getStoriesArray, getStory, deleteStory, createNewStory })(Home)
+export default connect(mapStateToProps, { getUserInfo, getStoriesArray, getStory, deleteStory, createNewStory })(Home)
