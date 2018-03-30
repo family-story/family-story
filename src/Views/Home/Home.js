@@ -32,7 +32,6 @@ class Home extends Component {
 
   async handleSelectedStory(story_id, view) {
     await this.props.getStory(story_id)
-
     if (view) {
       window.location.assign(`http://localhost:3000/story/${story_id}`)
     }
