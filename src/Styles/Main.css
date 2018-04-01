@@ -233,7 +233,8 @@ table {
     padding-left: 20px;
     font-weight: bold;
     font-size: 28px;
-    color: black; }
+    color: black;
+    cursor: pointer; }
 
 .home-tags-container {
   margin: 10px 0; }
@@ -326,13 +327,16 @@ a {
     .eventViewer .story-right .event-desc {
       font-family: "Open Sans";
       text-align: center;
-      word-spacing: 5px; }
+      word-spacing: 1px;
+      line-height: 1.5; }
 
 .story-buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin-bottom: 2%; }
+  .story-buttons .button:disabled {
+    background: grey; }
   .story-buttons .story-button {
     background-color: #85B807;
     color: white;

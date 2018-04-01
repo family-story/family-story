@@ -57,7 +57,8 @@
     .event-desc {
       font-family: $font-family1;
       text-align: center;
-      word-spacing: 5px;
+      word-spacing: 1px;
+      line-height: 1.5;
     }
   }
 }
@@ -67,6 +68,10 @@
   flex-direction: row;
   justify-content: space-around;
   margin-bottom: 2%;
+
+  .button:disabled {
+    background: grey;
+  }
 
     .story-button {
       background-color: #85B807;
