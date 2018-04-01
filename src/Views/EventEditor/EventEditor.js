@@ -102,33 +102,49 @@ class EventEditor extends Component {
         return (
             <div className="transparent-background">
                 <ClickOutHandler onClickOut={() => this.props.closeEditor()}>
-                    <div className="editor-container" style={{ background: '#ccc', margin: '25px' }}>
-                        <h3>Event Title</h3>
-                        <input type="text" value={this.state.event_title} onChange={e => this.handleEditor('event_title', e.target.value)} />
+                    <div className="editor-container">
+                        <h3 className = 'x'> X </h3>
+                        <div className = 'editor-left'>
+                            <div className = 'event-title-input'>
+                                <h3 className = 'editor-event-title'>Event Title:</h3>
+                                <input className = 'editor-event-input' type="text" value={this.state.event_title} onChange={e => this.handleEditor('event_title', e.target.value)} />
+                            </div>
 
-                        <MapSelector handleLocation={this.handleLocation} location={this.state.location} />
+                            <div className = 'editor-event-title'>
+                                <h3 className = 'editor-event-location'> Location: </h3>
+                                <MapSelector handleLocation={this.handleLocation} location={this.state.location} />
+                            </div>
 
-                        <h3>Event Date</h3>
-                        <input type="text" value={this.state.date} onChange={e => this.handleEditor('date', e.target.value)} />
+                            <div className = 'editor-event-title'>
+                                <h3>Event Date:</h3>
+                                <input className = 'editor-event-input' type="text" value={this.state.date} onChange={e => this.handleEditor('date', e.target.value)} />
+                            </div>
 
-                        <h3>Photos</h3>
-                        <div>
-                            {photos}
+                            <div className = 'editor-event-title'>
+                                <h3>Photos:</h3>
+                                <div>
+                                    {photos}
+                                </div>
+                                <MediaUploader addUploadedMedia={this.addUploadedMedia} mediaType='pic' />
+                            </div>
+
+                            <div className = 'editor-event-title'>
+                                <h3>Audio:</h3>
+                                <div>
+                                    {audio}
+                                </div>
+                                <MediaUploader addUploadedMedia={this.addUploadedMedia} mediaType='audio' />
+                                </div>
+                            </div>
+                        <div className = 'editor-right'>
+                            <h3>Event Description: </h3>
+                            <textarea type="text" value={this.state.event_txt} onChange={e => this.handleEditor('event_txt', e.target.value)} />
                         </div>
-                        <MediaUploader addUploadedMedia={this.addUploadedMedia} mediaType='pic' />
-
-                        <h3>Audio</h3>
-                        <div>
-                            {audio}
+                        <div className = 'editor-buttons'>
+                            <button onClick={() => this.handleCancel()}>Cancel</button>
+                            <button onClick={() => this.handleSave()}>Save</button>
+                            <button disabled={this.props.newEventBool} onClick={() => this.handleDelete()}>Delete</button>
                         </div>
-                        <MediaUploader addUploadedMedia={this.addUploadedMedia} mediaType='audio' />
-
-                        <h3>Event</h3>
-                        <textarea type="text" value={this.state.event_txt} onChange={e => this.handleEditor('event_txt', e.target.value)} />
-
-                        <button onClick={() => this.handleCancel()}>Cancel</button>
-                        <button onClick={() => this.handleSave()}>Save</button>
-                        <button disabled={this.props.newEventBool} onClick={() => this.handleDelete()}>Delete</button>
                     </div>
                 </ClickOutHandler>
             </div>
