@@ -284,8 +284,11 @@ table {
 a {
   text-decoration: none; }
 
+.story-view-container button:disabled {
+  background-color: rgba(0, 0, 0, 0.13); }
+
 .story-view-title {
-  font-family: "Pacifico";
+  font-family: "Open Sans";
   font-size: 1.5em;
   padding: 1.5% 0;
   width: 100%;
@@ -334,7 +337,8 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-bottom: 2%; }
+  margin-bottom: 2%;
+  width: 100%; }
   .story-buttons .button:disabled {
     background: grey; }
   .story-buttons .story-button {
@@ -346,14 +350,34 @@ a {
     font-size: 24px;
     width: 70px;
     cursor: pointer; }
+  .story-buttons .back-to-stories {
+    display: flex;
+    justify-content: flex-start;
+    width: 60%; }
   .story-buttons .story-button-back {
     background-color: #85B807;
     color: white;
     font-family: "Open Sans";
-    border-radius: 5px;
+    border-radius: 3px;
     border: none;
     font-size: 24px;
     width: 200px;
+    cursor: pointer;
+    margin-left: 75%;
+    margin-top: 5%; }
+  .story-buttons .prev-next {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10%; }
+  .story-buttons .story-button-prev {
+    color: white;
+    background-color: #85B807;
+    font-family: "Open Sans";
+    border-radius: 3px;
+    border: none;
+    font-size: 24px;
+    margin: 1% 1px;
     cursor: pointer; }
 
 .MapBody {
@@ -361,6 +385,43 @@ a {
   height: 40vh;
   position: relative;
   margin-bottom: 80px; }
+  .MapBody .location-container {
+    display: flex;
+    justify-content: center; }
+  .MapBody .location-input {
+    font-weight: 500;
+    font-size: .9em;
+    height: 1em;
+    background: rgba(0, 0, 0, 0.13);
+    width: calc(50%-10px);
+    border: none;
+    padding: 0;
+    padding-left: 10px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px; }
+  .MapBody button {
+    border: none;
+    padding: 5px;
+    margin-left: 2px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: white; }
+  .MapBody .search-save-buttons {
+    width: 20%;
+    margin-top: -1%; }
+  .MapBody .editor-event-input {
+    font-weight: 500;
+    font-size: .9em;
+    height: 1em;
+    background: rgba(0, 0, 0, 0.13);
+    width: calc(50%-10px);
+    border: none;
+    padding: 0;
+    padding-left: 10px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px; }
+  .MapBody .map-container {
+    margin-top: 10px; }
 
 .transparent-background {
   position: fixed;
@@ -373,12 +434,6 @@ a {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4); }
-  .transparent-background .x {
-    font-family: "Open Sans";
-    font-weight: lighter;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end; }
   .transparent-background .editor-container {
     height: fit-content;
     width: 100%;
@@ -386,7 +441,7 @@ a {
     position: absolute;
     text-align: center;
     font-size: 30px;
-    margin: 3% auto;
+    margin: 2vh auto;
     background-color: white;
     padding: 20px;
     border: 1px solid #888888;
@@ -400,15 +455,41 @@ a {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center; }
+      align-items: center;
+      margin-bottom: 1%; }
       .transparent-background .editor-container .event-title-input .editor-location {
         display: flex;
         flex-direction: column; }
+    .transparent-background .editor-container .editor-event-title {
+      font-size: .9em; }
     .transparent-background .editor-container .editor-event-input {
-      border-radius: 10px;
+      border-radius: 3px;
       border: 1px solid lightgrey;
       width: 50%;
-      margin: 1% 0; }
+      height: 2.5em;
+      margin: 1% 0;
+      background: rgba(0, 0, 0, 0.13);
+      padding-left: 10px; }
+    .transparent-background .editor-container .editor-pics {
+      height: 200px;
+      width: 200px; }
+    .transparent-background .editor-container .delete-button {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 2%; }
+    .transparent-background .editor-container .event-desc-input {
+      border: none;
+      border-radius: 3px;
+      background: rgba(0, 0, 0, 0.13);
+      height: 93%;
+      margin-top: 1%;
+      width: 90%;
+      margin-bottom: 2%; }
+    .transparent-background .editor-container .right-buttons {
+      display: flex;
+      justify-content: flex-end; }
+      .transparent-background .editor-container .right-buttons .cancel {
+        margin-right: 1px; }
 
 button.slick-arrow.slick-prev:before,
 button.slick-arrow.slick-next:before {
