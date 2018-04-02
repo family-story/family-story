@@ -39,9 +39,3 @@ describe('add button works and redirects', function(){
     cy.get('.story-save-button').click()
   })
 })
-
-describe ('cancel redirects', function(){
-  it ('redirects back home', function(){
-    cy.get('.story-cancel-link-test').click()
-  })
-})

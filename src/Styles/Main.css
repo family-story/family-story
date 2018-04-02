@@ -258,21 +258,6 @@ table {
   justify-content: center;
   width: 100%; }
 
-.circle-add {
-  height: 50px;
-  width: 50px;
-  background-color: #85B807;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  display: flex; }
-  .circle-add .home-plus {
-    font-size: 64px;
-    margin: 0 5px;
-    margin-bottom: 11px;
-    color: white;
-    font-weight: lighter; }
-
 .add-story {
   font-family: "Open Sans";
   font-size: 36px;
@@ -384,14 +369,14 @@ a {
   width: 40vw;
   height: 40vh;
   position: relative;
-  margin-bottom: 80px; }
+  margin-bottom: 7%; }
   .MapBody .location-container {
     display: flex;
     justify-content: center; }
   .MapBody .location-input {
     font-weight: 500;
-    font-size: .9em;
-    height: 1em;
+    font-size: 13.3333px;
+    height: 2em;
     background: rgba(0, 0, 0, 0.13);
     width: calc(50%-10px);
     border: none;
@@ -407,8 +392,10 @@ a {
     border-bottom-right-radius: 3px;
     color: white; }
   .MapBody .search-save-buttons {
-    width: 20%;
+    justify-content: end;
     margin-top: -1%; }
+  .MapBody .search {
+    height: 2em; }
   .MapBody .editor-event-input {
     font-weight: 500;
     font-size: .9em;
@@ -434,23 +421,27 @@ a {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4); }
+  .transparent-background button:disabled {
+    background-color: rgba(0, 0, 0, 0.13);
+    color: white;
+    border: none;
+    font-size: 24px; }
   .transparent-background .editor-container {
-    height: fit-content;
-    width: 100%;
+    height: fit content;
+    width: 70%;
     display: flex;
     position: absolute;
     text-align: center;
     font-size: 30px;
-    margin: 2vh auto;
+    margin: 5% auto;
     background-color: white;
     padding: 20px;
     border: 1px solid #888888;
-    width: 70%;
     font-family: "Open Sans"; }
     .transparent-background .editor-container .editor-left {
       width: 60%; }
     .transparent-background .editor-container .editor-right {
-      width: 50%; }
+      width: 40%; }
     .transparent-background .editor-container .event-title-input {
       display: flex;
       flex-direction: column;
@@ -466,30 +457,44 @@ a {
       border-radius: 3px;
       border: 1px solid lightgrey;
       width: 50%;
-      height: 2.5em;
-      margin: 1% 0;
+      height: 60%;
+      margin: 3% 0;
       background: rgba(0, 0, 0, 0.13);
-      padding-left: 10px; }
+      padding-left: 10%; }
     .transparent-background .editor-container .editor-pics {
-      height: 200px;
-      width: 200px; }
+      height: 50px; }
     .transparent-background .editor-container .delete-button {
       display: flex;
       justify-content: flex-start;
-      margin-top: 2%; }
+      border: none; }
+    .transparent-background .editor-container .delete {
+      border: none;
+      background-color: #85B807;
+      color: white;
+      border: none;
+      font-size: 24px;
+      cursor: pointer; }
     .transparent-background .editor-container .event-desc-input {
       border: none;
       border-radius: 3px;
       background: rgba(0, 0, 0, 0.13);
-      height: 93%;
+      height: 91%;
       margin-top: 1%;
       width: 90%;
-      margin-bottom: 2%; }
+      font-family: "Open Sans"; }
     .transparent-background .editor-container .right-buttons {
       display: flex;
-      justify-content: flex-end; }
+      justify-content: flex-end;
+      margin: 0 5%;
+      margin-top: 1%; }
       .transparent-background .editor-container .right-buttons .cancel {
-        margin-right: 1px; }
+        margin-right: 1px;
+        border: none;
+        color: white;
+        font-size: 24px;
+        font-family: "Open Sans";
+        background-color: #85B807;
+        cursor: pointer; }
 
 button.slick-arrow.slick-prev:before,
 button.slick-arrow.slick-next:before {

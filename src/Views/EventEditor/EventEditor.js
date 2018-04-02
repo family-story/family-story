@@ -110,7 +110,7 @@ class EventEditor extends Component {
                             </div>
 
                             <div className = 'event-title-input'>
-                                <h3 className = 'editor-event-title'> Location: </h3>
+                                <h3 className = 'editor-event-location'> Location: </h3>
                                 <MapSelector handleLocation={this.handleLocation} location={this.state.location} />
                             </div>
                             
@@ -137,15 +137,15 @@ class EventEditor extends Component {
                                 </div>
 
                                 <div className = 'delete-button'>
-                                <button disabled={this.props.newEventBool} onClick={() => this.handleDelete()}>Delete</button>
+                                <button className = 'delete' disabled={this.props.newEventBool} onClick={() => this.handleDelete()}>Delete</button>
                                 </div>
                             </div>
                         <div className = 'editor-right'>
                             <h3 className = 'editor-event-title'>Event Description: </h3>
-                            <input className = 'event-desc-input'type="text" value={this.state.event_txt} onChange={e => this.handleEditor('event_txt', e.target.value)} />
+                            <textarea className = 'event-desc-input' type="text" value={this.state.event_txt} onChange={e => this.handleEditor('event_txt', e.target.value)} />
                             <div className = 'right-buttons'>
                                 <button className = 'cancel' onClick={() => this.handleCancel()}>Cancel</button>
-                                <button onClick={() => this.handleSave()}>Save</button>
+                                <button className = 'cancel' onClick={() => this.handleSave()}>Save</button>
                             </div>
                         </div>
                            

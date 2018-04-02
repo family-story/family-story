@@ -60,8 +60,8 @@ export class MapSelector extends Component {
         <div className = 'location-container'> 
           <input className = 'location-input' type="text" value={this.state.newLocation} onChange={event => this.handleChange(event.target.value)}/>
           <div className = 'search-save-buttons'> 
-            <button onClick={() => this.geoCodeAddress(this.geocoder)}>Search</button>
-            <button className = 'save-location' onClick={()=>this.props.handleLocation(this.state.newLocation)} >Save Location</button>
+            <button className = 'search' onClick={() => this.geoCodeAddress(this.geocoder)}>Search</button>
+            <button className = 'search' onClick={()=>this.props.handleLocation(this.state.newLocation)} >Save Location</button>
           </div>
         </div>
         <div className = "map-container">

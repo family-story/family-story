@@ -2,7 +2,7 @@
   width: 40vw;
   height: 40vh;
   position: relative;
-  margin-bottom: 80px;
+  margin-bottom: 7%;
 
   .location-container {
     display: flex;
@@ -11,8 +11,8 @@
 
   .location-input {
     font-weight: 500;
-    font-size: .9em;
-    height: 1em; 
+    font-size: 13.3333px;
+    height: 2em; 
     background: $divider-background-color;
     width: calc(50%-10px);
     border: none;
@@ -32,10 +32,13 @@
   }
 
   .search-save-buttons {
-    width: 20%;
+    justify-content: end;
     margin-top: -1%;
   }
 
+  .search {
+    height: 2em;
+  }
 
   .editor-event-input {
     font-weight: 500;

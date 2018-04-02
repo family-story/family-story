@@ -119,10 +119,7 @@ class Home extends Component {
           <div className='handle-link'>
             <Link id = 'add-story-test-id' to='/createStory'><div className='add-story-link' onClick={() => this.handleCreateNewStory()}>
               <div className='add-story-container'>
-                <div className='circle-add'>
-                  <span className='home-plus'> + </span>
-                </div>
-                <h3 className='add-story'> Add Story </h3>
+                <h3 className='add-story'> + Add Story </h3>
               </div>
             </div>
             </Link>
