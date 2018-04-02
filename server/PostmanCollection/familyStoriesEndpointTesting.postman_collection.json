@@ -41,12 +41,12 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/api/stories/1",
+					"raw": "http://localhost:3030/api/stories/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3030",
 					"path": [
 						"api",
 						"stories",
@@ -96,12 +96,12 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/api/story/2",
+					"raw": "http://localhost:3030/api/story/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3030",
 					"path": [
 						"api",
 						"story",
@@ -155,12 +155,12 @@
 					"raw": "{\n    \"user_id\": 1,\n    \"story_title\": \"going on a walk\",\n    \"tags\": [\"walking\", \"park\", \"bird\"],\n    \"events\": [\n        {\n        \t\"event_num\": 0,\n            \"event_title\": \"I leave my house\",\n            \"date\": \"today\",\n            \"location\": \"sparks II provo utah\",\n            \"event_txt\": \"It was a beautiful morning with birds singing, so I went for a walk to the park.\",\n            \"media\": [\n                {\n                    \"media_type\": \"pic\",\n                    \"media_ref\": \"https://www.prague-stay.com/images/full_image/1920x1200/800px-Praha,-Letn%C3%A1,-sad-resize~letna-park-prague-gardens-and-parks.jpg\"\n                },\n                {\n                    \"media_type\": \"audio\",\n                    \"media_ref\": \"http://www.orangefreesounds.com/wp-content/uploads/2015/06/Birds-singing-in-the-morning.mp3?_=1\"\n                }\n            ]\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/story",
+					"raw": "http://localhost:3030/api/story",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3030",
 					"path": [
 						"api",
 						"story"
@@ -217,12 +217,12 @@
 					"raw": "[\n    {\n        \"story_id\": 3,\n        \"user_id\": 1,\n        \"story_title\": \"going on a walk\",\n        \"tags\": [\n            {\n                \"tag_id\": 21,\n                \"tag_str\": \"walking\"\n            },\n            {\n                \"tag_id\": 22,\n                \"tag_str\": \"party\"\n            },\n            {\n                \"tag_id\": 23,\n                \"tag_str\": \"bird\"\n            }\n        ],\n        \"events\": [\n            {\n                \"event_id\": 17,\n                \"event_num\": 1,\n                \"event_title\": \"I leave my house\",\n                \"date\": \"today\",\n                \"location\": \"bicentenial park provo utah\",\n                \"event_txt\": \"It was a beautiful morning with birds singing, so I went for a walk to the park.\",\n                \"media\": [\n                    {\n                        \"media_id\": 27,\n                        \"media_type\": \"audio\",\n                        \"media_ref\": \"http://www.orangefreesounds.com/wp-content/uploads/2015/06/Birds-singing-in-the-morning.mp3?_=1\"\n                    }\n                    \n                ]\n            },\n            {\n                \"event_num\": 0,\n                \"event_title\": \"I wake up\",\n                \"date\": \"today\",\n                \"location\": \"sparks II provo utah\",\n                \"event_txt\": \"wakeing up is hard to do.\",\n                \"media\": []\n            }\n        ]\n    }\n]"
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/story",
+					"raw": "http://localhost:3030/api/story",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3030",
 					"path": [
 						"api",
 						"story"
@@ -271,12 +271,12 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/api/story/4",
+					"raw": "http://localhost:3030/api/story/4",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3030",
 					"path": [
 						"api",
 						"story",
