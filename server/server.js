@@ -97,5 +97,9 @@ app.put('/api/story', storyCtrl.updateStory);
 //Delete story
 app.delete('/api/story/:story_id', storyCtrl.deleteStory);
 
+const path = require('path')
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 app.listen(SERVER_PORT, () => console.log(`Listening to amazing stories on port ${SERVER_PORT}...`));
