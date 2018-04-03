@@ -59,9 +59,13 @@ handlePreviousButton(){
           </aside>
         </section>
         <div className = 'story-buttons'>
-          <Link to="/home"><button className = 'story-button-back'>Back to stories</button></Link>
-          <button className = 'story-button' disabled={this.state.eventIndex===0} onClick = {()=>this.handlePreviousButton()}> Prev </button>
-          <button className = 'story-button' disabled={this.state.eventIndex===(this.props.story[0].events.length - 1)} id='next' onClick = {()=>this.handleNextButton()}> Next </button>
+          <div className = 'back-to-stories'>
+            <Link to="/home"><button className = 'story-button-back'>Back to stories</button></Link>
+          </div>
+          <div className = 'prev-next'>
+            <button className = 'story-button-prev' disabled={this.state.eventIndex===0} onClick = {()=>this.handlePreviousButton()}> Prev </button>
+            <button className = 'story-button-prev' disabled={this.state.eventIndex===(this.props.story[0].events.length - 1)} id='next' onClick = {()=>this.handleNextButton()}> Next </button>
+          </div>
         </div>
       
       </div>

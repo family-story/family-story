@@ -216,18 +216,13 @@ class StoryEditor extends Component {
 
         <div>
           <h3>Story Title</h3>
-          <input type="text" value={this.state.story_title} onChange={e => this.handleTitle(e.target.value)} />
+          <input className = 'story-title-input' type="text" value={this.state.story_title} onChange={e => this.handleTitle(e.target.value)}/>
         </div>
-
-        {/* <div>
-          <h1> These are your events </h1>
-          <p> Lorem ipsum dolor sit amet. </p>
-        </div> */}
 
         <div>
           <h3>Tags</h3>
-          <input type="text" value={this.state.tag} onChange={e => this.handleTagStr(e.target.value)} />
-          <button onClick={() => this.handleAddTag()}>Add</button>
+          <input className = 'story-tags-input' type="text" value={this.state.tag} onChange={e => this.handleTagStr(e.target.value)} />
+          <button className = 'add-tag-button' onClick={() => this.handleAddTag()}>Add</button>
         </div>
 
         <div>
@@ -243,15 +238,10 @@ class StoryEditor extends Component {
           <button onClick={() => this.newEvent()}> Add an Event </button>
         </div>
 
-        {/* <div>
-          <h1> These are your tags </h1>
-          <p> Lorem ipsum dolor sit amet. </p>
-        </div> */}
-
         <div>
-          <button disabled={disableSave} onClick={() => this.handleSave()}> Save </button>
+          <button className = 'story-save-button' disabled={disableSave} onClick={() => this.handleSave()}> Save </button>
           {disableSaveMsg}
-          <Link to='/home'><button onClick={() => this.props.cancelStoryChanges()}> Cancel </button></Link>
+          <Link className = 'story-cancel-link-test' to='/home'><button onClick={() => this.props.cancelStoryChanges()}> Cancel </button></Link> 
         </div>
       </div>
     )
