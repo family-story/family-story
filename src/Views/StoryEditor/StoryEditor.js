@@ -170,7 +170,7 @@ class StoryEditor extends Component {
       await axios.post('/api/story', story)
       // await this.props.saveNewStory(story)
     }
-    window.location.assign('http://localhost:3000/home')
+    window.location.assign(process.env.REACT_APP_HOME)
   }
 
   deleteEvent() {
