@@ -104,12 +104,12 @@ class EventEditor extends Component {
                 <ClickOutHandler onClickOut={() => this.props.closeEditor()}>
                     <div className="editor-container" style={{ background: '#ccc', margin: '25px' }}>
                         <h3>Event Title</h3>
-                        <input type="text" value={this.state.event_title} onChange={e => this.handleEditor('event_title', e.target.value)} />
+                        <input className='eventTitleInput' type="text" value={this.state.event_title} onChange={e => this.handleEditor('event_title', e.target.value)} />
 
                         <MapSelector handleLocation={this.handleLocation} location={this.state.location} />
 
                         <h3>Event Date</h3>
-                        <input type="text" value={this.state.date} onChange={e => this.handleEditor('date', e.target.value)} />
+                        <input className='eventDateInput' type="text" value={this.state.date} onChange={e => this.handleEditor('date', e.target.value)} />
 
                         <h3>Photos</h3>
                         <div>

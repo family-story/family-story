@@ -23,5 +23,6 @@ yarn-error.log*
 src/**/*.cssn
 
 .env
+.env.prod
 # SASS 
 src/**/*.css
