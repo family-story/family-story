@@ -3,6 +3,7 @@
    License: none (public domain)
 */
 @import url("https://fonts.googleapis.com/css?family=Pacifico");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import url(~slick-carousel/slick/slick.css);
 @import url(~slick-carousel/slick/slick-theme.css);
 html, body, div, span, applet, object, iframe,
@@ -282,6 +283,116 @@ table {
 
 a {
   text-decoration: none; }
+
+.story-editor-container {
+  font-family: "Open Sans";
+  margin: 2% 15%;
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+  .story-editor-container .story-title-block {
+    grid-column: 1; }
+    .story-editor-container .story-title-block h3 {
+      margin: 15px 0 7px 0; }
+    .story-editor-container .story-title-block input:focus {
+      border: 1px solid #74BFFF; }
+    .story-editor-container .story-title-block input {
+      font-weight: 500;
+      height: 2.5em;
+      width: calc(80% - 10px);
+      background: rgba(0, 0, 0, 0.13);
+      border: none;
+      border-radius: 3px;
+      padding: 0 10px 0 10px; }
+  .story-editor-container .tags-block {
+    grid-column: 1; }
+    .story-editor-container .tags-block h3 {
+      margin: 15px 0 7px 0; }
+    .story-editor-container .tags-block input {
+      font-weight: 500;
+      font-size: 18px;
+      height: 2.5em;
+      width: calc(65% - 10px);
+      background: rgba(0, 0, 0, 0.13);
+      border: none;
+      padding: 0 10px 0 10px;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px; }
+    .story-editor-container .tags-block button {
+      color: white;
+      font-weight: 550;
+      font-size: 1em;
+      height: 2.5em;
+      width: calc(15% - 1px);
+      border: none;
+      padding: 2.5px;
+      margin-left: 2px;
+      background: #74BFFF;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      cursor: pointer; }
+    .story-editor-container .tags-block div {
+      display: flex;
+      flex-wrap: wrap;
+      font-weight: 550;
+      font-size: 1em;
+      padding: 10px;
+      min-height: 3.5em;
+      width: calc(80% - 20px);
+      background: rgba(0, 0, 0, 0.13);
+      border: none;
+      border-radius: 3px; }
+      .story-editor-container .tags-block div p {
+        padding: 5px;
+        cursor: pointer; }
+  .story-editor-container .events-block {
+    font-weight: 500;
+    font-size: .9em;
+    grid-column: 1; }
+    .story-editor-container .events-block h3 {
+      margin: 15px 0 7px 0; }
+    .story-editor-container .events-block .add-event-button {
+      width: calc(65% + 10px);
+      color: white;
+      background: #CCCCCC;
+      border: none;
+      border-radius: 3px;
+      font-weight: 550;
+      font-size: 1em;
+      height: 2.5em;
+      padding: 0; }
+    .story-editor-container .events-block .event button {
+      position: relative;
+      top: 11px;
+      transform: rotate(90deg);
+      color: white;
+      font-weight: 550;
+      width: 2.5em;
+      height: 2em;
+      padding: 0 3px;
+      margin-bottom: 1px;
+      background: #74BFFF;
+      border: none; }
+    .story-editor-container .events-block .event h3 {
+      display: inline-block;
+      font-weight: 500;
+      font-size: 1em;
+      height: 2.5em;
+      width: 65%;
+      background: rgba(0, 0, 0, 0.13);
+      border: none;
+      padding: 0;
+      padding-left: 10px;
+      margin: 1em 0;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px; }
+  .story-editor-container .instructional-1 {
+    grid-column: 2;
+    grid-row: 2; }
+  .story-editor-container .instruction-2 {
+    grid-column: 2;
+    grid-row: 3; }
+  .story-editor-container .save-cancel-bottom-right {
+    grid-column: 2; }
 
 .story-view-title {
   font-family: "Pacifico";
