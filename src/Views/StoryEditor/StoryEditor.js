@@ -2,7 +2,17 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { cancelStoryChanges, updateStory, clearState, saveNewStory, getStory } from '../../ducks/reducer'
+
+import {
+  cancelStoryChanges,
+  updateStory,
+  clearState,
+  saveNewStory,
+  getStory
+} from '../../ducks/reducer'
+
+import UpArrow from 'react-icons/lib/fa/caret-up'
+import DownArrow from 'react-icons/lib/fa/caret-down'
 
 import NavBar from '../../Components/NavBar/NavBar'
 import EventEditor from '../EventEditor/EventEditor'
@@ -157,13 +167,13 @@ class StoryEditor extends Component {
         tags: tags,
         events: events
       }];
-      await axios.post('/api/story', story)      
+      await axios.post('/api/story', story)
       // await this.props.saveNewStory(story)
     }
     window.location.assign('http://localhost:3000/home')
   }
 
-  deleteEvent(){
+  deleteEvent() {
     let eventsArr = this.state.events.slice();
     eventsArr.splice(this.state.selectedEvent, 1)
     this.setState({
@@ -173,16 +183,20 @@ class StoryEditor extends Component {
   }
 
   render() {
-    let eventsList = this.state.events.map((event, index) => {
+    let eventsList = this.state.events.map((event, index, array) => {
       return (
-        <div key={index}>
-          <div onClick={() => this.editEvent(index)}>
-            <h3>{event.event_title}</h3>
+        <div className="event" key={index}>
+          <div className="event-title">
+            <h3 onClick={() => this.editEvent(index)}>{event.event_title}</h3>
           </div>
           {index === 0 ? null :
-            <button onClick={() => this.moveEvents('up', index)}>up</button>}
+            <button
+              className={`up-arrow-button up-arrow-button-${array.length - index}`}
+              onClick={() => this.moveEvents('up', index)}><UpArrow /></button>}
           {index === this.state.events.length - 1 ? null :
-            <button onClick={() => this.moveEvents('down', index)}>down</button>}
+            <button
+              className={`down-arrow-button down-arrow-button-${index}`}
+              onClick={() => this.moveEvents('down', index)}><DownArrow /></button>}
         </div>
       )
     })
@@ -197,12 +211,14 @@ class StoryEditor extends Component {
     }
 
     let disableSave = this.state.events.length === 0
-    let disableSaveMsg = disableSave ? <div>Please save at least one event before saving a story.</div> : null;
+    let disableSaveMsg = disableSave ?
+      <p>Please save at least one event before saving a story.</p> :
+      null;
 
     return (
       <div>
         <NavBar logout={true} />
-
+        <div className="divider-1"></div>
         {this.state.eventEditor ?
           <EventEditor
             newEventBool={this.state.newEventBool}
@@ -210,38 +226,47 @@ class StoryEditor extends Component {
             closeEditor={this.closeEditor}
             event={this.state.events[this.state.selectedEvent]}
             updateEvent={this.updateEvent}
-            addNewEvent={this.addNewEvent} 
-            deleteEvent={this.deleteEvent}/> :
+            addNewEvent={this.addNewEvent}
+            deleteEvent={this.deleteEvent} /> :
           null}
-
-        <div>
-          <h3>Story Title</h3>
-          <input className = 'story-title-input' type="text" value={this.state.story_title} onChange={e => this.handleTitle(e.target.value)}/>
-        </div>
-
-        <div>
-          <h3>Tags</h3>
-          <input className = 'story-tags-input' type="text" value={this.state.tag} onChange={e => this.handleTagStr(e.target.value)} />
-          <button className = 'add-tag-button' onClick={() => this.handleAddTag()}>Add</button>
-        </div>
-
-        <div>
-          <h3>Current tags, click to remove:</h3>
-          <div>
-            {currentTags}
+        <div className="story-editor-container">
+          <div className="story-title-block">
+            <h3>Your Story Title:</h3>
+            <input className='story-title-input' type="text" value={this.state.story_title} onChange={e => this.handleTitle(e.target.value)} />
           </div>
-        </div>
 
-        <div>
-          <h3>Events</h3>
-          {eventsList}
-          <button onClick={() => this.newEvent()}> Add an Event </button>
-        </div>
+          <div className="tags-block">
+            <h3>Tags:</h3>
+            <input className='story-tags-input' type="text" value={this.state.tag} onChange={e => this.handleTagStr(e.target.value)} />
+            <button className='add-tag-button' onClick={() => this.handleAddTag()}>Add</button>
 
-        <div>
-          <button className = 'story-save-button' disabled={disableSave} onClick={() => this.handleSave()}> Save </button>
-          {disableSaveMsg}
-          <Link className = 'story-cancel-link-test' to='/home'><button onClick={() => this.props.cancelStoryChanges()}> Cancel </button></Link> 
+            <h3>Current tags, click to remove:</h3>
+            <div>
+              {currentTags}
+            </div>
+          </div>
+
+          <div className="events-block">
+            <h3>Events:</h3>
+            {eventsList}
+            <button className="add-event-button" onClick={() => this.newEvent()}> + Add an Event </button>
+          </div>
+
+          <div className="right-side">
+            <div className="instructional-1">
+              <h2> YOUR TAGS </h2>
+              <p> You can add people and places to your stories by tagging them. When searching through stories on your homepage it will search through these tags. </p>
+            </div>
+
+            <div className="instructional-2">
+              <h2> YOUR EVENTS </h2>
+              <p> An event can be anything that happened in your story. Each event can have it's own photos, audio, description, and location. You can add as many events as you like! </p>
+            </div>
+
+            {disableSaveMsg}
+            <Link to='/home'><button className="cancel-button" onClick={() => this.props.cancelStoryChanges()}> Cancel </button></Link>
+            <button className="save-button" disabled={disableSave} onClick={() => this.handleSave()}> Save </button>
+          </div>
         </div>
       </div>
     )
