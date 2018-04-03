@@ -54,12 +54,13 @@ table {
   align-items: center;
   width: 50%;
   height: 100px;
-  margin: 0 auto; }
+  margin: 2% auto auto; }
   .navbar .family-story {
     font-size: 48px;
     height: 66px;
     width: 437px;
-    font-family: "Pacifico"; }
+    font-family: "Pacifico";
+    color: #557504; }
   .navbar .login-nav {
     font-family: "Open Sans";
     font-size: 36px;
@@ -270,61 +271,55 @@ table {
 a {
   text-decoration: none; }
 
-<<<<<<< HEAD
 .story-editor-container {
   font-family: "Open Sans";
   margin: 2% 15%;
   display: grid;
   grid-template-columns: 1fr 1fr; }
+  .story-editor-container h3 {
+    margin: 15px 0 7px 10px; }
+  .story-editor-container input:focus {
+    outline-color: #467399; }
+  .story-editor-container input {
+    font-size: 1em;
+    padding: 0 10px 0 10px;
+    height: 2.5em;
+    border: none;
+    background: rgba(0, 0, 0, 0.13); }
+  .story-editor-container button {
+    color: white;
+    font-weight: 550;
+    cursor: pointer;
+    background: #557504;
+    border: none;
+    font-size: 1em;
+    height: 2.5em; }
   .story-editor-container .story-title-block {
-    grid-column: 1; }
-    .story-editor-container .story-title-block h3 {
-      margin: 15px 0 7px 0; }
-    .story-editor-container .story-title-block input:focus {
-      border: 1px solid #74BFFF; }
+    grid-column: 1;
+    margin-left: 10%; }
     .story-editor-container .story-title-block input {
-      font-weight: 500;
-      height: 2.5em;
-      width: calc(80% - 10px);
-      background: rgba(0, 0, 0, 0.13);
-      border: none;
-      border-radius: 3px;
-      padding: 0 10px 0 10px; }
+      width: calc(85% - 10px);
+      border-radius: 3px; }
   .story-editor-container .tags-block {
-    grid-column: 1; }
-    .story-editor-container .tags-block h3 {
-      margin: 15px 0 7px 0; }
+    grid-column: 1;
+    margin-left: 10%; }
     .story-editor-container .tags-block input {
-      font-weight: 500;
-      font-size: 18px;
-      height: 2.5em;
-      width: calc(65% - 10px);
-      background: rgba(0, 0, 0, 0.13);
-      border: none;
-      padding: 0 10px 0 10px;
+      width: calc(70% - 10px);
       border-top-left-radius: 3px;
       border-bottom-left-radius: 3px; }
     .story-editor-container .tags-block button {
-      color: white;
-      font-weight: 550;
-      font-size: 1em;
       height: 2.5em;
-      width: calc(15% - 1px);
-      border: none;
+      width: calc(15% - 2px);
       padding: 2.5px;
       margin-left: 2px;
-      background: #74BFFF;
       border-top-right-radius: 3px;
-      border-bottom-right-radius: 3px;
-      cursor: pointer; }
+      border-bottom-right-radius: 3px; }
     .story-editor-container .tags-block div {
       display: flex;
       flex-wrap: wrap;
-      font-weight: 550;
-      font-size: 1em;
       padding: 10px;
       min-height: 3.5em;
-      width: calc(80% - 20px);
+      width: calc(85% - 10px);
       background: rgba(0, 0, 0, 0.13);
       border: none;
       border-radius: 3px; }
@@ -334,56 +329,73 @@ a {
   .story-editor-container .events-block {
     font-weight: 500;
     font-size: .9em;
-    grid-column: 1; }
+    grid-column: 1;
+    margin-left: 10%; }
     .story-editor-container .events-block h3 {
-      margin: 15px 0 7px 0; }
+      margin: 15px 0 7px 10px; }
     .story-editor-container .events-block .add-event-button {
-      width: calc(65% + 10px);
-      color: white;
-      background: #CCCCCC;
+      margin-top: 1em;
+      width: calc(85% + 10px);
+      background: #96B841;
       border: none;
-      border-radius: 3px;
-      font-weight: 550;
-      font-size: 1em;
-      height: 2.5em;
-      padding: 0; }
-    .story-editor-container .events-block .event button {
-      position: relative;
-      top: 11px;
-      transform: rotate(90deg);
-      color: white;
-      font-weight: 550;
-      width: 2.5em;
-      height: 2em;
-      padding: 0 3px;
-      margin-bottom: 1px;
-      background: #74BFFF;
-      border: none; }
-    .story-editor-container .events-block .event h3 {
-      display: inline-block;
-      font-weight: 500;
-      font-size: 1em;
-      height: 2.5em;
-      width: 65%;
-      background: rgba(0, 0, 0, 0.13);
-      border: none;
-      padding: 0;
-      padding-left: 10px;
-      margin: 1em 0;
-      border-top-left-radius: 3px;
-      border-bottom-left-radius: 3px; }
-  .story-editor-container .instructional-1 {
+      border-radius: 3px; }
+    .story-editor-container .events-block .event {
+      display: flex;
+      align-items: center;
+      margin: 1em 0; }
+      .story-editor-container .events-block .event button {
+        color: white;
+        width: 2.5em;
+        height: 2.5em;
+        margin-left: 2px; }
+      .story-editor-container .events-block .event .down-arrow-button {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px; }
+      .story-editor-container .events-block .event .up-arrow-button-1 {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px; }
+      .story-editor-container .events-block .event div {
+        display: flex;
+        align-items: center;
+        height: 2.5em;
+        width: calc(85% - 5em - 14px);
+        background: rgba(0, 0, 0, 0.13);
+        padding: 0 10px 0 10px;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        cursor: pointer; }
+        .story-editor-container .events-block .event div h3 {
+          margin: 0;
+          cursor: pointer; }
+  .story-editor-container .right-side {
     grid-column: 2;
-    grid-row: 2; }
-  .story-editor-container .instruction-2 {
-    grid-column: 2;
-    grid-row: 3; }
-  .story-editor-container .save-cancel-bottom-right {
+    grid-row-start: 2;
+    grid-row-end: span 2;
+    margin-right: 10%;
+    margin-left: 10%;
     grid-column: 2; }
-=======
+    .story-editor-container .right-side h2 {
+      margin: 0 0 4% 0; }
+    .story-editor-container .right-side .instructional-1 {
+      margin-bottom: 5em;
+      grid-row: 2; }
+    .story-editor-container .right-side .instructional-2 {
+      margin-bottom: 8em;
+      grid-row: 2; }
+    .story-editor-container .right-side .save-button {
+      justify-self: end;
+      width: 40%;
+      border-radius: 3px;
+      margin: 0 auto 0 2px;
+      background: #96B841; }
+    .story-editor-container .right-side .cancel-button {
+      justify-self: end;
+      margin-left: 12%;
+      width: 40%;
+      border-radius: 3px; }
+
 .story-view-container button:disabled {
   background-color: rgba(0, 0, 0, 0.13); }
->>>>>>> master
 
 .story-view-title {
   font-family: "Open Sans";

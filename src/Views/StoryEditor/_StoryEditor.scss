@@ -1,60 +1,58 @@
-$heading-space: 15px 0 7px 0;
-$family-green: #85B807;
-$family-blue: #74BFFF;
-
-
+$heading-space: 15px 0 7px 10px;
+$family-green: #96B841;
+$family-dark-green: #557504;
+$family-blue: #467399;
+$family-pale-blue: #9AB5CC;
 .story-editor-container {
   font-family: $font-family1;
   margin: 2% 15%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  h3 {
+    margin: $heading-space;
+  }
+  input:focus {
+    outline-color: $family-blue;
+  }
+  input {
+    font-size: 1em;
+    padding: 0 10px 0 10px;
+    height: 2.5em;
+    border: none;
+    background: $divider-background-color;
+  }
+  button {
+    color: white;
+    font-weight: 550;
+    cursor: pointer;
+    background: $family-dark-green;
+    border: none;
+    font-size: 1em;
+    height: 2.5em;
+  }
   .story-title-block {
     grid-column: 1;
-    h3 {
-      margin: $heading-space;
-    }
-    input:focus{
-      border: 1px solid $family-blue;
-    }
+    margin-left: 10%;
     input {
-      font-weight: 500;
-      height: 2.5em;
-      width: calc(80% - 10px);
-      background: $divider-background-color;
-      border: none;
+      width: calc(85% - 10px);
       border-radius: 3px;
-      padding: 0 10px 0 10px;
     }
   }
   .tags-block {
     grid-column: 1;
-    h3 {
-      margin: $heading-space;
-    }
+    margin-left: 10%;
     input {
-      font-weight: 500;
-      font-size: 18px;
-      height: 2.5em;
-      width: calc(65% - 10px);
-      background: $divider-background-color;
-      border: none;
-      padding: 0 10px 0 10px;
+      width: calc(70% - 10px);
       border-top-left-radius: 3px;
       border-bottom-left-radius: 3px;
     }
     button {
-      color: white;
-      font-weight: 550;
-      font-size: 1em;
       height: 2.5em;
-      width: calc(15% - 1px);
-      border: none;
+      width: calc(15% - 2px);
       padding: 2.5px;
       margin-left: 2px;
-      background: $family-blue;
       border-top-right-radius: 3px;
       border-bottom-right-radius: 3px;
-      cursor: pointer;
     }
     div {
       p {
@@ -63,73 +61,94 @@ $family-blue: #74BFFF;
       }
       display: flex;
       flex-wrap: wrap;
-      font-weight: 550;
-      font-size: 1em;
       padding: 10px;
       min-height: 3.5em;
-      width: calc(80% - 20px);
+      width: calc(85% - 10px);
       background: $divider-background-color;
       border: none;
       border-radius: 3px;
     }
   }
-  .events-block {    // display: grid;
+  .events-block {
     font-weight: 500;
     font-size: .9em;
     grid-column: 1;
+    margin-left: 10%;
     h3 {
       margin: $heading-space;
     }
     .add-event-button {
-      width: calc(65% + 10px);
-      color: white;
-      background: #CCCCCC;
+      margin-top: 1em;
+      width: calc(85% + 10px);
+      background: $family-green;
       border: none;
       border-radius: 3px;
-      font-weight: 550;
-      font-size: 1em;
-      height: 2.5em;
-      padding: 0;
     }
     .event {
+      display: flex;
+      align-items: center;
+      margin: 1em 0;
       button {
-        position: relative;
-        top: 11px;
-        transform: rotate(90deg);
         color: white;
-        font-weight: 550;
         width: 2.5em;
-        height: 2em;
-        padding: 0 3px;
-        margin-bottom: 1px;
-        background: $family-blue;
-        border: none;
-      }
-      h3 {
-        display: inline-block;
-        font-weight: 500;
-        font-size: 1em;
         height: 2.5em;
-        width: 65%;
+        margin-left: 2px;
+      }
+      .down-arrow-button {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+      }
+      .up-arrow-button-1 {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+      }
+      div {
+        display: flex;
+        align-items: center;
+        height: 2.5em;
+        width: calc(85% - 5em - 14px);
         background: $divider-background-color;
-        border: none;
-        padding: 0;
-        padding-left: 10px;
-        margin: 1em 0;
+        padding: 0 10px 0 10px;
         border-top-left-radius: 3px;
         border-bottom-left-radius: 3px;
+        cursor: pointer;
+        h3 {
+          margin: 0;
+          cursor: pointer;
+        }
       }
     }
   }
-  .instructional-1 {
+  .right-side {
     grid-column: 2;
-    grid-row: 2;
-  }
-  .instruction-2 {
+    grid-row-start: 2;
+    grid-row-end: span 2;
+    margin-right: 10%;
+    margin-left: 10%;
+    h2 {
+      margin: 0 0 4% 0;
+    }
+    .instructional-1 {
+      margin-bottom: 5em;
+      grid-row: 2;
+    }
+    .instructional-2 {
+      margin-bottom: 8em;
+      grid-row: 2;
+    }
     grid-column: 2;
-    grid-row: 3;
-  }
-  .save-cancel-bottom-right {
-    grid-column: 2;
+    .save-button {
+      justify-self: end;
+      width: 40%;
+      border-radius: 3px;
+      margin: 0 auto 0 2px;
+      background: $family-green;
+    }
+    .cancel-button {
+      justify-self: end;
+      margin-left: 12%;
+      width: 40%;
+      border-radius: 3px;
+    }
   }
 }
