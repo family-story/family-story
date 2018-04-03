@@ -3,6 +3,7 @@
    License: none (public domain)
 */
 @import url("https://fonts.googleapis.com/css?family=Pacifico");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import url(~slick-carousel/slick/slick.css);
 @import url(~slick-carousel/slick/slick-theme.css);
 html, body, div, span, applet, object, iframe,
@@ -53,12 +54,13 @@ table {
   align-items: center;
   width: 50%;
   height: 100px;
-  margin: 0 auto; }
+  margin: 2% auto auto; }
   .navbar .family-story {
     font-size: 48px;
     height: 66px;
     width: 437px;
-    font-family: "Pacifico"; }
+    font-family: "Pacifico";
+    color: #557504; }
   .navbar .login-nav {
     font-family: "Open Sans";
     font-size: 36px;
@@ -233,7 +235,8 @@ table {
     padding-left: 20px;
     font-weight: bold;
     font-size: 28px;
-    color: black; }
+    color: black;
+    cursor: pointer; }
 
 .home-tags-container {
   margin: 10px 0; }
@@ -257,21 +260,6 @@ table {
   justify-content: center;
   width: 100%; }
 
-.circle-add {
-  height: 50px;
-  width: 50px;
-  background-color: #85B807;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  display: flex; }
-  .circle-add .home-plus {
-    font-size: 64px;
-    margin: 0 5px;
-    margin-bottom: 11px;
-    color: white;
-    font-weight: lighter; }
-
 .add-story {
   font-family: "Open Sans";
   font-size: 36px;
@@ -283,8 +271,134 @@ table {
 a {
   text-decoration: none; }
 
+.story-editor-container {
+  font-family: "Open Sans";
+  margin: 2% 15%;
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+  .story-editor-container h3 {
+    margin: 15px 0 7px 10px; }
+  .story-editor-container input:focus {
+    outline-color: #467399; }
+  .story-editor-container input {
+    font-size: 1em;
+    padding: 0 10px 0 10px;
+    height: 2.5em;
+    border: none;
+    background: rgba(0, 0, 0, 0.13); }
+  .story-editor-container button {
+    color: white;
+    font-weight: 550;
+    cursor: pointer;
+    background: #557504;
+    border: none;
+    font-size: 1em;
+    height: 2.5em; }
+  .story-editor-container .story-title-block {
+    grid-column: 1;
+    margin-left: 10%; }
+    .story-editor-container .story-title-block input {
+      width: calc(85% - 10px);
+      border-radius: 3px; }
+  .story-editor-container .tags-block {
+    grid-column: 1;
+    margin-left: 10%; }
+    .story-editor-container .tags-block input {
+      width: calc(70% - 10px);
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px; }
+    .story-editor-container .tags-block button {
+      height: 2.5em;
+      width: calc(15% - 2px);
+      padding: 2.5px;
+      margin-left: 2px;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px; }
+    .story-editor-container .tags-block div {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 10px;
+      min-height: 3.5em;
+      width: calc(85% - 10px);
+      background: rgba(0, 0, 0, 0.13);
+      border: none;
+      border-radius: 3px; }
+      .story-editor-container .tags-block div p {
+        padding: 5px;
+        cursor: pointer; }
+  .story-editor-container .events-block {
+    font-weight: 500;
+    font-size: .9em;
+    grid-column: 1;
+    margin-left: 10%; }
+    .story-editor-container .events-block h3 {
+      margin: 15px 0 7px 10px; }
+    .story-editor-container .events-block .add-event-button {
+      margin-top: 1em;
+      width: calc(85% + 10px);
+      background: #96B841;
+      border: none;
+      border-radius: 3px; }
+    .story-editor-container .events-block .event {
+      display: flex;
+      align-items: center;
+      margin: 1em 0; }
+      .story-editor-container .events-block .event button {
+        color: white;
+        width: 2.5em;
+        height: 2.5em;
+        margin-left: 2px; }
+      .story-editor-container .events-block .event .down-arrow-button {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px; }
+      .story-editor-container .events-block .event .up-arrow-button-1 {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px; }
+      .story-editor-container .events-block .event div {
+        display: flex;
+        align-items: center;
+        height: 2.5em;
+        width: calc(85% - 5em - 14px);
+        background: rgba(0, 0, 0, 0.13);
+        padding: 0 10px 0 10px;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        cursor: pointer; }
+        .story-editor-container .events-block .event div h3 {
+          margin: 0;
+          cursor: pointer; }
+  .story-editor-container .right-side {
+    grid-column: 2;
+    grid-row-start: 2;
+    grid-row-end: span 2;
+    margin-right: 10%;
+    margin-left: 10%;
+    grid-column: 2; }
+    .story-editor-container .right-side h2 {
+      margin: 0 0 4% 0; }
+    .story-editor-container .right-side .instructional-1 {
+      margin-bottom: 5em;
+      grid-row: 2; }
+    .story-editor-container .right-side .instructional-2 {
+      margin-bottom: 8em;
+      grid-row: 2; }
+    .story-editor-container .right-side .save-button {
+      justify-self: end;
+      width: 40%;
+      border-radius: 3px;
+      margin: 0 auto 0 2px;
+      background: #96B841; }
+    .story-editor-container .right-side .cancel-button {
+      justify-self: end;
+      margin-left: 12%;
+      width: 40%;
+      border-radius: 3px; }
+
+.story-view-container button:disabled {
+  background-color: rgba(0, 0, 0, 0.13); }
+
 .story-view-title {
-  font-family: "Pacifico";
+  font-family: "Open Sans";
   font-size: 1.5em;
   padding: 1.5% 0;
   width: 100%;
@@ -326,13 +440,17 @@ a {
     .eventViewer .story-right .event-desc {
       font-family: "Open Sans";
       text-align: center;
-      word-spacing: 5px; }
+      word-spacing: 1px;
+      line-height: 1.5; }
 
 .story-buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-bottom: 2%; }
+  margin-bottom: 2%;
+  width: 100%; }
+  .story-buttons .button:disabled {
+    background: grey; }
   .story-buttons .story-button {
     background-color: #85B807;
     color: white;
@@ -342,21 +460,166 @@ a {
     font-size: 24px;
     width: 70px;
     cursor: pointer; }
+  .story-buttons .back-to-stories {
+    display: flex;
+    justify-content: flex-start;
+    width: 60%; }
   .story-buttons .story-button-back {
     background-color: #85B807;
     color: white;
     font-family: "Open Sans";
-    border-radius: 5px;
+    border-radius: 3px;
     border: none;
     font-size: 24px;
     width: 200px;
+    cursor: pointer;
+    margin-left: 75%;
+    margin-top: 5%; }
+  .story-buttons .prev-next {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10%; }
+  .story-buttons .story-button-prev {
+    color: white;
+    background-color: #85B807;
+    font-family: "Open Sans";
+    border-radius: 3px;
+    border: none;
+    font-size: 24px;
+    margin: 1% 1px;
     cursor: pointer; }
 
 .MapBody {
   width: 40vw;
   height: 40vh;
   position: relative;
-  margin-bottom: 80px; }
+  margin-bottom: 7%; }
+  .MapBody .location-container {
+    display: flex;
+    justify-content: center; }
+  .MapBody .location-input {
+    font-weight: 500;
+    font-size: 13.3333px;
+    height: 2em;
+    background: rgba(0, 0, 0, 0.13);
+    width: calc(50%-10px);
+    border: none;
+    padding: 0;
+    padding-left: 10px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px; }
+  .MapBody button {
+    border: none;
+    padding: 5px;
+    margin-left: 2px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: white; }
+  .MapBody .search-save-buttons {
+    justify-content: end;
+    margin-top: -1%; }
+  .MapBody .search {
+    height: 2em; }
+  .MapBody .editor-event-input {
+    font-weight: 500;
+    font-size: .9em;
+    height: 1em;
+    background: rgba(0, 0, 0, 0.13);
+    width: calc(50%-10px);
+    border: none;
+    padding: 0;
+    padding-left: 10px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px; }
+  .MapBody .map-container {
+    margin-top: 10px; }
+
+.transparent-background {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); }
+  .transparent-background button:disabled {
+    background-color: rgba(0, 0, 0, 0.13);
+    color: white;
+    border: none;
+    font-size: 24px; }
+  .transparent-background .editor-container {
+    height: fit content;
+    width: 70%;
+    display: flex;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    margin: 5% auto;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #888888;
+    font-family: "Open Sans"; }
+    .transparent-background .editor-container .editor-left {
+      width: 60%; }
+    .transparent-background .editor-container .editor-right {
+      width: 40%; }
+    .transparent-background .editor-container .event-title-input {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1%; }
+      .transparent-background .editor-container .event-title-input .editor-location {
+        display: flex;
+        flex-direction: column; }
+    .transparent-background .editor-container .editor-event-title {
+      font-size: .9em; }
+    .transparent-background .editor-container .editor-event-input {
+      border-radius: 3px;
+      border: 1px solid lightgrey;
+      width: 50%;
+      height: 60%;
+      margin: 3% 0;
+      background: rgba(0, 0, 0, 0.13);
+      padding-left: 10%; }
+    .transparent-background .editor-container .editor-pics {
+      height: 50px; }
+    .transparent-background .editor-container .delete-button {
+      display: flex;
+      justify-content: flex-start;
+      border: none; }
+    .transparent-background .editor-container .delete {
+      border: none;
+      background-color: #85B807;
+      color: white;
+      border: none;
+      font-size: 24px;
+      cursor: pointer; }
+    .transparent-background .editor-container .event-desc-input {
+      border: none;
+      border-radius: 3px;
+      background: rgba(0, 0, 0, 0.13);
+      height: 91%;
+      margin-top: 1%;
+      width: 90%;
+      font-family: "Open Sans"; }
+    .transparent-background .editor-container .right-buttons {
+      display: flex;
+      justify-content: flex-end;
+      margin: 0 5%;
+      margin-top: 1%; }
+      .transparent-background .editor-container .right-buttons .cancel {
+        margin-right: 1px;
+        border: none;
+        color: white;
+        font-size: 24px;
+        font-family: "Open Sans";
+        background-color: #85B807;
+        cursor: pointer; }
 
 button.slick-arrow.slick-prev:before,
 button.slick-arrow.slick-next:before {

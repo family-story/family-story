@@ -318,13 +318,11 @@ module.exports = {
       case ADD_IMPORTED_MEDIA + "_FULFILLED":
         let arr = state.importedMedia.slice();
         arr.push(action.payload);
-        console.log(action.payload)
         return Object.assign({}, state, { importedMedia: arr });
 
       case ADD_UPLOADED_MEDIA:
         let arr2 = state.importedMedia.slice();
         arr2.push(action.payload);
-        console.log(action.payload)
         return Object.assign({}, state, { importedMedia: arr2 });
 
       case CLEAR_IMPORTED_MEDIA:

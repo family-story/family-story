@@ -68,7 +68,7 @@ class MediaUploader extends Component {
             <div>
 
                 <label className={this.props.mediaType} >
-                    <div>Choose {this.props.mediaType} File</div>
+                    {/* <div>Choose File</div> */}
                     <input onChange={e => this.uploadFile(e.target.files)} type="file" />
                 </label>
             </div>

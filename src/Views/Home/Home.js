@@ -33,7 +33,7 @@ class Home extends Component {
   async handleSelectedStory(story_id, view) {
     await this.props.getStory(story_id)
     if (view) {
-      window.location.assign(`http://localhost:3000/story/${story_id}`)
+      window.location.assign(`${process.env.REACT_APP_STORY}${story_id}`)
     }
   }
 
@@ -117,12 +117,9 @@ class Home extends Component {
         <div className='story-container'>
           {this.state.stories[0] ? stories : null}
           <div className='handle-link'>
-            <Link to='/createStory'><div className='add-story-link' onClick={() => this.handleCreateNewStory()}>
+            <Link id = 'add-story-test-id' to='/createStory'><div className='add-story-link' onClick={() => this.handleCreateNewStory()}>
               <div className='add-story-container'>
-                <div className='circle-add'>
-                  <span className='home-plus'> + </span>
-                </div>
-                <h3 className='add-story'> Add Story </h3>
+                <h3 className='add-story'> + Add Story </h3>
               </div>
             </div>
             </Link>
