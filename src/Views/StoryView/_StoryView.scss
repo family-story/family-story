@@ -1,8 +1,10 @@
-.audio {
-  
+.story-view-container {
+  button:disabled {
+    background-color: $divider-background-color;
+  }
 }
 .story-view-title {
-  font-family: $font-family2;
+  font-family: $font-family1;
   font-size: 1.5em; 
   padding: 1.5% 0;
   width: 100%;
@@ -57,7 +59,8 @@
     .event-desc {
       font-family: $font-family1;
       text-align: center;
-      word-spacing: 5px;
+      word-spacing: 1px;
+      line-height: 1.5;
     }
   }
 }
@@ -67,6 +70,11 @@
   flex-direction: row;
   justify-content: space-around;
   margin-bottom: 2%;
+  width: 100%;
+
+  .button:disabled {
+    background: grey;
+  }
 
     .story-button {
       background-color: #85B807;
@@ -79,14 +87,41 @@
       cursor: pointer;
     }
 
+    .back-to-stories {
+      display: flex;
+      justify-content: flex-start;
+      width: 60%;
+    }
+
+
     .story-button-back {
       background-color: #85B807;
       color: white;
       font-family: $font-family1;
-      border-radius: 5px;
+      border-radius: 3px;
       border: none;
       font-size: 24px;
       width: 200px;
+      cursor: pointer;
+      margin-left: 75%;
+      margin-top: 5%;
+    }
+
+    .prev-next {
+      width: 40%;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 10%;
+    }
+    
+    .story-button-prev {
+      color: white;
+      background-color: #85B807;
+      font-family: $font-family1;
+      border-radius: 3px;
+      border: none;
+      font-size: 24px;
+      margin: 1% 1px;
       cursor: pointer;
     }
     

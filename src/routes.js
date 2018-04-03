@@ -6,8 +6,6 @@ import Home from './Views/Home/Home'
 import StoryEditor from './Views/StoryEditor/StoryEditor'
 import StoryView from './Views/StoryView/StoryView'
 
-import ImageCarousel from './Components/ImageCarousel/ImageCarousel'
-
 export default (
   <Switch> 
     <Route exact path = '/' component = {Landing}/>

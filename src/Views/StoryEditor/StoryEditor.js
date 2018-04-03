@@ -233,6 +233,16 @@ class StoryEditor extends Component {
               {currentTags}
             </div>
           </div>
+        <div>
+          <h3>Story Title</h3>
+          <input className = 'story-title-input' type="text" value={this.state.story_title} onChange={e => this.handleTitle(e.target.value)}/>
+        </div>
+
+        <div>
+          <h3>Tags</h3>
+          <input className = 'story-tags-input' type="text" value={this.state.tag} onChange={e => this.handleTagStr(e.target.value)} />
+          <button className = 'add-tag-button' onClick={() => this.handleAddTag()}>Add</button>
+        </div>
 
           <div className="events-block">
             <h3>Events:</h3>

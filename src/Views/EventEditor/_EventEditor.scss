@@ -1,0 +1,116 @@
+.transparent-background {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+
+  button:disabled {
+    background-color: $divider-background-color;
+    color: white;
+    border: none;
+    font-size: 24px;
+  }
+
+  .editor-container {
+    height: fit content;
+    width: 70%;
+    display: flex;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    margin: 5% auto;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #888888;
+    font-family: $font-family1;
+  
+
+    .editor-left {
+      width: 60%;
+    }
+
+    .editor-right {
+      width: 40%;
+    }
+
+    .event-title-input {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1%;
+
+      .editor-location {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .editor-event-title {
+      font-size: .9em;
+    }
+
+    .editor-event-input {
+      border-radius: 3px;
+      border: 1px solid lightgrey;
+      width: 50%;
+      height: 60%;
+      margin: 3% 0;
+      background: $divider-background-color;
+      padding-left: 10%;
+    }
+
+    .editor-pics {
+      height: 50px;
+    }
+
+    .delete-button {
+      display: flex;
+      justify-content: flex-start;
+      border: none;
+    }
+
+    .delete {
+      border: none;
+      background-color:#85B807; 
+      color: white;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .event-desc-input {
+      border: none;
+      border-radius: 3px;
+      background: $divider-background-color;
+      height: 91%;
+      margin-top: 1%;
+      width: 90%;
+      font-family: $font-family1;
+    }
+
+    .right-buttons {
+      display: flex;
+      justify-content: flex-end;
+      margin: 0 5%;
+      margin-top: 1%;
+
+
+      .cancel {
+        margin-right: 1px;
+        border: none;
+        color: white;
+        font-size: 24px;
+        font-family: $font-family1;
+        background-color: #85B807;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
